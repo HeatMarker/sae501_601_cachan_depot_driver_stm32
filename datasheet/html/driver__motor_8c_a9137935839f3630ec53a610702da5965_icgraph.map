@@ -1,0 +1,9 @@
+<map id="motor_pwm_percent" name="motor_pwm_percent">
+<area shape="rect" id="Node000001" title="Force une commande PWM directe en pourcentage." alt="" coords="292,31,432,56"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html#aa1fb38a41446e4d5e66f59da21651832" title="Configure l&#39;ensemble de l&#39;application (Hardware + Drivers)." alt="" coords="131,5,217,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,35,217,26,217,21,278,29"/>
+<area shape="rect" id="Node000004" href="$driver__motor_8c.html#a9bac78a6edd2799f67fbffbe2b21a688" title="Fonction de traitement cyclique (Machine à états)." alt="" coords="104,55,244,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="278,57,245,61,244,56,278,51"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,21,56,21,56,15,118,15"/>
+</map>

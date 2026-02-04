@@ -1,0 +1,35 @@
+\doxysection{driver\+\_\+speedometer.\+h}
+\hypertarget{driver__speedometer_8h_source}{}\label{driver__speedometer_8h_source}\index{Core/Inc/driver\_speedometer.h@{Core/Inc/driver\_speedometer.h}}
+\mbox{\hyperlink{driver__speedometer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ DRIVER\_SPEEDOMETER\_H}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00010}00010\ \textcolor{preprocessor}{\#define\ DRIVER\_SPEEDOMETER\_H}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00016}\mbox{\hyperlink{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5}{00016}}\ \textcolor{preprocessor}{\#define\ WHEEL\_DIAMETER\_MM\ \ \ 68.0f}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00019}\mbox{\hyperlink{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff}{00019}}\ \textcolor{preprocessor}{\#define\ NB\_TOURS\_TEST\ \ \ \ \ \ \ 10.0f}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00022}\mbox{\hyperlink{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254}{00022}}\ \textcolor{preprocessor}{\#define\ VALEUR\_COMPTEUR\_LUE\ 52.0f}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00025}\mbox{\hyperlink{driver__speedometer_8h_a28a11eecf5a251e3e4d1f47ff5518ca6}{00025}}\ \textcolor{preprocessor}{\#define\ TICKS\_PER\_WHEEL\_TURN\ \ \ \ (VALEUR\_COMPTEUR\_LUE\ /\ NB\_TOURS\_TEST)}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00028}\mbox{\hyperlink{driver__speedometer_8h_a543efa9e2ef5ff5d69bc4bbf429386be}{00028}}\ \textcolor{preprocessor}{\#define\ PERIMETER\_M\ \ \ \ \ \ \ \ \ \ \ \ \ ((WHEEL\_DIAMETER\_MM\ *\ 3.14159f)\ /\ 1000.0f)}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00035}\mbox{\hyperlink{structSpeedometer__Handle__t}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00036}\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{00036}}\ \ \ \ \ TIM\_HandleTypeDef\ *\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00037}\mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{00037}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{last\_counter\_val}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00038}\mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{00038}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{last\_process\_time}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00039}\mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{00039}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{current\_speed\_ms}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00040}00040\ \}\ \mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00047}00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c}{speedometer\_init}}(\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}}\ *\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}},\ TIM\_HandleTypeDef\ *htim);}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00054}00054\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c}{speedometer\_solve\_speed}}(\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}}\ *\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}});}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8h_source_l00056}00056\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

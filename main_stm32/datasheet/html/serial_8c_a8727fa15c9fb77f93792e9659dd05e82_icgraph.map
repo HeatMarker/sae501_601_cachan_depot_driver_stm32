@@ -1,0 +1,5 @@
+<map id="serial_crc8_atm" name="serial_crc8_atm">
+<area shape="rect" id="Node000001" title="Calcule un CRC&#45;8 (Polynôme ATM : 0x07)." alt="" coords="213,5,328,31"/>
+<area shape="rect" id="Node000002" href="$serial__cmd_8c.html#aeb9ebb55bdc9cfaab6d3a71c2c203714" title="Capture les capteurs et envoie la trame de télémétrie." alt="" coords="5,5,165,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,21,166,21,166,15,199,15"/>
+</map>

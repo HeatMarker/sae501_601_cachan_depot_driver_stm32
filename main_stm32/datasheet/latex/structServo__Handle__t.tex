@@ -1,0 +1,95 @@
+\doxysection{Servo\+\_\+\+Handle\+\_\+t Struct Reference}
+\hypertarget{structServo__Handle__t}{}\label{structServo__Handle__t}\index{Servo\_Handle\_t@{Servo\_Handle\_t}}
+
+
+Structure de configuration et de gestion du Servo.  
+
+
+
+
+{\ttfamily \#include $<$driver\+\_\+servo.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}
+\begin{DoxyCompactList}\small\item\em Pointeur vers le handle du Timer (HAL). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}}
+\begin{DoxyCompactList}\small\item\em Canal du Timer (ex\+: TIM\+\_\+\+CHANNEL\+\_\+1). \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\+\_\+pulse\+\_\+ticks}}
+\begin{DoxyCompactList}\small\item\em Valeur registre CCR pour la position min (ex\+: 3200). \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\+\_\+pulse\+\_\+ticks}}
+\begin{DoxyCompactList}\small\item\em Valeur registre CCR pour la position max (ex\+: 6400). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure de configuration et de gestion du Servo. 
+
+Cette structure lie le matériel (Timer/\+Channel) aux bornes physiques du servomoteur (valeurs PWM min/max). 
+
+Definition at line \mbox{\hyperlink{driver__servo_8h_source_l00018}{18}} of file \mbox{\hyperlink{driver__servo_8h_source}{driver\+\_\+servo.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}\label{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6} 
+\index{Servo\_Handle\_t@{Servo\_Handle\_t}!channel@{channel}}
+\index{channel@{channel}!Servo\_Handle\_t@{Servo\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{channel}{channel}}
+{\footnotesize\ttfamily uint32\+\_\+t channel}
+
+
+
+Canal du Timer (ex\+: TIM\+\_\+\+CHANNEL\+\_\+1). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8h_source_l00020}{20}} of file \mbox{\hyperlink{driver__servo_8h_source}{driver\+\_\+servo.\+h}}.
+
+\Hypertarget{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}\label{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486} 
+\index{Servo\_Handle\_t@{Servo\_Handle\_t}!htim@{htim}}
+\index{htim@{htim}!Servo\_Handle\_t@{Servo\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{htim}{htim}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
+
+
+
+Pointeur vers le handle du Timer (HAL). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8h_source_l00019}{19}} of file \mbox{\hyperlink{driver__servo_8h_source}{driver\+\_\+servo.\+h}}.
+
+\Hypertarget{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}\label{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234} 
+\index{Servo\_Handle\_t@{Servo\_Handle\_t}!max\_pulse\_ticks@{max\_pulse\_ticks}}
+\index{max\_pulse\_ticks@{max\_pulse\_ticks}!Servo\_Handle\_t@{Servo\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{max\_pulse\_ticks}{max\_pulse\_ticks}}
+{\footnotesize\ttfamily uint16\+\_\+t max\+\_\+pulse\+\_\+ticks}
+
+
+
+Valeur registre CCR pour la position max (ex\+: 6400). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8h_source_l00022}{22}} of file \mbox{\hyperlink{driver__servo_8h_source}{driver\+\_\+servo.\+h}}.
+
+\Hypertarget{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}\label{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e} 
+\index{Servo\_Handle\_t@{Servo\_Handle\_t}!min\_pulse\_ticks@{min\_pulse\_ticks}}
+\index{min\_pulse\_ticks@{min\_pulse\_ticks}!Servo\_Handle\_t@{Servo\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{min\_pulse\_ticks}{min\_pulse\_ticks}}
+{\footnotesize\ttfamily uint16\+\_\+t min\+\_\+pulse\+\_\+ticks}
+
+
+
+Valeur registre CCR pour la position min (ex\+: 3200). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8h_source_l00021}{21}} of file \mbox{\hyperlink{driver__servo_8h_source}{driver\+\_\+servo.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core/\+Inc/\mbox{\hyperlink{driver__servo_8h}{driver\+\_\+servo.\+h}}\end{DoxyCompactItemize}

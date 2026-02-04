@@ -1,0 +1,53 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="The application entry point." alt="" coords="5,449,56,475"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html#aa1fb38a41446e4d5e66f59da21651832" title="Configure l&#39;ensemble de l&#39;application (Hardware + Drivers)." alt="" coords="147,153,232,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,448,38,410,51,356,72,296,102,238,127,208,155,185,159,189,131,212,106,241,77,298,56,358,43,411,36,449"/>
+<area shape="rect" id="Node000010" href="$app__main_8c.html#adbd885cc67281e9f2e48f2a45454bd4f" title="Exécute la boucle principale (Scheduler)." alt="" coords="152,252,227,277"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="31,448,37,416,49,372,70,327,85,305,102,287,119,276,138,268,140,273,121,280,106,291,89,309,75,329,54,374,42,417,36,449"/>
+<area shape="rect" id="Node000013" href="$dma_8c.html#a323249dac769f9855c10b4ec9446b707" title=" " alt="" coords="137,301,241,327"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="33,448,56,394,76,363,102,336,123,324,125,329,106,340,80,366,61,397,38,450"/>
+<area shape="rect" id="Node000014" href="$gpio_8c.html#ac724e431d2af879252de35615be2bdea" title=" " alt="" coords="136,351,243,376"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="39,447,65,416,103,385,122,376,124,381,105,390,69,420,43,451"/>
+<area shape="rect" id="Node000015" href="$spi_8c.html#af81398f9775695df0b172367651ca3e6" title=" " alt="" coords="138,449,241,475"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="56,459,124,459,124,465,56,465"/>
+<area shape="rect" id="Node000017" href="$tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="137,647,241,672"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="36,475,42,507,54,550,75,595,89,615,106,633,126,646,123,650,102,637,85,619,70,597,49,552,37,508,31,476"/>
+<area shape="rect" id="Node000019" href="$tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="137,597,241,623"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="38,474,61,527,80,558,106,584,125,595,123,600,102,588,76,561,56,530,33,476"/>
+<area shape="rect" id="Node000020" href="$tim_8c.html#a7912f2916786a2c33cb6fb8259ade58c" title=" " alt="" coords="137,696,241,721"/>
+<area shape="poly" id="edge22_Node000001_Node000020" title=" " alt="" coords="35,474,38,515,48,571,69,631,85,659,106,683,126,696,123,700,102,687,81,662,65,633,43,572,33,515,30,475"/>
+<area shape="rect" id="Node000021" href="$tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="137,499,241,524"/>
+<area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="57,469,105,485,130,492,128,497,103,490,56,474"/>
+<area shape="rect" id="Node000022" href="$usart_8c.html#a052088fe5bb3f807a4b2502e664fd4fd" title=" " alt="" coords="104,548,275,573"/>
+<area shape="poly" id="edge25_Node000001_Node000022" title=" " alt="" coords="43,473,69,504,105,534,117,540,115,545,103,539,65,508,39,477"/>
+<area shape="rect" id="Node000023" href="$main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="116,400,263,425"/>
+<area shape="poly" id="edge27_Node000001_Node000023" title=" " alt="" coords="56,450,103,434,128,427,130,432,105,439,57,455"/>
+<area shape="rect" id="Node000003" href="$driver__ins_8c.html#ac120109421a58b1dfe4cb1b2a0eef2a7" title="Initialise le driver BMI088." alt="" coords="354,153,446,179"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="232,163,340,163,340,169,232,169"/>
+<area shape="rect" id="Node000004" href="$driver__motor_8c.html#a1322b15b60e2e56ab26b958e67d1d48a" title="Initialise le driver moteur." alt="" coords="361,203,439,228"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,173,348,201,347,206,232,178"/>
+<area shape="rect" id="Node000005" href="$driver__motor_8c.html#a9137935839f3630ec53a610702da5965" title="Applique directement un pourcentage de PWM (Bypass FSM)." alt="" coords="330,252,470,277"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="212,177,262,206,324,237,344,245,342,250,322,242,260,211,210,181"/>
+<area shape="rect" id="Node000006" href="$serial_8c.html#ad2b461e9e9044364a28a61cfadcacdd8" title="Initialise la couche série (DMA + Buffers)." alt="" coords="361,5,439,31"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="199,151,248,98,283,67,321,40,347,28,350,33,324,44,286,71,252,102,203,155"/>
+<area shape="rect" id="Node000007" href="$driver__servo_8c.html#a3114ea8b18355eaef1310ae4bfb5e117" title="Initialise le servo&#45;moteur." alt="" coords="335,55,465,80"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="209,151,259,121,322,89,339,82,341,87,324,94,261,125,212,156"/>
+<area shape="rect" id="Node000009" href="$driver__speedometer_8c.html#a0d1d9c0c545755ba0f37f4e28851412c" title="Initialise l&#39;objet tachymètre." alt="" coords="339,104,461,129"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="232,154,331,130,332,135,233,159"/>
+<area shape="rect" id="Node000008" href="$driver__servo_8c.html#ae99975cc57bcc8b48267ee20c10d3b0f" title="Commande le servo via un angle en degrés." alt="" coords="525,55,699,80"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="465,65,512,65,512,70,465,70"/>
+<area shape="rect" id="Node000011" href="$serial__cmd_8c.html#a20647655fddac6cbbc9cc201d726e5c8" title="Fonction de lecture périodique des commandes entrantes." alt="" coords="336,301,464,327"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="228,271,333,296,331,301,226,276"/>
+<area shape="rect" id="Node000012" href="$serial_8c.html#af1ffd0c746c8635c6db4fd0c9efb6090" title="Lit des données depuis le buffer RX." alt="" coords="569,301,655,327"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="464,311,555,311,555,317,464,317"/>
+<area shape="rect" id="Node000016" href="$main_8c.html#a1730ffe1e560465665eb47d9264826f9" title="This function is executed in case of error occurrence." alt="" coords="349,523,451,548"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="236,472,276,485,356,515,354,520,274,490,235,477"/>
+<area shape="poly" id="edge17_Node000017_Node000016" title=" " alt="" coords="241,646,273,633,330,595,375,555,379,559,334,599,276,638,243,651"/>
+<area shape="rect" id="Node000018" href="$tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a" title=" " alt="" coords="323,623,477,648"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="241,651,309,643,309,648,242,656"/>
+<area shape="poly" id="edge20_Node000019_Node000016" title=" " alt="" coords="238,595,274,583,356,551,358,556,276,589,239,600"/>
+<area shape="poly" id="edge21_Node000019_Node000018" title=" " alt="" coords="242,614,309,622,309,627,241,619"/>
+<area shape="poly" id="edge24_Node000021_Node000016" title=" " alt="" coords="242,515,335,525,335,531,241,520"/>
+<area shape="poly" id="edge26_Node000022_Node000016" title=" " alt="" coords="274,548,335,540,335,546,275,553"/>
+<area shape="poly" id="edge28_Node000023_Node000016" title=" " alt="" coords="248,423,276,434,333,472,378,511,375,515,330,476,273,439,246,428"/>
+</map>

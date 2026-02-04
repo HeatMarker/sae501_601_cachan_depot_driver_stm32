@@ -1,0 +1,9 @@
+<map id="serial_write_all_nb" name="serial_write_all_nb">
+<area shape="rect" id="Node000001" title="Écriture non&#45;bloquante atomique (Tout ou rien)." alt="" coords="213,55,343,80"/>
+<area shape="rect" id="Node000002" href="$serial_8c.html#aa025a12d45f60c7d0eae249e61f0c7f9" title="Fonction système bas niveau pour rediriger printf()." alt="" coords="57,5,114,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,54,114,28,115,23,215,49"/>
+<area shape="rect" id="Node000003" href="$serial__cmd_8c.html#aeb9ebb55bdc9cfaab6d3a71c2c203714" title="Capture les capteurs et envoie la trame de télémétrie." alt="" coords="5,55,165,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,70,165,70,165,65,199,65"/>
+<area shape="rect" id="Node000004" href="$serial_8c.html#a0462052cfbd13717bb95c3ec2b8c56c8" title="Écriture bloquante (Wrapper)." alt="" coords="41,104,129,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,86,130,108,129,103,214,81"/>
+</map>

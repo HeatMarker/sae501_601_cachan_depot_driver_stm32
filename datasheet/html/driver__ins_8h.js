@@ -1,0 +1,28 @@
+var driver__ins_8h =
+[
+    [ "bmi088_cs_t", "structbmi088__cs__t.html", "structbmi088__cs__t" ],
+    [ "bmi088_data_t", "structbmi088__data__t.html", "structbmi088__data__t" ],
+    [ "ACCEL_RANGE_12G_LSB", "driver__ins_8h.html#ae4a883f14c7045d10e28b2e03137e5ca", null ],
+    [ "ACCEL_RANGE_24G_LSB", "driver__ins_8h.html#a19fe4c4c4a6565a69b4dcb63577659ec", null ],
+    [ "ACCEL_RANGE_3G_LSB", "driver__ins_8h.html#a725466e9d7fd25460d779a18db2dfbb3", null ],
+    [ "ACCEL_RANGE_6G_LSB", "driver__ins_8h.html#a9380dda0a2ba4ec70058646c702ac9c4", null ],
+    [ "BMI088_CS_ACC_GPIO_Port", "driver__ins_8h.html#a53e2fc5d653edc54b6db4e99409e4444", null ],
+    [ "BMI088_CS_ACC_Pin", "driver__ins_8h.html#ae43b8d6738be9a0dab7689a102428b60", null ],
+    [ "BMI088_CS_GYRO_GPIO_Port", "driver__ins_8h.html#a52ce7d0fc9ce6b80388bb0a7c73294a8", null ],
+    [ "BMI088_CS_GYRO_Pin", "driver__ins_8h.html#ae16db209302613b5d9c5dde20e599726", null ],
+    [ "DEG_TO_RAD", "driver__ins_8h.html#a212460e743fecb084d717bb2180c5a56", null ],
+    [ "G_TO_MM_S2", "driver__ins_8h.html#a9e9c36ec5664be87c119e643c6588e3d", null ],
+    [ "GYRO_RANGE_1000DPS_LSB", "driver__ins_8h.html#a457f7161504ee5da1756fd90856d8e06", null ],
+    [ "GYRO_RANGE_125DPS_LSB", "driver__ins_8h.html#ad21820b0bab7cf7bf52ad428f21d6aad", null ],
+    [ "GYRO_RANGE_2000DPS_LSB", "driver__ins_8h.html#a8bc3cfb4f1a5b81980ba50998fbdaa37", null ],
+    [ "GYRO_RANGE_250DPS_LSB", "driver__ins_8h.html#a584e47d1d7afcfa8254a40e331e07735", null ],
+    [ "GYRO_RANGE_500DPS_LSB", "driver__ins_8h.html#a369fa3e17450b54f0670103aa638c090", null ],
+    [ "BMI088_Convert_Accel", "driver__ins_8h.html#a23d3031c0e8acf3c68721d65f86eb9df", null ],
+    [ "BMI088_Convert_Gyro", "driver__ins_8h.html#a83e3b80cf9b6d79fbb15a252861a98e2", null ],
+    [ "BMI088_Init", "driver__ins_8h.html#ac120109421a58b1dfe4cb1b2a0eef2a7", null ],
+    [ "BMI088_Read_Accel_Raw", "driver__ins_8h.html#a6ec6095cf6be17614cb3023f5acbd2f7", null ],
+    [ "BMI088_Read_All", "driver__ins_8h.html#ad74d633331d9bfbf45a7961a39b3fae0", null ],
+    [ "BMI088_Read_Gyro_Raw", "driver__ins_8h.html#a5426db0df3eafce551517bb8d3402332", null ],
+    [ "BMI088_Soft_Reset", "driver__ins_8h.html#aaf0bd4d8e01873f5d13c5812b64dc904", null ],
+    [ "BMI088_Test_Communication", "driver__ins_8h.html#a59de7989bc26e2f9bf0e19fe71c354c8", null ]
+];

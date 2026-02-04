@@ -1,0 +1,5 @@
+<map id="BMI088_Read_All" name="BMI088_Read_All">
+<area shape="rect" id="Node000001" title="Effectue une lecture complète et convertit les données." alt="" coords="213,5,340,31"/>
+<area shape="rect" id="Node000002" href="$serial__cmd_8c.html#aeb9ebb55bdc9cfaab6d3a71c2c203714" title="Capture les capteurs et envoie la trame de télémétrie." alt="" coords="5,5,165,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,21,165,21,165,15,200,15"/>
+</map>

@@ -1,0 +1,6 @@
+## Documentation Technique
+
+La documentation complète du code (drivers STM32, logique applicative) est générée via Doxygen. Elle est disponible sous deux formats :
+
+* **Version Web (HTML) :** Ouvrez le fichier `datasheet/html/index.html` dans votre navigateur pour naviguer dans les fichiers et les graphes d'appels.
+* **Version PDF :** Le fichier `refman.pdf` est disponible dans le dossier `datasheet/latex/` (ou à la racine du projet selon la compilation). Si non disponible, le généré via LaTex `refman.tex` 

@@ -1,0 +1,27 @@
+<map id="Core/Src/stm32g0xx_hal_msp.c" name="Core/Src/stm32g0xx_hal_msp.c">
+<area shape="rect" id="Node000001" title="This file provides code for the MSP Initialization and de&#45;Initialization codes." alt="" coords="819,5,961,45"/>
+<area shape="rect" id="Node000002" href="$main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="859,93,921,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="893,46,893,79,887,79,887,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,127,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="859,112,570,130,360,147,141,169,140,164,359,142,569,125,859,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="151,167,285,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="859,113,631,134,299,169,299,164,630,128,859,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="310,167,449,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="860,114,463,169,462,164,859,109"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="473,167,627,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="860,116,619,166,618,161,859,111"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="651,167,785,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="863,121,760,164,758,159,861,116"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="810,167,970,192"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="893,119,893,153,887,153,887,119"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="994,167,1135,192"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="919,116,1024,159,1022,164,917,121"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1160,167,1297,192"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="922,111,1162,161,1161,167,921,116"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1322,167,1463,192"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="921,109,1309,163,1308,169,920,114"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1488,167,1631,192"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="921,107,1147,129,1474,164,1474,169,1147,134,921,113"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1655,167,1794,192"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="921,106,1211,126,1422,143,1642,164,1642,169,1421,148,1211,131,921,112"/>
+</map>

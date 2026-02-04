@@ -1,0 +1,165 @@
+\doxysection{app\+\_\+main.\+c}
+\hypertarget{app__main_8c_source}{}\label{app__main_8c_source}\index{Core/Src/app\_main.c@{Core/Src/app\_main.c}}
+\mbox{\hyperlink{app__main_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spi_8h}{spi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{usart_8h}{usart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{app__main_8h}{app\_main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__ins_8h}{driver\_ins.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}bmi08\_defs.h"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}bmi08.h"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}bmi08x.h"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__servo_8h}{driver\_servo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__motor_8h}{driver\_motor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dma_8h}{dma.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{serial_8h}{serial.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{serial__cmd_8h}{serial\_cmd.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__speedometer_8h}{driver\_speedometer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00032}\mbox{\hyperlink{app__main_8c_abd14325ee0b943a6931793d430a9c105}{00032}}\ \textcolor{preprocessor}{\#define\ TASK\_MOTOR\_US\ \ \ \ \ \ \ 1000}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00034}\mbox{\hyperlink{app__main_8c_a2d70b4781c04d4b8f0759a3cf67c9a68}{00034}}\ \textcolor{preprocessor}{\#define\ TASK\_TELEMETRY\_US\ \ \ 10000}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00036}\mbox{\hyperlink{app__main_8c_a2b20f9e514f86cadbd8c88d28e0d52cf}{00036}}\ \textcolor{preprocessor}{\#define\ TASK\_SPEED\_US\ \ \ \ \ \ \ 100000}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00038}\mbox{\hyperlink{app__main_8c_a50858e76836ece0d48f2f319744d5c7c}{00038}}\ \textcolor{preprocessor}{\#define\ FAILSAFE\_TIMEOUT\_MS\ 500}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00041}\mbox{\hyperlink{app__main_8c_a0298419b8241cc04cb456cd22b0c067c}{00041}}\ \textcolor{preprocessor}{\#define\ t\_1\_ms\ 3200}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00043}\mbox{\hyperlink{app__main_8c_a8e3cc728845c9b35613917860b4d49b8}{00043}}\ \textcolor{preprocessor}{\#define\ t\_2\_ms\ 6400}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00046}\mbox{\hyperlink{app__main_8c_ae71d29ac5fe65c3f9b1286c1e7badbf8}{00046}}\ \textcolor{preprocessor}{\#define\ PWM\_MIN\_ESC\ 3200}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00048}\mbox{\hyperlink{app__main_8c_af1494cb8a68248791551022654c0fb95}{00048}}\ \textcolor{preprocessor}{\#define\ PWM\_MAX\_ESC\ 6400}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00051}00051\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ hServo1\ =\ \{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00052}00052\ \ \ \ \ .\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}\ =\ \&\mbox{\hyperlink{tim_8h_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instance\ du\ Timer}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00053}00053\ \ \ \ \ .channel\ =\ TIM\_CHANNEL\_1,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Canal\ PWM}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00054}00054\ \ \ \ \ .min\_pulse\_ticks\ =\ \mbox{\hyperlink{app__main_8c_a0298419b8241cc04cb456cd22b0c067c}{t\_1\_ms}},\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ticks\ pour\ 0\%\ (ex:\ 1ms)}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00055}00055\ \ \ \ \ .max\_pulse\_ticks\ =\ \mbox{\hyperlink{app__main_8c_a8e3cc728845c9b35613917860b4d49b8}{t\_2\_ms}}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ticks\ pour\ 100\%\ (ex:\ 2ms)}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00059}00059\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ hMotor1\ =\ \{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00060}00060\ \ \ \ \ .\mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}\ =\ \&\mbox{\hyperlink{tim_8h_a2c80fd5510e2990a59a5c90d745c716c}{htim2}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instance\ du\ Timer}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00061}00061\ \ \ \ \ .channel\ =\ TIM\_CHANNEL\_1,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Canal\ PWM}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00062}00062\ \ \ \ \ .min\_pulse\_ticks\ =\ \mbox{\hyperlink{app__main_8c_ae71d29ac5fe65c3f9b1286c1e7badbf8}{PWM\_MIN\_ESC}},\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00063}00063\ \ \ \ \ .max\_pulse\_ticks\ =\ \mbox{\hyperlink{app__main_8c_af1494cb8a68248791551022654c0fb95}{PWM\_MAX\_ESC}},\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00064}00064\ \ \ \ \ .max\_speed\_pos\_mms\ =\ 1000,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Limit\ max\ frwd}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00065}00065\ \ \ \ \ .max\_speed\_neg\_mms\ =\ -\/500\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Limit\ max\ bkwd}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00066}00066\ \};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00069}\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{00069}}\ \mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}}\ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00072}00072\ \textcolor{keyword}{static}\ uint32\_t\ last\_cmd\_time\_ms\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00074}00074\ \textcolor{keyword}{static}\ uint32\_t\ last\_motor\_us\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00076}00076\ \textcolor{keyword}{static}\ uint32\_t\ last\_telemetry\_us\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00078}00078\ \textcolor{keyword}{static}\ uint32\_t\ last\_speed\_us\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00081}\mbox{\hyperlink{app__main_8h_a92f10242a4d6c222e4b8c2c56291b003}{00081}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{app__main_8c_a92f10242a4d6c222e4b8c2c56291b003}{speed\_speedo\_data}}\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00084}\mbox{\hyperlink{app__main_8h_a0da4b66d17e1a075b80d5f3f6ead6b80}{00084}}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80}{tim3\_overflow\_cnt}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00086}00086\ \textcolor{keyword}{static}\ uint32\_t\ GetMicrosTotal(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00087}00087\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ process\_incoming\_commands(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00088}00088\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_failsafe\_security(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00089}00089\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_motor\_update(uint32\_t\ now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00090}00090\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_telemetry\_update(uint32\_t\ now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00091}00091\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_get\_speed(uint32\_t\ now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00099}00099\ \textcolor{keyword}{static}\ uint32\_t\ GetMicrosTotal(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00100}00100\ \ \ \ \ uint32\_t\ m\_overflow;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00101}00101\ \ \ \ \ uint16\_t\ m\_counter;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ m\_overflow\ =\ \mbox{\hyperlink{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80}{tim3\_overflow\_cnt}};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ m\_counter\ =\ LL\_TIM\_GetCounter(TIM3);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{while}(m\_overflow\ !=\ \mbox{\hyperlink{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80}{tim3\_overflow\_cnt}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ (m\_overflow\ <<\ 16)\ +\ m\_counter;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00118}00118\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ process\_incoming\_commands(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54}{parser\_state}}\ ==\ \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}{PARSER\_IDLE}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00123}00123\ \ \ \ \ last\_cmd\_time\_ms\ =\ HAL\_GetTick();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00125}00125\ \ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54}{parser\_state}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac62034925637bcbcf20dc44af8e44e6b}{PARSER\_SERVO\_CMD}}:}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__servo_8h_ae99975cc57bcc8b48267ee20c10d3b0f}{servo\_pwm\_angle\_degree}}(\&hServo1,\ \mbox{\hyperlink{serial__cmd_8h_a88bb0f641c66787df882885a0b5c14f3}{shadow\_servo\_cmd}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac5363eb8e7a5e8f5110f9f02c4083b1c}{PARSER\_MOTOR\_CMD}}:}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8h_a491c4fd8244f087297569c4c9179ef29}{motor\_set\_speed\_mms}}(\&hMotor1,\ \mbox{\hyperlink{serial__cmd_8h_a2beb6a7c48f4eee3f5c4f42b8db8ceac}{shadow\_motor\_cmd}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00138}00138\ \ \ \ \ \mbox{\hyperlink{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54}{parser\_state}}\ =\ \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}{PARSER\_IDLE}};}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00139}00139\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00146}00146\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_failsafe\_security(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{if}((HAL\_GetTick()\ -\/\ last\_cmd\_time\_ms)\ >\ \mbox{\hyperlink{app__main_8c_a50858e76836ece0d48f2f319744d5c7c}{FAILSAFE\_TIMEOUT\_MS}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8h_a491c4fd8244f087297569c4c9179ef29}{motor\_set\_speed\_mms}}(\&hMotor1,\ 0);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00157}00157\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_motor\_update(uint32\_t\ now\_us)\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{if}((uint32\_t)(now\_us\ -\/\ last\_motor\_us)\ >=\ \mbox{\hyperlink{app__main_8c_abd14325ee0b943a6931793d430a9c105}{TASK\_MOTOR\_US}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ last\_motor\_us\ =\ now\_us;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8h_a9bac78a6edd2799f67fbffbe2b21a688}{motor\_process\_1ms}}(\&hMotor1,\ HAL\_GetTick());}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00169}00169\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_telemetry\_update(uint32\_t\ now\_us)\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{if}((uint32\_t)(now\_us\ -\/\ last\_telemetry\_us)\ >=\ \mbox{\hyperlink{app__main_8c_a2d70b4781c04d4b8f0759a3cf67c9a68}{TASK\_TELEMETRY\_US}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ last\_telemetry\_us\ =\ now\_us;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{serial__cmd_8h_aeb9ebb55bdc9cfaab6d3a71c2c203714}{serial\_send\_data\_frame}}();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00181}00181\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ task\_get\_speed(uint32\_t\ now\_us)\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00182}00182\ \ \ \ \ \textcolor{keywordflow}{if}((uint32\_t)(now\_us\ -\/\ last\_speed\_us)\ >=\ \mbox{\hyperlink{app__main_8c_a2b20f9e514f86cadbd8c88d28e0d52cf}{TASK\_SPEED\_US}})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ last\_speed\_us\ =\ now\_us;}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{app__main_8c_a92f10242a4d6c222e4b8c2c56291b003}{speed\_speedo\_data}}\ =\ \mbox{\hyperlink{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c}{speedometer\_solve\_speed}}(\&\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00186}00186\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00193}\mbox{\hyperlink{app__main_8h_aa1fb38a41446e4d5e66f59da21651832}{00193}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{app__main_8c_aa1fb38a41446e4d5e66f59da21651832}{app\_config}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00194}00194\ \ \ \ \ LL\_TIM\_EnableCounter(TIM3);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00195}00195\ \ \ \ \ LL\_TIM\_EnableIT\_UPDATE(TIM3);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00196}00196\ \ \ \ \ HAL\_TIM\_Base\_Start(\&\mbox{\hyperlink{tim_8h_a85788cec5a97ee377e4ee2e74f026484}{htim4}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00198}00198\ \ \ \ \ \mbox{\hyperlink{serial_8h_ad2b461e9e9044364a28a61cfadcacdd8}{serial\_init}}();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00199}00199\ \ \ \ \ \mbox{\hyperlink{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7}{BMI088\_Init}}(\&\mbox{\hyperlink{spi_8h_a9c6222bae4d0328dd843ae099623b40b}{hspi1}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00200}00200\ \ \ \ \ \mbox{\hyperlink{driver__servo_8h_a3114ea8b18355eaef1310ae4bfb5e117}{servo\_initialisation}}(\&hServo1);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00201}00201\ \ \ \ \ \mbox{\hyperlink{driver__motor_8h_a1322b15b60e2e56ab26b958e67d1d48a}{motor\_init}}(\&hMotor1);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00202}00202\ \ \ \ \ \mbox{\hyperlink{driver__motor_8h_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(\&hMotor1,\ 50);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00204}00204\ \ \ \ \ last\_cmd\_time\_ms\ \ =\ HAL\_GetTick();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00205}00205\ \ \ \ \ last\_motor\_us\ \ \ \ \ =\ GetMicrosTotal();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00206}00206\ \ \ \ \ last\_telemetry\_us\ =\ GetMicrosTotal();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00207}00207\ \ \ \ \ last\_speed\_us\ \ \ \ \ =\ GetMicrosTotal();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00209}00209\ \ \ \ \ \mbox{\hyperlink{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c}{speedometer\_init}}(\&\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}},\ \&\mbox{\hyperlink{tim_8h_a85788cec5a97ee377e4ee2e74f026484}{htim4}});}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00210}00210\ \}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00221}\mbox{\hyperlink{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f}{00221}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f}{app\_loop}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00222}00222\ \ \ \ \ uint32\_t\ now\_us\ =\ GetMicrosTotal();\ \textcolor{comment}{//70\ minutes\ max}}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00224}00224\ \ \ \ \ \mbox{\hyperlink{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8}{serial\_cmd\_reader}}();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00226}00226\ \ \ \ \ process\_incoming\_commands();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00227}00227\ \ \ \ \ check\_failsafe\_security();}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00229}00229\ \ \ \ \ task\_motor\_update(now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00230}00230\ \ \ \ \ task\_get\_speed(now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00231}00231\ \ \ \ \ task\_telemetry\_update(now\_us);}
+\DoxyCodeLine{\Hypertarget{app__main_8c_source_l00232}00232\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,586 @@
+\doxysection{Core/\+Inc/driver\+\_\+ins.h File Reference}
+\hypertarget{driver__ins_8h}{}\label{driver__ins_8h}\index{Core/Inc/driver\_ins.h@{Core/Inc/driver\_ins.h}}
+
+
+Définitions et prototypes pour le pilote BMI088.  
+
+
+{\ttfamily \#include "{}stm32g0xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08\+\_\+defs.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08x.\+h"{}}\newline
+Include dependency graph for driver\+\_\+ins.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbmi088__cs__t}{bmi088\+\_\+cs\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de définition d\textquotesingle{}un Chip Select SPI. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structbmi088__data__t}{bmi088\+\_\+data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de données physiques unifiées pour l\textquotesingle{}application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a53e2fc5d653edc54b6db4e99409e4444}{BMI088\+\_\+\+CS\+\_\+\+ACC\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\begin{DoxyCompactList}\small\item\em Port GPIO du Chip Select Accéléromètre (PA4/\+PB13 selon config). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_ae43b8d6738be9a0dab7689a102428b60}{BMI088\+\_\+\+CS\+\_\+\+ACC\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+13
+\begin{DoxyCompactList}\small\item\em Pin GPIO du Chip Select Accéléromètre. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a52ce7d0fc9ce6b80388bb0a7c73294a8}{BMI088\+\_\+\+CS\+\_\+\+GYRO\+\_\+\+GPIO\+\_\+\+Port}}~GPIOB
+\begin{DoxyCompactList}\small\item\em Port GPIO du Chip Select Gyroscope (PA1/\+PB14 selon config). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_ae16db209302613b5d9c5dde20e599726}{BMI088\+\_\+\+CS\+\_\+\+GYRO\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+14
+\begin{DoxyCompactList}\small\item\em Pin GPIO du Chip Select Gyroscope. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a725466e9d7fd25460d779a18db2dfbb3}{ACCEL\+\_\+\+RANGE\+\_\+3\+G\+\_\+\+LSB}}~10922.\+67f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 3g. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a9380dda0a2ba4ec70058646c702ac9c4}{ACCEL\+\_\+\+RANGE\+\_\+6\+G\+\_\+\+LSB}}~5461.\+33f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 6g. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_ae4a883f14c7045d10e28b2e03137e5ca}{ACCEL\+\_\+\+RANGE\+\_\+12\+G\+\_\+\+LSB}}~2730.\+67f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 12g. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a19fe4c4c4a6565a69b4dcb63577659ec}{ACCEL\+\_\+\+RANGE\+\_\+24\+G\+\_\+\+LSB}}~1365.\+33f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 24g. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a9e9c36ec5664be87c119e643c6588e3d}{G\+\_\+\+TO\+\_\+\+MM\+\_\+\+S2}}~9806.\+65f
+\begin{DoxyCompactList}\small\item\em Constante de conversion de gravité g vers mm/s². \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_ad21820b0bab7cf7bf52ad428f21d6aad}{GYRO\+\_\+\+RANGE\+\_\+125\+DPS\+\_\+\+LSB}}~262.\+4f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 125 dps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a584e47d1d7afcfa8254a40e331e07735}{GYRO\+\_\+\+RANGE\+\_\+250\+DPS\+\_\+\+LSB}}~131.\+2f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 250 dps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a369fa3e17450b54f0670103aa638c090}{GYRO\+\_\+\+RANGE\+\_\+500\+DPS\+\_\+\+LSB}}~65.\+6f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 500 dps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a457f7161504ee5da1756fd90856d8e06}{GYRO\+\_\+\+RANGE\+\_\+1000\+DPS\+\_\+\+LSB}}~32.\+768f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 1000 dps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a8bc3cfb4f1a5b81980ba50998fbdaa37}{GYRO\+\_\+\+RANGE\+\_\+2000\+DPS\+\_\+\+LSB}}~16.\+4f
+\begin{DoxyCompactList}\small\item\em Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 2000 dps. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__ins_8h_a212460e743fecb084d717bb2180c5a56}{DEG\+\_\+\+TO\+\_\+\+RAD}}~0.\+017453292519943295f
+\begin{DoxyCompactList}\small\item\em Constante de conversion degrés vers radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7}{BMI088\+\_\+\+Init}} (SPI\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hspi)
+\begin{DoxyCompactList}\small\item\em Initialise le driver BMI088. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8h_a6ec6095cf6be17614cb3023f5acbd2f7}{BMI088\+\_\+\+Read\+\_\+\+Accel\+\_\+\+Raw}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}accel\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Lit les registres bruts de l\textquotesingle{}accéléromètre. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8h_a5426db0df3eafce551517bb8d3402332}{BMI088\+\_\+\+Read\+\_\+\+Gyro\+\_\+\+Raw}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}gyro\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Lit les registres bruts du gyroscope. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0}{BMI088\+\_\+\+Read\+\_\+\+All}} (\mbox{\hyperlink{structbmi088__data__t}{bmi088\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Effectue une lecture complète et convertit les données. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__ins_8h_a23d3031c0e8acf3c68721d65f86eb9df}{BMI088\+\_\+\+Convert\+\_\+\+Accel}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}accel\+\_\+raw, float \texorpdfstring{$\ast$}{*}accel\+\_\+mms2)
+\begin{DoxyCompactList}\small\item\em Convertit un jeu de données brutes accéléromètre en mm/s². \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__ins_8h_a83e3b80cf9b6d79fbb15a252861a98e2}{BMI088\+\_\+\+Convert\+\_\+\+Gyro}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}gyro\+\_\+raw, float \texorpdfstring{$\ast$}{*}gyro\+\_\+rads)
+\begin{DoxyCompactList}\small\item\em Convertit un jeu de données brutes gyroscope en rad/s. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{driver__ins_8h_a59de7989bc26e2f9bf0e19fe71c354c8}{BMI088\+\_\+\+Test\+\_\+\+Communication}} (uint8\+\_\+t print\+\_\+result)
+\begin{DoxyCompactList}\small\item\em Vérifie la présence des capteurs sur le bus SPI. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8h_aaf0bd4d8e01873f5d13c5812b64dc904}{BMI088\+\_\+\+Soft\+\_\+\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Redémarre les capteurs via commande logicielle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Définitions et prototypes pour le pilote BMI088. 
+
+Contient les macros de configuration matérielle, les constantes de conversion physique et les structures de données publiques. 
+
+Definition in file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{driver__ins_8h_ae4a883f14c7045d10e28b2e03137e5ca}\label{driver__ins_8h_ae4a883f14c7045d10e28b2e03137e5ca} 
+\index{driver\_ins.h@{driver\_ins.h}!ACCEL\_RANGE\_12G\_LSB@{ACCEL\_RANGE\_12G\_LSB}}
+\index{ACCEL\_RANGE\_12G\_LSB@{ACCEL\_RANGE\_12G\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{ACCEL\_RANGE\_12G\_LSB}{ACCEL\_RANGE\_12G\_LSB}}
+{\footnotesize\ttfamily \#define ACCEL\+\_\+\+RANGE\+\_\+12\+G\+\_\+\+LSB~2730.\+67f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 12g. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00030}{30}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a19fe4c4c4a6565a69b4dcb63577659ec}\label{driver__ins_8h_a19fe4c4c4a6565a69b4dcb63577659ec} 
+\index{driver\_ins.h@{driver\_ins.h}!ACCEL\_RANGE\_24G\_LSB@{ACCEL\_RANGE\_24G\_LSB}}
+\index{ACCEL\_RANGE\_24G\_LSB@{ACCEL\_RANGE\_24G\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{ACCEL\_RANGE\_24G\_LSB}{ACCEL\_RANGE\_24G\_LSB}}
+{\footnotesize\ttfamily \#define ACCEL\+\_\+\+RANGE\+\_\+24\+G\+\_\+\+LSB~1365.\+33f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 24g. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00032}{32}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a725466e9d7fd25460d779a18db2dfbb3}\label{driver__ins_8h_a725466e9d7fd25460d779a18db2dfbb3} 
+\index{driver\_ins.h@{driver\_ins.h}!ACCEL\_RANGE\_3G\_LSB@{ACCEL\_RANGE\_3G\_LSB}}
+\index{ACCEL\_RANGE\_3G\_LSB@{ACCEL\_RANGE\_3G\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{ACCEL\_RANGE\_3G\_LSB}{ACCEL\_RANGE\_3G\_LSB}}
+{\footnotesize\ttfamily \#define ACCEL\+\_\+\+RANGE\+\_\+3\+G\+\_\+\+LSB~10922.\+67f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 3g. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00026}{26}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a9380dda0a2ba4ec70058646c702ac9c4}\label{driver__ins_8h_a9380dda0a2ba4ec70058646c702ac9c4} 
+\index{driver\_ins.h@{driver\_ins.h}!ACCEL\_RANGE\_6G\_LSB@{ACCEL\_RANGE\_6G\_LSB}}
+\index{ACCEL\_RANGE\_6G\_LSB@{ACCEL\_RANGE\_6G\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{ACCEL\_RANGE\_6G\_LSB}{ACCEL\_RANGE\_6G\_LSB}}
+{\footnotesize\ttfamily \#define ACCEL\+\_\+\+RANGE\+\_\+6\+G\+\_\+\+LSB~5461.\+33f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/g pour la gamme +/-\/ 6g. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00028}{28}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a53e2fc5d653edc54b6db4e99409e4444}\label{driver__ins_8h_a53e2fc5d653edc54b6db4e99409e4444} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_CS\_ACC\_GPIO\_Port@{BMI088\_CS\_ACC\_GPIO\_Port}}
+\index{BMI088\_CS\_ACC\_GPIO\_Port@{BMI088\_CS\_ACC\_GPIO\_Port}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_CS\_ACC\_GPIO\_Port}{BMI088\_CS\_ACC\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define BMI088\+\_\+\+CS\+\_\+\+ACC\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+
+
+Port GPIO du Chip Select Accéléromètre (PA4/\+PB13 selon config). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00017}{17}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_ae43b8d6738be9a0dab7689a102428b60}\label{driver__ins_8h_ae43b8d6738be9a0dab7689a102428b60} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_CS\_ACC\_Pin@{BMI088\_CS\_ACC\_Pin}}
+\index{BMI088\_CS\_ACC\_Pin@{BMI088\_CS\_ACC\_Pin}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_CS\_ACC\_Pin}{BMI088\_CS\_ACC\_Pin}}
+{\footnotesize\ttfamily \#define BMI088\+\_\+\+CS\+\_\+\+ACC\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+13}
+
+
+
+Pin GPIO du Chip Select Accéléromètre. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00019}{19}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a52ce7d0fc9ce6b80388bb0a7c73294a8}\label{driver__ins_8h_a52ce7d0fc9ce6b80388bb0a7c73294a8} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_CS\_GYRO\_GPIO\_Port@{BMI088\_CS\_GYRO\_GPIO\_Port}}
+\index{BMI088\_CS\_GYRO\_GPIO\_Port@{BMI088\_CS\_GYRO\_GPIO\_Port}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_CS\_GYRO\_GPIO\_Port}{BMI088\_CS\_GYRO\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define BMI088\+\_\+\+CS\+\_\+\+GYRO\+\_\+\+GPIO\+\_\+\+Port~GPIOB}
+
+
+
+Port GPIO du Chip Select Gyroscope (PA1/\+PB14 selon config). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00021}{21}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_ae16db209302613b5d9c5dde20e599726}\label{driver__ins_8h_ae16db209302613b5d9c5dde20e599726} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_CS\_GYRO\_Pin@{BMI088\_CS\_GYRO\_Pin}}
+\index{BMI088\_CS\_GYRO\_Pin@{BMI088\_CS\_GYRO\_Pin}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_CS\_GYRO\_Pin}{BMI088\_CS\_GYRO\_Pin}}
+{\footnotesize\ttfamily \#define BMI088\+\_\+\+CS\+\_\+\+GYRO\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+14}
+
+
+
+Pin GPIO du Chip Select Gyroscope. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00023}{23}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a212460e743fecb084d717bb2180c5a56}\label{driver__ins_8h_a212460e743fecb084d717bb2180c5a56} 
+\index{driver\_ins.h@{driver\_ins.h}!DEG\_TO\_RAD@{DEG\_TO\_RAD}}
+\index{DEG\_TO\_RAD@{DEG\_TO\_RAD}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_TO\_RAD}{DEG\_TO\_RAD}}
+{\footnotesize\ttfamily \#define DEG\+\_\+\+TO\+\_\+\+RAD~0.\+017453292519943295f}
+
+
+
+Constante de conversion degrés vers radians. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00047}{47}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a9e9c36ec5664be87c119e643c6588e3d}\label{driver__ins_8h_a9e9c36ec5664be87c119e643c6588e3d} 
+\index{driver\_ins.h@{driver\_ins.h}!G\_TO\_MM\_S2@{G\_TO\_MM\_S2}}
+\index{G\_TO\_MM\_S2@{G\_TO\_MM\_S2}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{G\_TO\_MM\_S2}{G\_TO\_MM\_S2}}
+{\footnotesize\ttfamily \#define G\+\_\+\+TO\+\_\+\+MM\+\_\+\+S2~9806.\+65f}
+
+
+
+Constante de conversion de gravité g vers mm/s². 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00034}{34}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a457f7161504ee5da1756fd90856d8e06}\label{driver__ins_8h_a457f7161504ee5da1756fd90856d8e06} 
+\index{driver\_ins.h@{driver\_ins.h}!GYRO\_RANGE\_1000DPS\_LSB@{GYRO\_RANGE\_1000DPS\_LSB}}
+\index{GYRO\_RANGE\_1000DPS\_LSB@{GYRO\_RANGE\_1000DPS\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{GYRO\_RANGE\_1000DPS\_LSB}{GYRO\_RANGE\_1000DPS\_LSB}}
+{\footnotesize\ttfamily \#define GYRO\+\_\+\+RANGE\+\_\+1000\+DPS\+\_\+\+LSB~32.\+768f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 1000 dps. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00043}{43}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_ad21820b0bab7cf7bf52ad428f21d6aad}\label{driver__ins_8h_ad21820b0bab7cf7bf52ad428f21d6aad} 
+\index{driver\_ins.h@{driver\_ins.h}!GYRO\_RANGE\_125DPS\_LSB@{GYRO\_RANGE\_125DPS\_LSB}}
+\index{GYRO\_RANGE\_125DPS\_LSB@{GYRO\_RANGE\_125DPS\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{GYRO\_RANGE\_125DPS\_LSB}{GYRO\_RANGE\_125DPS\_LSB}}
+{\footnotesize\ttfamily \#define GYRO\+\_\+\+RANGE\+\_\+125\+DPS\+\_\+\+LSB~262.\+4f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 125 dps. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00037}{37}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a8bc3cfb4f1a5b81980ba50998fbdaa37}\label{driver__ins_8h_a8bc3cfb4f1a5b81980ba50998fbdaa37} 
+\index{driver\_ins.h@{driver\_ins.h}!GYRO\_RANGE\_2000DPS\_LSB@{GYRO\_RANGE\_2000DPS\_LSB}}
+\index{GYRO\_RANGE\_2000DPS\_LSB@{GYRO\_RANGE\_2000DPS\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{GYRO\_RANGE\_2000DPS\_LSB}{GYRO\_RANGE\_2000DPS\_LSB}}
+{\footnotesize\ttfamily \#define GYRO\+\_\+\+RANGE\+\_\+2000\+DPS\+\_\+\+LSB~16.\+4f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 2000 dps. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00045}{45}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a584e47d1d7afcfa8254a40e331e07735}\label{driver__ins_8h_a584e47d1d7afcfa8254a40e331e07735} 
+\index{driver\_ins.h@{driver\_ins.h}!GYRO\_RANGE\_250DPS\_LSB@{GYRO\_RANGE\_250DPS\_LSB}}
+\index{GYRO\_RANGE\_250DPS\_LSB@{GYRO\_RANGE\_250DPS\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{GYRO\_RANGE\_250DPS\_LSB}{GYRO\_RANGE\_250DPS\_LSB}}
+{\footnotesize\ttfamily \#define GYRO\+\_\+\+RANGE\+\_\+250\+DPS\+\_\+\+LSB~131.\+2f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 250 dps. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00039}{39}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+\Hypertarget{driver__ins_8h_a369fa3e17450b54f0670103aa638c090}\label{driver__ins_8h_a369fa3e17450b54f0670103aa638c090} 
+\index{driver\_ins.h@{driver\_ins.h}!GYRO\_RANGE\_500DPS\_LSB@{GYRO\_RANGE\_500DPS\_LSB}}
+\index{GYRO\_RANGE\_500DPS\_LSB@{GYRO\_RANGE\_500DPS\_LSB}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{GYRO\_RANGE\_500DPS\_LSB}{GYRO\_RANGE\_500DPS\_LSB}}
+{\footnotesize\ttfamily \#define GYRO\+\_\+\+RANGE\+\_\+500\+DPS\+\_\+\+LSB~65.\+6f}
+
+
+
+Facteur d\textquotesingle{}échelle LSB/dps pour la gamme +/-\/ 500 dps. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8h_source_l00041}{41}} of file \mbox{\hyperlink{driver__ins_8h_source}{driver\+\_\+ins.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__ins_8h_a23d3031c0e8acf3c68721d65f86eb9df}\label{driver__ins_8h_a23d3031c0e8acf3c68721d65f86eb9df} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Convert\_Accel@{BMI088\_Convert\_Accel}}
+\index{BMI088\_Convert\_Accel@{BMI088\_Convert\_Accel}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Convert\_Accel()}{BMI088\_Convert\_Accel()}}
+{\footnotesize\ttfamily void BMI088\+\_\+\+Convert\+\_\+\+Accel (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{accel\+\_\+raw,  }\item[{float \texorpdfstring{$\ast$}{*}}]{accel\+\_\+mms2 }\end{DoxyParamCaption})}
+
+
+
+Convertit un jeu de données brutes accéléromètre en mm/s². 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+raw} & Données d\textquotesingle{}entrée brutes. \\
+\hline
+{\em accel\+\_\+mms2} & Tableau de sortie \mbox{[}X, Y, Z\mbox{]}.\\
+\hline
+\end{DoxyParams}
+Convertit un jeu de données brutes accéléromètre en mm/s².
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+raw} & Pointeur vers les données brutes d\textquotesingle{}entrée. \\
+\hline
+{\em accel\+\_\+mms2} & Pointeur vers le tableau de sortie (x, y, z) en mm/s². \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00261}{261}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8h_a83e3b80cf9b6d79fbb15a252861a98e2}\label{driver__ins_8h_a83e3b80cf9b6d79fbb15a252861a98e2} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Convert\_Gyro@{BMI088\_Convert\_Gyro}}
+\index{BMI088\_Convert\_Gyro@{BMI088\_Convert\_Gyro}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Convert\_Gyro()}{BMI088\_Convert\_Gyro()}}
+{\footnotesize\ttfamily void BMI088\+\_\+\+Convert\+\_\+\+Gyro (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+raw,  }\item[{float \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+rads }\end{DoxyParamCaption})}
+
+
+
+Convertit un jeu de données brutes gyroscope en rad/s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+raw} & Données d\textquotesingle{}entrée brutes. \\
+\hline
+{\em gyro\+\_\+rads} & Tableau de sortie \mbox{[}X, Y, Z\mbox{]}.\\
+\hline
+\end{DoxyParams}
+Convertit un jeu de données brutes gyroscope en rad/s.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+raw} & Pointeur vers les données brutes d\textquotesingle{}entrée. \\
+\hline
+{\em gyro\+\_\+rads} & Pointeur vers le tableau de sortie (x, y, z) en rad/s. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00276}{276}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7}\label{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Init@{BMI088\_Init}}
+\index{BMI088\_Init@{BMI088\_Init}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Init()}{BMI088\_Init()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Init (\begin{DoxyParamCaption}\item[{SPI\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hspi }\end{DoxyParamCaption})}
+
+
+
+Initialise le driver BMI088. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & Pointeur vers le handle SPI utilisé. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK ou code d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Initialise le driver BMI088.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & Pointeur vers le handle SPI STM32. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK si l\textquotesingle{}initialisation réussit, code d\textquotesingle{}erreur sinon. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00133}{133}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8h_a6ec6095cf6be17614cb3023f5acbd2f7}\label{driver__ins_8h_a6ec6095cf6be17614cb3023f5acbd2f7} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Read\_Accel\_Raw@{BMI088\_Read\_Accel\_Raw}}
+\index{BMI088\_Read\_Accel\_Raw@{BMI088\_Read\_Accel\_Raw}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_Accel\_Raw()}{BMI088\_Read\_Accel\_Raw()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+Accel\+\_\+\+Raw (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{accel\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Lit les registres bruts de l\textquotesingle{}accéléromètre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+data} & Structure de sortie pour les données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK ou code d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Lit les registres bruts de l\textquotesingle{}accéléromètre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+data} & Pointeur vers la structure de destination des données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00200}{200}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8h_a6ec6095cf6be17614cb3023f5acbd2f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0}\label{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Read\_All@{BMI088\_Read\_All}}
+\index{BMI088\_Read\_All@{BMI088\_Read\_All}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_All()}{BMI088\_Read\_All()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbmi088__data__t}{bmi088\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Effectue une lecture complète et convertit les données. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Structure de sortie pour les données physiques. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK ou code d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Effectue une lecture complète et convertit les données.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers la structure de données utilisateur (unités physiques). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00226}{226}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8h_a5426db0df3eafce551517bb8d3402332}\label{driver__ins_8h_a5426db0df3eafce551517bb8d3402332} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Read\_Gyro\_Raw@{BMI088\_Read\_Gyro\_Raw}}
+\index{BMI088\_Read\_Gyro\_Raw@{BMI088\_Read\_Gyro\_Raw}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_Gyro\_Raw()}{BMI088\_Read\_Gyro\_Raw()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+Gyro\+\_\+\+Raw (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Lit les registres bruts du gyroscope. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+data} & Structure de sortie pour les données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK ou code d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Lit les registres bruts du gyroscope.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+data} & Pointeur vers la structure de destination des données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00213}{213}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8h_a5426db0df3eafce551517bb8d3402332_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8h_aaf0bd4d8e01873f5d13c5812b64dc904}\label{driver__ins_8h_aaf0bd4d8e01873f5d13c5812b64dc904} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Soft\_Reset@{BMI088\_Soft\_Reset}}
+\index{BMI088\_Soft\_Reset@{BMI088\_Soft\_Reset}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Soft\_Reset()}{BMI088\_Soft\_Reset()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Soft\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Redémarre les capteurs via commande logicielle. 
+
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK ou code d\textquotesingle{}erreur.
+\end{DoxyReturn}
+Redémarre les capteurs via commande logicielle.
+
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur SPI. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00314}{314}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8h_a59de7989bc26e2f9bf0e19fe71c354c8}\label{driver__ins_8h_a59de7989bc26e2f9bf0e19fe71c354c8} 
+\index{driver\_ins.h@{driver\_ins.h}!BMI088\_Test\_Communication@{BMI088\_Test\_Communication}}
+\index{BMI088\_Test\_Communication@{BMI088\_Test\_Communication}!driver\_ins.h@{driver\_ins.h}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Test\_Communication()}{BMI088\_Test\_Communication()}}
+{\footnotesize\ttfamily uint8\+\_\+t BMI088\+\_\+\+Test\+\_\+\+Communication (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{print\+\_\+result }\end{DoxyParamCaption})}
+
+
+
+Vérifie la présence des capteurs sur le bus SPI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em print\+\_\+result} & Active l\textquotesingle{}affichage debug via printf. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 (Succès) ou 0 (Échec).
+\end{DoxyReturn}
+Vérifie la présence des capteurs sur le bus SPI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em print\+\_\+result} & Si non nul, affiche le résultat sur la console de debug. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la communication est établie avec succès, 0 sinon. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00291}{291}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+

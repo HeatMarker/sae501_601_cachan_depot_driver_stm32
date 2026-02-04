@@ -1,0 +1,582 @@
+\doxysection{Core/\+Inc/serial.h File Reference}
+\hypertarget{serial_8h}{}\label{serial_8h}\index{Core/Inc/serial.h@{Core/Inc/serial.h}}
+
+
+Interface du driver Série (UART + DMA) et définitions du protocole.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for serial.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{serial_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serial_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serial_8h_a95d8cad1efb1bbcaa30d35c6b5244954}{SERIAL\+\_\+\+RX\+\_\+\+RING\+\_\+\+SIZE}}~1024u
+\begin{DoxyCompactList}\small\item\em Taille du buffer circulaire logiciel de réception (Doit être une puissance de 2). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_acbfa0805cd64d005b61ea0ad07c57b4b}{SERIAL\+\_\+\+RX\+\_\+\+CHUNK\+\_\+\+SIZE}}~256u
+\begin{DoxyCompactList}\small\item\em Taille du buffer linéaire DMA pour la réception (Double buffer partiel). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a1df54b40ab7e2178afcb6be25828ab92}{SERIAL\+\_\+\+TX\+\_\+\+CHUNK\+\_\+\+MAX}}~255u
+\begin{DoxyCompactList}\small\item\em Taille maximale d\textquotesingle{}un transfert DMA unique en émission. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a0bef7416bc601abe582c81ddce657157}{SERIAL\+\_\+\+UART}}~\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\begin{DoxyCompactList}\small\item\em Instance UART HAL utilisée (liaison avec \doxylink{usart_8h}{usart.\+h}). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a3deca171ee3ea7d41116af3b73b4fc38}{PROTO\+\_\+\+HDR\+\_\+\+RW\+\_\+\+MASK}}~0x80u
+\begin{DoxyCompactList}\small\item\em Masque pour extraire le bit R/W de l\textquotesingle{}entête. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a62f22338cc6cc9b03c02140876d515d5}{PROTO\+\_\+\+HDR\+\_\+\+ADDR\+\_\+\+MASK}}~0x7\+Fu
+\begin{DoxyCompactList}\small\item\em Masque pour extraire l\textquotesingle{}adresse du registre (0-\/127). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_ae8f7506b8bc401e99a6352707f79a060}{PROTO\+\_\+\+MAKE\+\_\+\+HDR}}(rw,  addr)~( (uint8\+\_\+t)(((rw) ? 0x80u \+: 0x00u) \texorpdfstring{$\vert$}{|} ((addr) \& 0x7\+Fu)) )
+\begin{DoxyCompactList}\small\item\em Macro de construction de l\textquotesingle{}octet d\textquotesingle{}entête (Header). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a152fee2975496c38978bcf99a2bd1236}{PROTO\+\_\+\+IS\+\_\+\+READ}}(hdr)~( ((hdr) \& 0x80u) != 0 )
+\begin{DoxyCompactList}\small\item\em Macro vérifiant si l\textquotesingle{}entête correspond à une lecture. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial_8h_a6bfe2f3466317d7e6199991afd904db5}{PROTO\+\_\+\+ADDR}}(hdr)~( (hdr) \& 0x7\+Fu )
+\begin{DoxyCompactList}\small\item\em Macro extrayant l\textquotesingle{}adresse du registre depuis l\textquotesingle{}entête. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serial_8h_ad2b461e9e9044364a28a61cfadcacdd8}{serial\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialise la couche série (DMA + Buffers). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serial_8h_a486d407cc691fdca20f4df1df56146dc}{serial\+\_\+write\+\_\+nb}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Écriture non-\/bloquante partielle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serial_8h_a12e004eaf083ce1dc139435138ab95f0}{serial\+\_\+write\+\_\+all\+\_\+nb}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Écriture non-\/bloquante atomique (Tout ou rien). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serial_8h_a0462052cfbd13717bb95c3ec2b8c56c8}{serial\+\_\+write}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Écriture bloquante (Wrapper). \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{serial_8h_a2e36acadca0241c32e6182ee7fac4aab}{serial\+\_\+available}} (void)
+\begin{DoxyCompactList}\small\item\em Retourne le nombre d\textquotesingle{}octets disponibles dans le buffer RX. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{serial_8h_af1ffd0c746c8635c6db4fd0c9efb6090}{serial\+\_\+read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst, size\+\_\+t max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Lit des données depuis le buffer RX. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{serial_8h_a01759c2c56f8eba6d1480739226c91aa}{serial\+\_\+read\+\_\+until}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst, size\+\_\+t max\+\_\+len, uint8\+\_\+t delim)
+\begin{DoxyCompactList}\small\item\em Lit des données jusqu\textquotesingle{}à un délimiteur spécifique. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{serial_8h_a8727fa15c9fb77f93792e9659dd05e82}{serial\+\_\+crc8\+\_\+atm}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Calcule le CRC8 (Polynôme ATM 0x07). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serial_8h_ab96bed5d897c99c731213ef12c92de4a}{proto\+\_\+send\+\_\+write16}} (uint8\+\_\+t addr, int16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Envoie une commande d\textquotesingle{}écriture 16 bits (Frame Write). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{serial_8h_a8bc50b8f059209fdf02b1e19624e76d2}{proto\+\_\+send\+\_\+read\+\_\+burst}} (uint8\+\_\+t addr, uint8\+\_\+t count, uint8\+\_\+t flags)
+\begin{DoxyCompactList}\small\item\em Envoie une requête de lecture (Frame Read Request). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface du driver Série (UART + DMA) et définitions du protocole. 
+
+Définit les tailles de buffers, les macros de manipulation du protocole binaire 4 octets et les prototypes des fonctions d\textquotesingle{}E/S. 
+
+Definition in file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{serial_8h_a6bfe2f3466317d7e6199991afd904db5}\label{serial_8h_a6bfe2f3466317d7e6199991afd904db5} 
+\index{serial.h@{serial.h}!PROTO\_ADDR@{PROTO\_ADDR}}
+\index{PROTO\_ADDR@{PROTO\_ADDR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_ADDR}{PROTO\_ADDR}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+ADDR(\begin{DoxyParamCaption}\item[{}]{hdr }\end{DoxyParamCaption})~( (hdr) \& 0x7\+Fu )}
+
+
+
+Macro extrayant l\textquotesingle{}adresse du registre depuis l\textquotesingle{}entête. 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00047}{47}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a62f22338cc6cc9b03c02140876d515d5}\label{serial_8h_a62f22338cc6cc9b03c02140876d515d5} 
+\index{serial.h@{serial.h}!PROTO\_HDR\_ADDR\_MASK@{PROTO\_HDR\_ADDR\_MASK}}
+\index{PROTO\_HDR\_ADDR\_MASK@{PROTO\_HDR\_ADDR\_MASK}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_HDR\_ADDR\_MASK}{PROTO\_HDR\_ADDR\_MASK}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+HDR\+\_\+\+ADDR\+\_\+\+MASK~0x7\+Fu}
+
+
+
+Masque pour extraire l\textquotesingle{}adresse du registre (0-\/127). 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00038}{38}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a3deca171ee3ea7d41116af3b73b4fc38}\label{serial_8h_a3deca171ee3ea7d41116af3b73b4fc38} 
+\index{serial.h@{serial.h}!PROTO\_HDR\_RW\_MASK@{PROTO\_HDR\_RW\_MASK}}
+\index{PROTO\_HDR\_RW\_MASK@{PROTO\_HDR\_RW\_MASK}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_HDR\_RW\_MASK}{PROTO\_HDR\_RW\_MASK}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+HDR\+\_\+\+RW\+\_\+\+MASK~0x80u}
+
+
+
+Masque pour extraire le bit R/W de l\textquotesingle{}entête. 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00035}{35}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a152fee2975496c38978bcf99a2bd1236}\label{serial_8h_a152fee2975496c38978bcf99a2bd1236} 
+\index{serial.h@{serial.h}!PROTO\_IS\_READ@{PROTO\_IS\_READ}}
+\index{PROTO\_IS\_READ@{PROTO\_IS\_READ}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_IS\_READ}{PROTO\_IS\_READ}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+IS\+\_\+\+READ(\begin{DoxyParamCaption}\item[{}]{hdr }\end{DoxyParamCaption})~( ((hdr) \& 0x80u) != 0 )}
+
+
+
+Macro vérifiant si l\textquotesingle{}entête correspond à une lecture. 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00044}{44}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_ae8f7506b8bc401e99a6352707f79a060}\label{serial_8h_ae8f7506b8bc401e99a6352707f79a060} 
+\index{serial.h@{serial.h}!PROTO\_MAKE\_HDR@{PROTO\_MAKE\_HDR}}
+\index{PROTO\_MAKE\_HDR@{PROTO\_MAKE\_HDR}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{PROTO\_MAKE\_HDR}{PROTO\_MAKE\_HDR}}
+{\footnotesize\ttfamily \#define PROTO\+\_\+\+MAKE\+\_\+\+HDR(\begin{DoxyParamCaption}\item[{}]{rw,  }\item[{}]{addr }\end{DoxyParamCaption})~( (uint8\+\_\+t)(((rw) ? 0x80u \+: 0x00u) \texorpdfstring{$\vert$}{|} ((addr) \& 0x7\+Fu)) )}
+
+
+
+Macro de construction de l\textquotesingle{}octet d\textquotesingle{}entête (Header). 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00041}{41}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_acbfa0805cd64d005b61ea0ad07c57b4b}\label{serial_8h_acbfa0805cd64d005b61ea0ad07c57b4b} 
+\index{serial.h@{serial.h}!SERIAL\_RX\_CHUNK\_SIZE@{SERIAL\_RX\_CHUNK\_SIZE}}
+\index{SERIAL\_RX\_CHUNK\_SIZE@{SERIAL\_RX\_CHUNK\_SIZE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_RX\_CHUNK\_SIZE}{SERIAL\_RX\_CHUNK\_SIZE}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+RX\+\_\+\+CHUNK\+\_\+\+SIZE~256u}
+
+
+
+Taille du buffer linéaire DMA pour la réception (Double buffer partiel). 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00022}{22}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a95d8cad1efb1bbcaa30d35c6b5244954}\label{serial_8h_a95d8cad1efb1bbcaa30d35c6b5244954} 
+\index{serial.h@{serial.h}!SERIAL\_RX\_RING\_SIZE@{SERIAL\_RX\_RING\_SIZE}}
+\index{SERIAL\_RX\_RING\_SIZE@{SERIAL\_RX\_RING\_SIZE}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_RX\_RING\_SIZE}{SERIAL\_RX\_RING\_SIZE}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+RX\+\_\+\+RING\+\_\+\+SIZE~1024u}
+
+
+
+Taille du buffer circulaire logiciel de réception (Doit être une puissance de 2). 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00019}{19}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a1df54b40ab7e2178afcb6be25828ab92}\label{serial_8h_a1df54b40ab7e2178afcb6be25828ab92} 
+\index{serial.h@{serial.h}!SERIAL\_TX\_CHUNK\_MAX@{SERIAL\_TX\_CHUNK\_MAX}}
+\index{SERIAL\_TX\_CHUNK\_MAX@{SERIAL\_TX\_CHUNK\_MAX}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_TX\_CHUNK\_MAX}{SERIAL\_TX\_CHUNK\_MAX}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+TX\+\_\+\+CHUNK\+\_\+\+MAX~255u}
+
+
+
+Taille maximale d\textquotesingle{}un transfert DMA unique en émission. 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00025}{25}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+\Hypertarget{serial_8h_a0bef7416bc601abe582c81ddce657157}\label{serial_8h_a0bef7416bc601abe582c81ddce657157} 
+\index{serial.h@{serial.h}!SERIAL\_UART@{SERIAL\_UART}}
+\index{SERIAL\_UART@{SERIAL\_UART}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_UART}{SERIAL\_UART}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+UART~\mbox{\hyperlink{usart_8h_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}}
+
+
+
+Instance UART HAL utilisée (liaison avec \doxylink{usart_8h}{usart.\+h}). 
+
+
+
+Definition at line \mbox{\hyperlink{serial_8h_source_l00028}{28}} of file \mbox{\hyperlink{serial_8h_source}{serial.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serial_8h_a8bc50b8f059209fdf02b1e19624e76d2}\label{serial_8h_a8bc50b8f059209fdf02b1e19624e76d2} 
+\index{serial.h@{serial.h}!proto\_send\_read\_burst@{proto\_send\_read\_burst}}
+\index{proto\_send\_read\_burst@{proto\_send\_read\_burst}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{proto\_send\_read\_burst()}{proto\_send\_read\_burst()}}
+{\footnotesize\ttfamily int proto\+\_\+send\+\_\+read\+\_\+burst (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{count,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption})}
+
+
+
+Envoie une requête de lecture (Frame Read Request). 
+
+Trame \+: \mbox{[}HDR(1,addr) \texorpdfstring{$\vert$}{|} COUNT \texorpdfstring{$\vert$}{|} FLAGS \texorpdfstring{$\vert$}{|} CRC\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em addr} & Adresse de départ. \\
+\hline
+{\em count} & Nombre d\textquotesingle{}octets/registres à lire. \\
+\hline
+{\em flags} & Flags spécifiques. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de l\textquotesingle{}envoi série.
+\end{DoxyReturn}
+Envoie une requête de lecture (Frame Read Request).
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Adresse de départ. \\
+\hline
+{\em count} & Nombre de registres à lire. \\
+\hline
+{\em flags} & Flags optionnels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de l\textquotesingle{}envoi. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00372}{372}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+\Hypertarget{serial_8h_ab96bed5d897c99c731213ef12c92de4a}\label{serial_8h_ab96bed5d897c99c731213ef12c92de4a} 
+\index{serial.h@{serial.h}!proto\_send\_write16@{proto\_send\_write16}}
+\index{proto\_send\_write16@{proto\_send\_write16}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{proto\_send\_write16()}{proto\_send\_write16()}}
+{\footnotesize\ttfamily int proto\+\_\+send\+\_\+write16 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Envoie une commande d\textquotesingle{}écriture 16 bits (Frame Write). 
+
+Trame \+: \mbox{[}HDR(0,addr) \texorpdfstring{$\vert$}{|} VAL\+\_\+\+LO \texorpdfstring{$\vert$}{|} VAL\+\_\+\+HI \texorpdfstring{$\vert$}{|} CRC\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em addr} & Adresse du registre. \\
+\hline
+{\em value} & Valeur à écrire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de l\textquotesingle{}envoi série.
+\end{DoxyReturn}
+Envoie une commande d\textquotesingle{}écriture 16 bits (Frame Write).
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Adresse du registre virtuel. \\
+\hline
+{\em value} & Valeur 16 bits à écrire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Résultat de l\textquotesingle{}envoi. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00359}{359}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+\Hypertarget{serial_8h_a2e36acadca0241c32e6182ee7fac4aab}\label{serial_8h_a2e36acadca0241c32e6182ee7fac4aab} 
+\index{serial.h@{serial.h}!serial\_available@{serial\_available}}
+\index{serial\_available@{serial\_available}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_available()}{serial\_available()}}
+{\footnotesize\ttfamily size\+\_\+t serial\+\_\+available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre d\textquotesingle{}octets disponibles dans le buffer RX. 
+
+Retourne le nombre d\textquotesingle{}octets disponibles dans le buffer RX.
+
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets dans le buffer RX. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00204}{204}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+\Hypertarget{serial_8h_a8727fa15c9fb77f93792e9659dd05e82}\label{serial_8h_a8727fa15c9fb77f93792e9659dd05e82} 
+\index{serial.h@{serial.h}!serial\_crc8\_atm@{serial\_crc8\_atm}}
+\index{serial\_crc8\_atm@{serial\_crc8\_atm}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_crc8\_atm()}{serial\_crc8\_atm()}}
+{\footnotesize\ttfamily uint8\+\_\+t serial\+\_\+crc8\+\_\+atm (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Calcule le CRC8 (Polynôme ATM 0x07). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Longueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Checksum calculé.
+\end{DoxyReturn}
+Calcule le CRC8 (Polynôme ATM 0x07).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Longueur des données. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valeur du CRC calculé. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00326}{326}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{serial_8h_a8727fa15c9fb77f93792e9659dd05e82_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial_8h_ad2b461e9e9044364a28a61cfadcacdd8}\label{serial_8h_ad2b461e9e9044364a28a61cfadcacdd8} 
+\index{serial.h@{serial.h}!serial\_init@{serial\_init}}
+\index{serial\_init@{serial\_init}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_init()}{serial\_init()}}
+{\footnotesize\ttfamily void serial\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialise la couche série (DMA + Buffers). 
+
+Initialise la couche série (DMA + Buffers).
+
+Lance la réception DMA en mode "{}\+Receive\+To\+Idle"{} pour détecter les fins de trames sans attendre que le buffer soit plein. 
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00122}{122}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{serial_8h_ad2b461e9e9044364a28a61cfadcacdd8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial_8h_af1ffd0c746c8635c6db4fd0c9efb6090}\label{serial_8h_af1ffd0c746c8635c6db4fd0c9efb6090} 
+\index{serial.h@{serial.h}!serial\_read@{serial\_read}}
+\index{serial\_read@{serial\_read}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_read()}{serial\_read()}}
+{\footnotesize\ttfamily size\+\_\+t serial\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst,  }\item[{size\+\_\+t}]{max\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Lit des données depuis le buffer RX. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & Buffer de destination. \\
+\hline
+{\em max\+\_\+len} & Nombre max d\textquotesingle{}octets à lire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets lus.
+\end{DoxyReturn}
+Copie les données du buffer circulaire interne vers le buffer utilisateur. Gère le cas où les données sont à cheval sur la fin du buffer (wrap). 
+\begin{DoxyParams}{Parameters}
+{\em dst} & Buffer de destination. \\
+\hline
+{\em max\+\_\+len} & Nombre maximum d\textquotesingle{}octets à lire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets réellement lus. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00214}{214}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serial_8h_af1ffd0c746c8635c6db4fd0c9efb6090_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial_8h_a01759c2c56f8eba6d1480739226c91aa}\label{serial_8h_a01759c2c56f8eba6d1480739226c91aa} 
+\index{serial.h@{serial.h}!serial\_read\_until@{serial\_read\_until}}
+\index{serial\_read\_until@{serial\_read\_until}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_read\_until()}{serial\_read\_until()}}
+{\footnotesize\ttfamily size\+\_\+t serial\+\_\+read\+\_\+until (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst,  }\item[{size\+\_\+t}]{max\+\_\+len,  }\item[{uint8\+\_\+t}]{delim }\end{DoxyParamCaption})}
+
+
+
+Lit des données jusqu\textquotesingle{}à un délimiteur spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & Buffer de destination. \\
+\hline
+{\em max\+\_\+len} & Taille max du buffer. \\
+\hline
+{\em delim} & Caractère de fin (ex\+: \textquotesingle{}\textbackslash{}n\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets lus.
+\end{DoxyReturn}
+Lit des données jusqu\textquotesingle{}à un délimiteur spécifique.
+
+\begin{DoxyNote}{Note}
+Fonction utile pour lire des lignes complètes (ex\+: jusqu\textquotesingle{}à \textquotesingle{}\textbackslash{}n\textquotesingle{}). 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & Buffer de destination. \\
+\hline
+{\em max\+\_\+len} & Taille max du buffer destination. \\
+\hline
+{\em delim} & Caractère délimiteur recherché. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets lus (incluant le délimiteur), ou 0 si non trouvé. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00250}{250}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+\Hypertarget{serial_8h_a0462052cfbd13717bb95c3ec2b8c56c8}\label{serial_8h_a0462052cfbd13717bb95c3ec2b8c56c8} 
+\index{serial.h@{serial.h}!serial\_write@{serial\_write}}
+\index{serial\_write@{serial\_write}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_write()}{serial\_write()}}
+{\footnotesize\ttfamily int serial\+\_\+write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Écriture bloquante (Wrapper). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Nombre d\textquotesingle{}octets. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si succès, -\/1 si erreur.
+\end{DoxyReturn}
+Écriture bloquante (Wrapper).
+
+\begin{DoxyNote}{Note}
+En réalité non-\/bloquant ici, renvoie -\/1 en cas d\textquotesingle{}échec. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Longueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si succès, -\/1 si erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00182}{182}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{serial_8h_a0462052cfbd13717bb95c3ec2b8c56c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial_8h_a12e004eaf083ce1dc139435138ab95f0}\label{serial_8h_a12e004eaf083ce1dc139435138ab95f0} 
+\index{serial.h@{serial.h}!serial\_write\_all\_nb@{serial\_write\_all\_nb}}
+\index{serial\_write\_all\_nb@{serial\_write\_all\_nb}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_write\_all\_nb()}{serial\_write\_all\_nb()}}
+{\footnotesize\ttfamily int serial\+\_\+write\+\_\+all\+\_\+nb (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Écriture non-\/bloquante atomique (Tout ou rien). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Nombre d\textquotesingle{}octets. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+len si succès, code erreur négatif si buffer plein.
+\end{DoxyReturn}
+Écriture non-\/bloquante atomique (Tout ou rien).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Nombre d\textquotesingle{}octets. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+len si succès, -\/EWOULDBLOCK si pas assez d\textquotesingle{}espace. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00159}{159}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{serial_8h_a12e004eaf083ce1dc139435138ab95f0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial_8h_a486d407cc691fdca20f4df1df56146dc}\label{serial_8h_a486d407cc691fdca20f4df1df56146dc} 
+\index{serial.h@{serial.h}!serial\_write\_nb@{serial\_write\_nb}}
+\index{serial\_write\_nb@{serial\_write\_nb}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_write\_nb()}{serial\_write\_nb()}}
+{\footnotesize\ttfamily int serial\+\_\+write\+\_\+nb (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Écriture non-\/bloquante partielle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Nombre d\textquotesingle{}octets souhaités. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets écrits (peut être inférieur à len).
+\end{DoxyReturn}
+Écriture non-\/bloquante partielle.
+
+\begin{DoxyNote}{Note}
+Copie autant de données que possible. S\textquotesingle{}arrête si le buffer est plein. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers les données. \\
+\hline
+{\em len} & Nombre d\textquotesingle{}octets à écrire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre d\textquotesingle{}octets réellement écrits ou code d\textquotesingle{}erreur négatif. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{serial_8c_source_l00134}{134}} of file \mbox{\hyperlink{serial_8c_source}{serial.\+c}}.
+

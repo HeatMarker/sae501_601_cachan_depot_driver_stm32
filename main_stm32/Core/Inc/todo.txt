@@ -1,0 +1,11 @@
+Hardaware :
+
+- fonction timer (factorisation) dans le app main
+- revoir la trame de l'imu dans serial_cmd pour etre sur quel est ok
+- revoir les registres et les trames en adéquation avec le nouveau bridge uart
+
+ROS2 :
+- Clean plus vérif des paquets ros installer
+- HOTSPOT @ start
+- Teleop
+- LIDAR

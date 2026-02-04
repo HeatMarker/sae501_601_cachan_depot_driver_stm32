@@ -1,0 +1,5 @@
+<map id="servo_initialisation" name="servo_initialisation">
+<area shape="rect" id="Node000001" title="Initialise le servo&#45;moteur." alt="" coords="5,5,135,31"/>
+<area shape="rect" id="Node000002" href="$driver__servo_8c.html#ae99975cc57bcc8b48267ee20c10d3b0f" title="Commande le servo via un angle en degrés." alt="" coords="183,5,356,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,15,169,15,169,21,135,21"/>
+</map>

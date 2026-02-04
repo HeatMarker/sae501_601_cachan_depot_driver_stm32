@@ -1,0 +1,184 @@
+\doxysection{Motor\+\_\+\+Handle\+\_\+t Struct Reference}
+\hypertarget{structMotor__Handle__t}{}\label{structMotor__Handle__t}\index{Motor\_Handle\_t@{Motor\_Handle\_t}}
+
+
+Handle principal de l\textquotesingle{}objet Moteur.  
+
+
+
+
+{\ttfamily \#include $<$driver\+\_\+motor.\+h$>$}
+
+
+
+Collaboration diagram for Motor\+\_\+\+Handle\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{structMotor__Handle__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}
+\begin{DoxyCompactList}\small\item\em Pointeur vers le handle du Timer PWM (ex\+: \&htim2). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structMotor__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}}
+\begin{DoxyCompactList}\small\item\em Canal du Timer utilisé (ex\+: TIM\+\_\+\+CHANNEL\+\_\+1). \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structMotor__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\+\_\+pulse\+\_\+ticks}}
+\begin{DoxyCompactList}\small\item\em Valeur du registre CCR pour 0\% de PWM. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structMotor__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\+\_\+pulse\+\_\+ticks}}
+\begin{DoxyCompactList}\small\item\em Valeur du registre CCR pour 100\% de PWM. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{structMotor__Handle__t_a0bfc830fe13ed412efa02d707d326310}{max\+\_\+speed\+\_\+pos\+\_\+mms}}
+\begin{DoxyCompactList}\small\item\em Vitesse physique maximale en marche avant (mm/s). \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{structMotor__Handle__t_a3c3e67b61e804ca6acd6fdd818fc7d9b}{max\+\_\+speed\+\_\+neg\+\_\+mms}}
+\begin{DoxyCompactList}\small\item\em Vitesse physique maximale en marche arrière (mm/s, valeur négative). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4ace}{Motor\+State\+\_\+t}} \mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}
+\begin{DoxyCompactList}\small\item\em État actuel de la machine à états. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\+\_\+forward}}
+\begin{DoxyCompactList}\small\item\em Direction actuelle appliquée. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMotor__Context__t}{Motor\+\_\+\+Context\+\_\+t}} \mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}
+\begin{DoxyCompactList}\small\item\em Contexte de transition (cible). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handle principal de l\textquotesingle{}objet Moteur. 
+
+Contient la configuration matérielle, les limites physiques et l\textquotesingle{}état courant. 
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00044}{44}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structMotor__Handle__t_a0c72dd5e18823aef187a34137983c9a6}\label{structMotor__Handle__t_a0c72dd5e18823aef187a34137983c9a6} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!channel@{channel}}
+\index{channel@{channel}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{channel}{channel}}
+{\footnotesize\ttfamily uint32\+\_\+t channel}
+
+
+
+Canal du Timer utilisé (ex\+: TIM\+\_\+\+CHANNEL\+\_\+1). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00046}{46}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}\label{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!ctx@{ctx}}
+\index{ctx@{ctx}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{ctx}{ctx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMotor__Context__t}{Motor\+\_\+\+Context\+\_\+t}} ctx}
+
+
+
+Contexte de transition (cible). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00055}{55}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}\label{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!go\_forward@{go\_forward}}
+\index{go\_forward@{go\_forward}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{go\_forward}{go\_forward}}
+{\footnotesize\ttfamily bool go\+\_\+forward}
+
+
+
+Direction actuelle appliquée. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00054}{54}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}\label{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!htim@{htim}}
+\index{htim@{htim}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{htim}{htim}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
+
+
+
+Pointeur vers le handle du Timer PWM (ex\+: \&htim2). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00045}{45}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a937dd8d6edb1dd47b9c563675626c234}\label{structMotor__Handle__t_a937dd8d6edb1dd47b9c563675626c234} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!max\_pulse\_ticks@{max\_pulse\_ticks}}
+\index{max\_pulse\_ticks@{max\_pulse\_ticks}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{max\_pulse\_ticks}{max\_pulse\_ticks}}
+{\footnotesize\ttfamily uint16\+\_\+t max\+\_\+pulse\+\_\+ticks}
+
+
+
+Valeur du registre CCR pour 100\% de PWM. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00048}{48}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a3c3e67b61e804ca6acd6fdd818fc7d9b}\label{structMotor__Handle__t_a3c3e67b61e804ca6acd6fdd818fc7d9b} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!max\_speed\_neg\_mms@{max\_speed\_neg\_mms}}
+\index{max\_speed\_neg\_mms@{max\_speed\_neg\_mms}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{max\_speed\_neg\_mms}{max\_speed\_neg\_mms}}
+{\footnotesize\ttfamily int16\+\_\+t max\+\_\+speed\+\_\+neg\+\_\+mms}
+
+
+
+Vitesse physique maximale en marche arrière (mm/s, valeur négative). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00051}{51}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a0bfc830fe13ed412efa02d707d326310}\label{structMotor__Handle__t_a0bfc830fe13ed412efa02d707d326310} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!max\_speed\_pos\_mms@{max\_speed\_pos\_mms}}
+\index{max\_speed\_pos\_mms@{max\_speed\_pos\_mms}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{max\_speed\_pos\_mms}{max\_speed\_pos\_mms}}
+{\footnotesize\ttfamily int16\+\_\+t max\+\_\+speed\+\_\+pos\+\_\+mms}
+
+
+
+Vitesse physique maximale en marche avant (mm/s). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00050}{50}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}\label{structMotor__Handle__t_a0357f0a706e54eb48039003dd8c70d7e} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!min\_pulse\_ticks@{min\_pulse\_ticks}}
+\index{min\_pulse\_ticks@{min\_pulse\_ticks}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{min\_pulse\_ticks}{min\_pulse\_ticks}}
+{\footnotesize\ttfamily uint16\+\_\+t min\+\_\+pulse\+\_\+ticks}
+
+
+
+Valeur du registre CCR pour 0\% de PWM. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00047}{47}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}\label{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff} 
+\index{Motor\_Handle\_t@{Motor\_Handle\_t}!state@{state}}
+\index{state@{state}!Motor\_Handle\_t@{Motor\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4ace}{Motor\+State\+\_\+t}} state}
+
+
+
+État actuel de la machine à états. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00053}{53}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core/\+Inc/\mbox{\hyperlink{driver__motor_8h}{driver\+\_\+motor.\+h}}\end{DoxyCompactItemize}

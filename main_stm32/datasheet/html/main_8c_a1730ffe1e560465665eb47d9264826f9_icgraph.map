@@ -1,0 +1,26 @@
+<map id="Error_Handler" name="Error_Handler">
+<area shape="rect" id="Node000001" title="This function is executed in case of error occurrence." alt="" coords="323,179,425,204"/>
+<area shape="rect" id="Node000002" href="$tim_8c.html#a59716af159bfbbb6023b31354fb23af8" title=" " alt="" coords="107,5,272,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="360,167,327,105,303,72,273,44,253,33,255,28,276,40,307,68,332,102,365,164"/>
+<area shape="rect" id="Node000003" href="$usart_8c.html#a62a25476866998c7aadfb5c0864fa349" title=" " alt="" coords="118,55,261,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="354,170,319,130,297,111,273,94,249,83,251,78,276,89,300,106,323,127,358,166"/>
+<area shape="rect" id="Node000004" href="$spi_8c.html#af81398f9775695df0b172367651ca3e6" title=" " alt="" coords="138,104,241,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="338,174,274,143,240,132,242,127,276,138,340,169"/>
+<area shape="rect" id="Node000006" href="$tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="137,153,241,179"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="309,185,241,176,242,170,309,180"/>
+<area shape="rect" id="Node000007" href="$tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="137,203,241,228"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="309,202,242,211,241,206,309,197"/>
+<area shape="rect" id="Node000008" href="$tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="137,252,241,277"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="339,213,276,242,239,254,237,249,274,237,336,208"/>
+<area shape="rect" id="Node000009" href="$usart_8c.html#a052088fe5bb3f807a4b2502e664fd4fd" title=" " alt="" coords="104,301,275,327"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="356,217,322,255,276,291,248,304,246,299,273,286,318,251,353,213"/>
+<area shape="rect" id="Node000010" href="$main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="116,351,263,376"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="365,218,331,279,306,312,276,340,253,353,250,348,273,336,303,308,327,276,360,215"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,228,56,253"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="126,132,106,143,83,163,65,186,40,229,35,226,60,183,79,159,102,138,124,127"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="126,184,105,192,74,211,49,230,45,226,71,206,103,188,124,179"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="124,228,57,239,56,234,123,223"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="123,257,56,247,56,242,124,252"/>
+<area shape="poly" id="edge12_Node000009_Node000005" title=" " alt="" coords="123,299,103,291,72,274,47,256,50,251,75,269,105,286,125,294"/>
+<area shape="poly" id="edge14_Node000010_Node000005" title=" " alt="" coords="115,347,102,340,80,320,61,297,36,255,40,252,65,294,84,316,106,336,117,343"/>
+</map>

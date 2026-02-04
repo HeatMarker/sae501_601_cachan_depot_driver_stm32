@@ -1,0 +1,5 @@
+<map id="Motor_Handle_t" name="Motor_Handle_t">
+<area shape="rect" id="Node000001" title="Handle principal de l&#39;objet Moteur." alt="" coords="7,93,122,119"/>
+<area shape="rect" id="Node000002" href="$structMotor__Context__t.html" title="Structure de contexte interne pour la gestion des transitions." alt="" coords="5,5,124,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,45,67,93,62,93,62,45"/>
+</map>

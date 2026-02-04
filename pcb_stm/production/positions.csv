@@ -1,0 +1,10 @@
+﻿Designator,Mid X,Mid Y,Rotation,Layer
+_4,2.605,2.35,0.0,top
+_3,2.605,95.06,0.0,top
+_2,73.09,2.35,0.0,top
+,73.09,95.06,0.0,top
+ENC,5.983907,90.539507,270.0,bottom
+JBMI088,58.62,90.615,90.0,bottom
+PWM_MOTOR,38.165,90.615,90.0,bottom
+PWM_SERVO,15.8384,90.615,90.0,bottom
+U1,37.53,44.245,0.0,bottom

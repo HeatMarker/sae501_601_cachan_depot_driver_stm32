@@ -1,0 +1,140 @@
+\doxysection{Core/\+Inc/app\+\_\+main.h File Reference}
+\hypertarget{app__main_8h}{}\label{app__main_8h}\index{Core/Inc/app\_main.h@{Core/Inc/app\_main.h}}
+
+
+En-\/tête de l\textquotesingle{}application principale.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{app__main_8h_aa1fb38a41446e4d5e66f59da21651832}{app\+\_\+config}} (void)
+\begin{DoxyCompactList}\small\item\em Configure l\textquotesingle{}ensemble de l\textquotesingle{}application (Hardware + Drivers). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f}{app\+\_\+loop}} (void)
+\begin{DoxyCompactList}\small\item\em Exécute la boucle principale (Scheduler). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{app__main_8h_a92f10242a4d6c222e4b8c2c56291b003}{speed\+\_\+speedo\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Variable globale de vitesse (m/s) partagée entre le Speedometer et la Télémétrie. \end{DoxyCompactList}\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{app__main_8h_a0da4b66d17e1a075b80d5f3f6ead6b80}{tim3\+\_\+overflow\+\_\+cnt}}
+\begin{DoxyCompactList}\small\item\em Compteur d\textquotesingle{}overflow pour l\textquotesingle{}extension 32-\/bits du Timer microseconde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+En-\/tête de l\textquotesingle{}application principale. 
+
+Expose les points d\textquotesingle{}entrée (Setup/\+Loop) et les variables globales partagées nécessaires à la gestion du temps et de la vitesse. 
+
+Definition in file \mbox{\hyperlink{app__main_8h_source}{app\+\_\+main.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{app__main_8h_aa1fb38a41446e4d5e66f59da21651832}\label{app__main_8h_aa1fb38a41446e4d5e66f59da21651832} 
+\index{app\_main.h@{app\_main.h}!app\_config@{app\_config}}
+\index{app\_config@{app\_config}!app\_main.h@{app\_main.h}}
+\doxysubsubsection{\texorpdfstring{app\_config()}{app\_config()}}
+{\footnotesize\ttfamily void app\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configure l\textquotesingle{}ensemble de l\textquotesingle{}application (Hardware + Drivers). 
+
+Configure l\textquotesingle{}ensemble de l\textquotesingle{}application (Hardware + Drivers).
+
+Configure les Timers, active les interruptions nécessaires, initialise les drivers (Série, BMI088, Servo, Moteur, Speedo) et cale les horloges. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00193}{193}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8h_aa1fb38a41446e4d5e66f59da21651832_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{app__main_8h_aa1fb38a41446e4d5e66f59da21651832_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f}\label{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f} 
+\index{app\_main.h@{app\_main.h}!app\_loop@{app\_loop}}
+\index{app\_loop@{app\_loop}!app\_main.h@{app\_main.h}}
+\doxysubsubsection{\texorpdfstring{app\_loop()}{app\_loop()}}
+{\footnotesize\ttfamily void app\+\_\+loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Exécute la boucle principale (Scheduler). 
+
+Exécute la boucle principale (Scheduler).
+
+Exécute séquentiellement \+:
+\begin{DoxyEnumerate}
+\item La lecture des données série (Polling).
+\item Le traitement des commandes (si disponibles).
+\item La vérification de sécurité.
+\item L\textquotesingle{}ordonnancement des tâches périodiques basées sur {\ttfamily now\+\_\+us}. \begin{DoxyNote}{Note}
+Le compteur {\ttfamily now\+\_\+us} boucle après environ 71 minutes. 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00221}{221}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{app__main_8h_adbd885cc67281e9f2e48f2a45454bd4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{app__main_8h_a92f10242a4d6c222e4b8c2c56291b003}\label{app__main_8h_a92f10242a4d6c222e4b8c2c56291b003} 
+\index{app\_main.h@{app\_main.h}!speed\_speedo\_data@{speed\_speedo\_data}}
+\index{speed\_speedo\_data@{speed\_speedo\_data}!app\_main.h@{app\_main.h}}
+\doxysubsubsection{\texorpdfstring{speed\_speedo\_data}{speed\_speedo\_data}}
+{\footnotesize\ttfamily float speed\+\_\+speedo\+\_\+data\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Variable globale de vitesse (m/s) partagée entre le Speedometer et la Télémétrie. 
+
+Variable globale de vitesse (m/s) partagée entre le Speedometer et la Télémétrie. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00081}{81}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8h_a0da4b66d17e1a075b80d5f3f6ead6b80}\label{app__main_8h_a0da4b66d17e1a075b80d5f3f6ead6b80} 
+\index{app\_main.h@{app\_main.h}!tim3\_overflow\_cnt@{tim3\_overflow\_cnt}}
+\index{tim3\_overflow\_cnt@{tim3\_overflow\_cnt}!app\_main.h@{app\_main.h}}
+\doxysubsubsection{\texorpdfstring{tim3\_overflow\_cnt}{tim3\_overflow\_cnt}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t tim3\+\_\+overflow\+\_\+cnt\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Compteur d\textquotesingle{}overflow pour l\textquotesingle{}extension 32-\/bits du Timer microseconde. 
+
+Compteur d\textquotesingle{}overflow pour l\textquotesingle{}extension 32-\/bits du Timer microseconde. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00084}{84}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+

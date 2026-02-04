@@ -1,0 +1,39 @@
+\doxysection{driver\+\_\+speedometer.\+c}
+\hypertarget{driver__speedometer_8c_source}{}\label{driver__speedometer_8c_source}\index{Core/Src/driver\_speedometer.c@{Core/Src/driver\_speedometer.c}}
+\mbox{\hyperlink{driver__speedometer_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__speedometer_8h}{driver\_speedometer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00020}\mbox{\hyperlink{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c}{00020}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{driver__speedometer_8c_a99eb85ff393e26dd27e9dc56beefe05c}{speedometer\_solve\_speed}}(\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}}\ *\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}})\{}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00021}00021\ \ \ \ \ uint32\_t\ now\ =\ HAL\_GetTick();}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00022}00022\ \ \ \ \ uint32\_t\ time\_diff\_ms\ =\ now\ -\/\ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{last\_process\_time}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}(time\_diff\_ms\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{current\_speed\_ms}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00028}00028\ \ \ \ \ uint16\_t\ current\_counter\ =\ (uint16\_t)\_\_HAL\_TIM\_GET\_COUNTER(\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}});}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00029}00029\ \ \ \ \ uint16\_t\ pulses\ =\ current\_counter\ -\/\ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{last\_counter\_val}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{float}\ wheel\_turns\ =\ (float)pulses\ /\ \mbox{\hyperlink{driver__speedometer_8h_a28a11eecf5a251e3e4d1f47ff5518ca6}{TICKS\_PER\_WHEEL\_TURN}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{float}\ distance\_m\ =\ wheel\_turns\ *\ \mbox{\hyperlink{driver__speedometer_8h_a543efa9e2ef5ff5d69bc4bbf429386be}{PERIMETER\_M}};}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{float}\ speed\_ms\ =\ distance\_m\ /\ ((float)time\_diff\_ms\ /\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{last\_counter\_val}}\ =\ current\_counter;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{last\_process\_time}}\ =\ now;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{current\_speed\_ms}}\ =\ speed\_ms;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ speed\_ms;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00048}\mbox{\hyperlink{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__speedometer_8c_a0d1d9c0c545755ba0f37f4e28851412c}{speedometer\_init}}(\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\_Handle\_t}}\ *\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}},\ TIM\_HandleTypeDef\ *htim)\{}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}\ =\ htim;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{last\_counter\_val}}\ =\ (uint16\_t)\_\_HAL\_TIM\_GET\_COUNTER(\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}});}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{last\_process\_time}}\ =\ HAL\_GetTick();}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{current\_speed\_ms}}\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00054}00054\ \ \ \ \ HAL\_TIM\_Base\_Start(\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{hSpeedo}}-\/>\mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}});}
+\DoxyCodeLine{\Hypertarget{driver__speedometer_8c_source_l00055}00055\ \}}
+
+\end{DoxyCode}

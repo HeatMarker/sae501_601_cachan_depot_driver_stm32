@@ -1,0 +1,313 @@
+\doxysection{Core/\+Inc/serial\+\_\+cmd.h File Reference}
+\hypertarget{serial__cmd_8h}{}\label{serial__cmd_8h}\index{Core/Inc/serial\_cmd.h@{Core/Inc/serial\_cmd.h}}
+
+
+Définitions des commandes et structures du protocole applicatif.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for serial\+\_\+cmd.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{serial__cmd_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{serial__cmd_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{serial__cmd_8h_acc82949b4181a8c1053db6ee4be02d5c}{REG\+\_\+\+SERVO\+\_\+\+CMD}}~0x00
+\begin{DoxyCompactList}\small\item\em Adresse du registre virtuel pour la commande Servo (0-\/100\%). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial__cmd_8h_a8a055ca7148fbafe75c8f331ad6412fc}{REG\+\_\+\+MOTOR\+\_\+\+CMD}}~0x01
+\begin{DoxyCompactList}\small\item\em Adresse du registre virtuel pour la commande Moteur (mm/s). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{serial__cmd_8h_aef703b61373acf8ebe427dc648f6d672}{REG\+\_\+\+BMI}}~0x02
+\begin{DoxyCompactList}\small\item\em Adresse du registre virtuel pour les commandes BMI088 (réservé). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}} \{ \newline
+\mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}{PARSER\+\_\+\+IDLE}}
+, \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac62034925637bcbcf20dc44af8e44e6b}{PARSER\+\_\+\+SERVO\+\_\+\+CMD}}
+, \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac5363eb8e7a5e8f5110f9f02c4083b1c}{PARSER\+\_\+\+MOTOR\+\_\+\+CMD}}
+, \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a2b8fca70a8c7075d5f70379a11cdefc3}{PARSER\+\_\+\+BMI\+\_\+\+CMD}}
+, \newline
+\mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a4d4c6ffd044c1dae23830894dba58cad}{PARSER\+\_\+\+OTHERS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicateur de résultat du parsing pour la boucle principale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{serial__cmd_8h_ab898071398b359603a35c202e9c65f3b}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((packed))
+\begin{DoxyCompactList}\small\item\em Structure de la trame de télémétrie envoyée vers la Pi5. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8}{serial\+\_\+cmd\+\_\+reader}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction de lecture périodique des commandes entrantes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serial__cmd_8h_aeb9ebb55bdc9cfaab6d3a71c2c203714}{serial\+\_\+send\+\_\+data\+\_\+frame}} (void)
+\begin{DoxyCompactList}\small\item\em Capture les capteurs et envoie la trame de télémétrie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{serial__cmd_8h_a061125d1cb0fd3586427627f1da81863}{Serial\+Imu\+Frame\+\_\+t}}
+\item 
+\mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}} \mbox{\hyperlink{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54}{parser\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em État global du parseur, lu par le main pour appliquer les consignes. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{serial__cmd_8h_a88bb0f641c66787df882885a0b5c14f3}{shadow\+\_\+servo\+\_\+cmd}}
+\begin{DoxyCompactList}\small\item\em Dernière consigne reçue pour le servo (Shadow Register). \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{serial__cmd_8h_a2beb6a7c48f4eee3f5c4f42b8db8ceac}{shadow\+\_\+motor\+\_\+cmd}}
+\begin{DoxyCompactList}\small\item\em Dernière consigne reçue pour le moteur (Shadow Register). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Définitions des commandes et structures du protocole applicatif. 
+
+Contient les adresses des registres virtuels, la définition de la trame de télémétrie binaire et les états de notification du parseur. 
+
+Definition in file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{serial__cmd_8h_aef703b61373acf8ebe427dc648f6d672}\label{serial__cmd_8h_aef703b61373acf8ebe427dc648f6d672} 
+\index{serial\_cmd.h@{serial\_cmd.h}!REG\_BMI@{REG\_BMI}}
+\index{REG\_BMI@{REG\_BMI}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{REG\_BMI}{REG\_BMI}}
+{\footnotesize\ttfamily \#define REG\+\_\+\+BMI~0x02}
+
+
+
+Adresse du registre virtuel pour les commandes BMI088 (réservé). 
+
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00020}{20}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+\Hypertarget{serial__cmd_8h_a8a055ca7148fbafe75c8f331ad6412fc}\label{serial__cmd_8h_a8a055ca7148fbafe75c8f331ad6412fc} 
+\index{serial\_cmd.h@{serial\_cmd.h}!REG\_MOTOR\_CMD@{REG\_MOTOR\_CMD}}
+\index{REG\_MOTOR\_CMD@{REG\_MOTOR\_CMD}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{REG\_MOTOR\_CMD}{REG\_MOTOR\_CMD}}
+{\footnotesize\ttfamily \#define REG\+\_\+\+MOTOR\+\_\+\+CMD~0x01}
+
+
+
+Adresse du registre virtuel pour la commande Moteur (mm/s). 
+
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00018}{18}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+\Hypertarget{serial__cmd_8h_acc82949b4181a8c1053db6ee4be02d5c}\label{serial__cmd_8h_acc82949b4181a8c1053db6ee4be02d5c} 
+\index{serial\_cmd.h@{serial\_cmd.h}!REG\_SERVO\_CMD@{REG\_SERVO\_CMD}}
+\index{REG\_SERVO\_CMD@{REG\_SERVO\_CMD}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{REG\_SERVO\_CMD}{REG\_SERVO\_CMD}}
+{\footnotesize\ttfamily \#define REG\+\_\+\+SERVO\+\_\+\+CMD~0x00}
+
+
+
+Adresse du registre virtuel pour la commande Servo (0-\/100\%). 
+
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00016}{16}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654} 
+\index{serial\_cmd.h@{serial\_cmd.h}!ParserSwitch@{ParserSwitch}}
+\index{ParserSwitch@{ParserSwitch}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{ParserSwitch}{ParserSwitch}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}}}
+
+
+
+Indicateur de résultat du parsing pour la boucle principale. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARSER\_IDLE@{PARSER\_IDLE}!serial\_cmd.h@{serial\_cmd.h}}\index{serial\_cmd.h@{serial\_cmd.h}!PARSER\_IDLE@{PARSER\_IDLE}}}\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2} 
+PARSER\+\_\+\+IDLE&Aucune nouvelle commande traitée. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARSER\_SERVO\_CMD@{PARSER\_SERVO\_CMD}!serial\_cmd.h@{serial\_cmd.h}}\index{serial\_cmd.h@{serial\_cmd.h}!PARSER\_SERVO\_CMD@{PARSER\_SERVO\_CMD}}}\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac62034925637bcbcf20dc44af8e44e6b}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac62034925637bcbcf20dc44af8e44e6b} 
+PARSER\+\_\+\+SERVO\+\_\+\+CMD&Une commande Servo a été reçue et validée. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARSER\_MOTOR\_CMD@{PARSER\_MOTOR\_CMD}!serial\_cmd.h@{serial\_cmd.h}}\index{serial\_cmd.h@{serial\_cmd.h}!PARSER\_MOTOR\_CMD@{PARSER\_MOTOR\_CMD}}}\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac5363eb8e7a5e8f5110f9f02c4083b1c}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654ac5363eb8e7a5e8f5110f9f02c4083b1c} 
+PARSER\+\_\+\+MOTOR\+\_\+\+CMD&Une commande Moteur a été reçue et validée. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARSER\_BMI\_CMD@{PARSER\_BMI\_CMD}!serial\_cmd.h@{serial\_cmd.h}}\index{serial\_cmd.h@{serial\_cmd.h}!PARSER\_BMI\_CMD@{PARSER\_BMI\_CMD}}}\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a2b8fca70a8c7075d5f70379a11cdefc3}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a2b8fca70a8c7075d5f70379a11cdefc3} 
+PARSER\+\_\+\+BMI\+\_\+\+CMD&Une commande BMI a été reçue. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARSER\_OTHERS@{PARSER\_OTHERS}!serial\_cmd.h@{serial\_cmd.h}}\index{serial\_cmd.h@{serial\_cmd.h}!PARSER\_OTHERS@{PARSER\_OTHERS}}}\Hypertarget{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a4d4c6ffd044c1dae23830894dba58cad}\label{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654a4d4c6ffd044c1dae23830894dba58cad} 
+PARSER\+\_\+\+OTHERS&Une autre commande a été reçue. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00042}{42}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serial__cmd_8h_ab898071398b359603a35c202e9c65f3b}\label{serial__cmd_8h_ab898071398b359603a35c202e9c65f3b} 
+\index{serial\_cmd.h@{serial\_cmd.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(packed)}]{ }\end{DoxyParamCaption})}
+
+
+
+Structure de la trame de télémétrie envoyée vers la Pi5. 
+
+\begin{DoxyNote}{Note}
+Structure "{}packed"{} pour éviter le padding et garantir l\textquotesingle{}alignement binaire. Format total \+: 4 (Header/\+Meta) + 4 (Time) + 12 (Accel) + 12 (Gyro) + 4 (Speed) + 1 (CRC) = 37 octets. 
+\end{DoxyNote}
+\texorpdfstring{$<$}{<} Octet de synchronisation 1 (0x\+AA).
+
+\texorpdfstring{$<$}{<} Octet de synchronisation 2 (0x55).
+
+\texorpdfstring{$<$}{<} Type de packet (0x01 pour Télémétrie).
+
+\texorpdfstring{$<$}{<} Longueur du payload (32 octets).
+
+\texorpdfstring{$<$}{<} Timestamp système (HAL\+\_\+\+Get\+Tick).
+
+\texorpdfstring{$<$}{<} Données Accéléromètre \mbox{[}X, Y, Z\mbox{]} en mm/s².
+
+\texorpdfstring{$<$}{<} Données Gyroscope \mbox{[}X, Y, Z\mbox{]} en rad/s.
+
+\texorpdfstring{$<$}{<} Vitesse linéaire du véhicule en m/s.
+
+\texorpdfstring{$<$}{<} Checksum CRC-\/8 pour validation de l\textquotesingle{}intégrité.
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00001}{1}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+\Hypertarget{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8}\label{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8} 
+\index{serial\_cmd.h@{serial\_cmd.h}!serial\_cmd\_reader@{serial\_cmd\_reader}}
+\index{serial\_cmd\_reader@{serial\_cmd\_reader}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{serial\_cmd\_reader()}{serial\_cmd\_reader()}}
+{\footnotesize\ttfamily void serial\+\_\+cmd\+\_\+reader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction de lecture périodique des commandes entrantes. 
+
+Lit le buffer circulaire RX et alimente la machine à états.
+
+Fonction de lecture périodique des commandes entrantes.
+
+Récupère les données brutes du buffer circulaire RX et les passe octet par octet à la machine à états. 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00138}{138}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{serial__cmd_8h_a20647655fddac6cbbc9cc201d726e5c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial__cmd_8h_aeb9ebb55bdc9cfaab6d3a71c2c203714}\label{serial__cmd_8h_aeb9ebb55bdc9cfaab6d3a71c2c203714} 
+\index{serial\_cmd.h@{serial\_cmd.h}!serial\_send\_data\_frame@{serial\_send\_data\_frame}}
+\index{serial\_send\_data\_frame@{serial\_send\_data\_frame}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{serial\_send\_data\_frame()}{serial\_send\_data\_frame()}}
+{\footnotesize\ttfamily void serial\+\_\+send\+\_\+data\+\_\+frame (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Capture les capteurs et envoie la trame de télémétrie. 
+
+Lit l\textquotesingle{}IMU et le compteur de vitesse, remplit Serial\+Imu\+Frame\+\_\+t, calcule le CRC et transmet via DMA.
+
+Capture les capteurs et envoie la trame de télémétrie.
+
+
+\begin{DoxyEnumerate}
+\item Lit l\textquotesingle{}IMU (Accéléromètre + Gyroscope).
+\item Récupère la vitesse (Speedometer).
+\item Déduit le signe de la vitesse grâce à la commande moteur (Marche AR).
+\item Formate le paquet binaire (Serial\+Imu\+Frame\+\_\+t) avec CRC.
+\item Envoie le tout de manière non-\/bloquante via DMA. 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00156}{156}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serial__cmd_8h_aeb9ebb55bdc9cfaab6d3a71c2c203714_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54}\label{serial__cmd_8h_a28d65f75dee58371089e29f0723a5e54} 
+\index{serial\_cmd.h@{serial\_cmd.h}!parser\_state@{parser\_state}}
+\index{parser\_state@{parser\_state}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{parser\_state}{parser\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}} parser\+\_\+state\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+État global du parseur, lu par le main pour appliquer les consignes. 
+
+État global du parseur, lu par le main pour appliquer les consignes. 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00018}{18}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+\Hypertarget{serial__cmd_8h_a061125d1cb0fd3586427627f1da81863}\label{serial__cmd_8h_a061125d1cb0fd3586427627f1da81863} 
+\index{serial\_cmd.h@{serial\_cmd.h}!SerialImuFrame\_t@{SerialImuFrame\_t}}
+\index{SerialImuFrame\_t@{SerialImuFrame\_t}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{SerialImuFrame\_t}{SerialImuFrame\_t}}
+{\footnotesize\ttfamily Serial\+Imu\+Frame\+\_\+t}
+
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8h_source_l00037}{37}} of file \mbox{\hyperlink{serial__cmd_8h_source}{serial\+\_\+cmd.\+h}}.
+
+\Hypertarget{serial__cmd_8h_a2beb6a7c48f4eee3f5c4f42b8db8ceac}\label{serial__cmd_8h_a2beb6a7c48f4eee3f5c4f42b8db8ceac} 
+\index{serial\_cmd.h@{serial\_cmd.h}!shadow\_motor\_cmd@{shadow\_motor\_cmd}}
+\index{shadow\_motor\_cmd@{shadow\_motor\_cmd}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{shadow\_motor\_cmd}{shadow\_motor\_cmd}}
+{\footnotesize\ttfamily int16\+\_\+t shadow\+\_\+motor\+\_\+cmd\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Dernière consigne reçue pour le moteur (Shadow Register). 
+
+Dernière consigne reçue pour le moteur (Shadow Register). 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00042}{42}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+\Hypertarget{serial__cmd_8h_a88bb0f641c66787df882885a0b5c14f3}\label{serial__cmd_8h_a88bb0f641c66787df882885a0b5c14f3} 
+\index{serial\_cmd.h@{serial\_cmd.h}!shadow\_servo\_cmd@{shadow\_servo\_cmd}}
+\index{shadow\_servo\_cmd@{shadow\_servo\_cmd}!serial\_cmd.h@{serial\_cmd.h}}
+\doxysubsubsection{\texorpdfstring{shadow\_servo\_cmd}{shadow\_servo\_cmd}}
+{\footnotesize\ttfamily int8\+\_\+t shadow\+\_\+servo\+\_\+cmd\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Dernière consigne reçue pour le servo (Shadow Register). 
+
+Dernière consigne reçue pour le servo (Shadow Register). 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00040}{40}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+

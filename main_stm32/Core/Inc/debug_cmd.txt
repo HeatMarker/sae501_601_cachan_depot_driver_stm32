@@ -1,0 +1,95 @@
+//servo_pwm_angle_degree(&hServo1, 0);
+//motor_set_speed_mms(&hMotor1, 0);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+int8_t angle;
+
+for(angle = -20; angle <= 20; angle++){
+    servo_pwm_angle_degree(&hServo1, angle);
+    HAL_Delay(5);
+}
+HAL_Delay(500);
+for(angle = 20; angle >= -20; angle--){
+    servo_pwm_angle_degree(&hServo1, angle);
+    HAL_Delay(5);
+}
+HAL_Delay(500);
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+for (int speed = 0; speed <= 1000; speed += 100){
+	motor_set_speed_mms(&hMotor1, speed);
+    printf("%d\r\n", speed);
+    HAL_Delay(100);
+}
+
+HAL_Delay(1000);
+
+for (int speed = 0; speed >= -500; speed -= 100){
+	motor_set_speed_mms(&hMotor1, speed);
+    printf("%d\r\n", speed);
+    HAL_Delay(100);
+}
+
+HAL_Delay(1000);
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+static uint32_t last_calc = 0;
+
+if (HAL_GetTick() - last_calc > 100) {
+	speed_speedo_data = speedometer_solve_speed(&varSpeedo);
+    //printf("Vitesse : %.4f m/s\r\n", vitesse);
+    last_calc = HAL_GetTick();
+}
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+uint32_t a = __HAL_TIM_GET_COUNTER(&htim4);
+static uint32_t last_print_time = 0;
+
+if (HAL_GetTick() - last_print_time > 100) {
+    printf("capture : %lu \n\r", a);
+    last_print_time = HAL_GetTick();
+}
+*/
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+struct bmi08_sensor_data accel_raw, gyro_raw;
+float accel_mms2[3], gyro_rads[3];
+
+if(BMI088_Read_Accel_Raw(&accel_raw) == BMI08_OK &&
+       BMI088_Read_Gyro_Raw(&gyro_raw) == BMI08_OK){
+
+        printf("ACC RAW : X=%7d Y=%7d Z=%7d        | GYR RAW : X=%7d Y=%7d Z=%7d || ",
+               accel_raw.x,
+               accel_raw.y,
+               accel_raw.z,
+               gyro_raw.x,
+               gyro_raw.y,
+               gyro_raw.z);
+
+        BMI088_Convert_Accel(&accel_raw, accel_mms2);
+        BMI088_Convert_Gyro(&gyro_raw, gyro_rads);
+
+        printf("ACC MMS^2: X=%7d Y=%7d Z=%7d mm/s^2  | GYR RAD/s: X=%7d Y=%7d Z=%7d rad/s\r\n",
+               (int)accel_mms2[0],
+               (int)accel_mms2[1],
+               (int)accel_mms2[2],
+               (int)gyro_rads[0],
+               (int)gyro_rads[1],
+               (int)gyro_rads[2]);
+    }
+
+HAL_Delay(100);
+*/

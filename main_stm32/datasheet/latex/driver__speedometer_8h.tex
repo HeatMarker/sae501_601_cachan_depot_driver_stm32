@@ -1,0 +1,205 @@
+\doxysection{Core/\+Inc/driver\+\_\+speedometer.h File Reference}
+\hypertarget{driver__speedometer_8h}{}\label{driver__speedometer_8h}\index{Core/Inc/driver\_speedometer.h@{Core/Inc/driver\_speedometer.h}}
+
+
+Fichier d\textquotesingle{}en-\/tête pour le capteur de vitesse (Tachymètre).  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for driver\+\_\+speedometer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__speedometer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__speedometer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure de gestion du tachymètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5}{WHEEL\+\_\+\+DIAMETER\+\_\+\+MM}}~68.\+0f
+\begin{DoxyCompactList}\small\item\em Diamètre de la roue du véhicule en millimètres. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff}{NB\+\_\+\+TOURS\+\_\+\+TEST}}~10.\+0f
+\begin{DoxyCompactList}\small\item\em Nombre de tours de roue effectués lors de la calibration. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254}{VALEUR\+\_\+\+COMPTEUR\+\_\+\+LUE}}~52.\+0f
+\begin{DoxyCompactList}\small\item\em Nombre de ticks capteur relevés pour le nombre de tours de test. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__speedometer_8h_a28a11eecf5a251e3e4d1f47ff5518ca6}{TICKS\+\_\+\+PER\+\_\+\+WHEEL\+\_\+\+TURN}}~(\mbox{\hyperlink{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254}{VALEUR\+\_\+\+COMPTEUR\+\_\+\+LUE}} / \mbox{\hyperlink{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff}{NB\+\_\+\+TOURS\+\_\+\+TEST}})
+\begin{DoxyCompactList}\small\item\em Nombre de ticks capteur correspondant à un tour complet de roue. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__speedometer_8h_a543efa9e2ef5ff5d69bc4bbf429386be}{PERIMETER\+\_\+M}}~((\mbox{\hyperlink{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5}{WHEEL\+\_\+\+DIAMETER\+\_\+\+MM}} \texorpdfstring{$\ast$}{*} 3.\+14159f) / 1000.\+0f)
+\begin{DoxyCompactList}\small\item\em Périmètre de la roue en mètres (Distance pour un tour). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c}{speedometer\+\_\+init}} (\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{h\+Speedo}}, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}objet tachymètre. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c}{speedometer\+\_\+solve\+\_\+speed}} (\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{h\+Speedo}})
+\begin{DoxyCompactList}\small\item\em Calcule la vitesse actuelle basée sur les impulsions reçues. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fichier d\textquotesingle{}en-\/tête pour le capteur de vitesse (Tachymètre). 
+
+Contient les paramètres physiques du véhicule (diamètre roue), les constantes de calibration du capteur (ticks par tour) et la définition de la structure objet. 
+
+Definition in file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff}\label{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!NB\_TOURS\_TEST@{NB\_TOURS\_TEST}}
+\index{NB\_TOURS\_TEST@{NB\_TOURS\_TEST}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{NB\_TOURS\_TEST}{NB\_TOURS\_TEST}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+TOURS\+\_\+\+TEST~10.\+0f}
+
+
+
+Nombre de tours de roue effectués lors de la calibration. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00019}{19}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{driver__speedometer_8h_a543efa9e2ef5ff5d69bc4bbf429386be}\label{driver__speedometer_8h_a543efa9e2ef5ff5d69bc4bbf429386be} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!PERIMETER\_M@{PERIMETER\_M}}
+\index{PERIMETER\_M@{PERIMETER\_M}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{PERIMETER\_M}{PERIMETER\_M}}
+{\footnotesize\ttfamily \#define PERIMETER\+\_\+M~((\mbox{\hyperlink{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5}{WHEEL\+\_\+\+DIAMETER\+\_\+\+MM}} \texorpdfstring{$\ast$}{*} 3.\+14159f) / 1000.\+0f)}
+
+
+
+Périmètre de la roue en mètres (Distance pour un tour). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00028}{28}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{driver__speedometer_8h_a28a11eecf5a251e3e4d1f47ff5518ca6}\label{driver__speedometer_8h_a28a11eecf5a251e3e4d1f47ff5518ca6} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!TICKS\_PER\_WHEEL\_TURN@{TICKS\_PER\_WHEEL\_TURN}}
+\index{TICKS\_PER\_WHEEL\_TURN@{TICKS\_PER\_WHEEL\_TURN}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{TICKS\_PER\_WHEEL\_TURN}{TICKS\_PER\_WHEEL\_TURN}}
+{\footnotesize\ttfamily \#define TICKS\+\_\+\+PER\+\_\+\+WHEEL\+\_\+\+TURN~(\mbox{\hyperlink{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254}{VALEUR\+\_\+\+COMPTEUR\+\_\+\+LUE}} / \mbox{\hyperlink{driver__speedometer_8h_ab85df34d155078d45fbfcbba0deb9eff}{NB\+\_\+\+TOURS\+\_\+\+TEST}})}
+
+
+
+Nombre de ticks capteur correspondant à un tour complet de roue. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00025}{25}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254}\label{driver__speedometer_8h_ace2f5db5ab248043cd1bdec44169c254} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!VALEUR\_COMPTEUR\_LUE@{VALEUR\_COMPTEUR\_LUE}}
+\index{VALEUR\_COMPTEUR\_LUE@{VALEUR\_COMPTEUR\_LUE}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{VALEUR\_COMPTEUR\_LUE}{VALEUR\_COMPTEUR\_LUE}}
+{\footnotesize\ttfamily \#define VALEUR\+\_\+\+COMPTEUR\+\_\+\+LUE~52.\+0f}
+
+
+
+Nombre de ticks capteur relevés pour le nombre de tours de test. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00022}{22}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5}\label{driver__speedometer_8h_a940fd55e786f04d018053dcd8cf9a6d5} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!WHEEL\_DIAMETER\_MM@{WHEEL\_DIAMETER\_MM}}
+\index{WHEEL\_DIAMETER\_MM@{WHEEL\_DIAMETER\_MM}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{WHEEL\_DIAMETER\_MM}{WHEEL\_DIAMETER\_MM}}
+{\footnotesize\ttfamily \#define WHEEL\+\_\+\+DIAMETER\+\_\+\+MM~68.\+0f}
+
+
+
+Diamètre de la roue du véhicule en millimètres. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00016}{16}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c}\label{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!speedometer\_init@{speedometer\_init}}
+\index{speedometer\_init@{speedometer\_init}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{speedometer\_init()}{speedometer\_init()}}
+{\footnotesize\ttfamily void speedometer\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{h\+Speedo,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}objet tachymètre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure à initialiser. \\
+\hline
+{\em htim} & Pointeur vers le handle du Timer matériel.\\
+\hline
+\end{DoxyParams}
+Initialise l\textquotesingle{}objet tachymètre.
+
+Associe le timer matériel à la structure, initialise les variables d\textquotesingle{}état (temps et compteur) et démarre le timer. 
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure de gestion à initialiser. \\
+\hline
+{\em htim} & Pointeur vers le handle du Timer STM32 (HAL) utilisé. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8c_source_l00048}{48}} of file \mbox{\hyperlink{driver__speedometer_8c_source}{driver\+\_\+speedometer.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{driver__speedometer_8h_a0d1d9c0c545755ba0f37f4e28851412c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c}\label{driver__speedometer_8h_a99eb85ff393e26dd27e9dc56beefe05c} 
+\index{driver\_speedometer.h@{driver\_speedometer.h}!speedometer\_solve\_speed@{speedometer\_solve\_speed}}
+\index{speedometer\_solve\_speed@{speedometer\_solve\_speed}!driver\_speedometer.h@{driver\_speedometer.h}}
+\doxysubsubsection{\texorpdfstring{speedometer\_solve\_speed()}{speedometer\_solve\_speed()}}
+{\footnotesize\ttfamily float speedometer\+\_\+solve\+\_\+speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{h\+Speedo }\end{DoxyParamCaption})}
+
+
+
+Calcule la vitesse actuelle basée sur les impulsions reçues. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure du tachymètre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vitesse en m/s.
+\end{DoxyReturn}
+Calcule la vitesse actuelle basée sur les impulsions reçues.
+
+Cette fonction doit être appelée périodiquement. Elle calcule la différence de temps et de nombre d\textquotesingle{}impulsions (ticks) depuis le dernier appel. \begin{DoxyNote}{Note}
+Gère implicitement le débordement (overflow) du compteur 16 bits via l\textquotesingle{}arithmétique non signée. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure de gestion du tachymètre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vitesse calculée en mètres par seconde (m/s). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8c_source_l00020}{20}} of file \mbox{\hyperlink{driver__speedometer_8c_source}{driver\+\_\+speedometer.\+c}}.
+

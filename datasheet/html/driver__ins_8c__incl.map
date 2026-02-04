@@ -1,0 +1,18 @@
+<map id="Core/Src/driver_ins.c" name="Core/Src/driver_ins.c">
+<area shape="rect" id="Node000001" title="Implémentation du pilote pour l&#39;IMU BMI088 (Accéléromètre + Gyroscope)." alt="" coords="177,5,323,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,127,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,33,186,54,145,81,112,112,85,143,81,139,108,108,142,77,183,49,223,28"/>
+<area shape="rect" id="Node000003" href="$driver__ins_8h.html" title="Définitions et prototypes pour le pilote BMI088." alt="" coords="156,79,245,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,33,219,69,214,66,240,29"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="270,79,331,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="261,29,287,66,282,69,256,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="356,79,421,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="273,28,355,70,353,75,271,33"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="180,106,101,148,99,143,178,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="151,152,251,177"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="203,104,203,138,198,138,198,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="275,152,343,177"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="219,102,281,142,278,147,217,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="367,152,442,177"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="234,102,360,145,358,150,233,107"/>
+</map>

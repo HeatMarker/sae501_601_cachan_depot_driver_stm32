@@ -1,0 +1,67 @@
+\doxysection{driver\+\_\+ins.\+h}
+\hypertarget{driver__ins_8h_source}{}\label{driver__ins_8h_source}\index{Core/Inc/driver\_ins.h@{Core/Inc/driver\_ins.h}}
+\mbox{\hyperlink{driver__ins_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ BMI088\_DRIVER\_H}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ BMI088\_DRIVER\_H}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}stm32g0xx\_hal.h"{}}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}bmi08\_defs.h"{}}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}bmi08.h"{}}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}bmi08x.h"{}}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00017}\mbox{\hyperlink{driver__ins_8h_a53e2fc5d653edc54b6db4e99409e4444}{00017}}\ \textcolor{preprocessor}{\#define\ BMI088\_CS\_ACC\_GPIO\_Port\ \ \ \ \ GPIOB}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00019}\mbox{\hyperlink{driver__ins_8h_ae43b8d6738be9a0dab7689a102428b60}{00019}}\ \textcolor{preprocessor}{\#define\ BMI088\_CS\_ACC\_Pin\ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00021}\mbox{\hyperlink{driver__ins_8h_a52ce7d0fc9ce6b80388bb0a7c73294a8}{00021}}\ \textcolor{preprocessor}{\#define\ BMI088\_CS\_GYRO\_GPIO\_Port\ \ \ \ GPIOB}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00023}\mbox{\hyperlink{driver__ins_8h_ae16db209302613b5d9c5dde20e599726}{00023}}\ \textcolor{preprocessor}{\#define\ BMI088\_CS\_GYRO\_Pin\ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_14}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00026}\mbox{\hyperlink{driver__ins_8h_a725466e9d7fd25460d779a18db2dfbb3}{00026}}\ \textcolor{preprocessor}{\#define\ ACCEL\_RANGE\_3G\_LSB\ \ \ \ \ \ \ \ \ \ 10922.67f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00028}\mbox{\hyperlink{driver__ins_8h_a9380dda0a2ba4ec70058646c702ac9c4}{00028}}\ \textcolor{preprocessor}{\#define\ ACCEL\_RANGE\_6G\_LSB\ \ \ \ \ \ \ \ \ \ 5461.33f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00030}\mbox{\hyperlink{driver__ins_8h_ae4a883f14c7045d10e28b2e03137e5ca}{00030}}\ \textcolor{preprocessor}{\#define\ ACCEL\_RANGE\_12G\_LSB\ \ \ \ \ \ \ \ \ 2730.67f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00032}\mbox{\hyperlink{driver__ins_8h_a19fe4c4c4a6565a69b4dcb63577659ec}{00032}}\ \textcolor{preprocessor}{\#define\ ACCEL\_RANGE\_24G\_LSB\ \ \ \ \ \ \ \ \ 1365.33f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00034}\mbox{\hyperlink{driver__ins_8h_a9e9c36ec5664be87c119e643c6588e3d}{00034}}\ \textcolor{preprocessor}{\#define\ G\_TO\_MM\_S2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9806.65f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00037}\mbox{\hyperlink{driver__ins_8h_ad21820b0bab7cf7bf52ad428f21d6aad}{00037}}\ \textcolor{preprocessor}{\#define\ GYRO\_RANGE\_125DPS\_LSB\ \ \ \ \ \ \ 262.4f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00039}\mbox{\hyperlink{driver__ins_8h_a584e47d1d7afcfa8254a40e331e07735}{00039}}\ \textcolor{preprocessor}{\#define\ GYRO\_RANGE\_250DPS\_LSB\ \ \ \ \ \ \ 131.2f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00041}\mbox{\hyperlink{driver__ins_8h_a369fa3e17450b54f0670103aa638c090}{00041}}\ \textcolor{preprocessor}{\#define\ GYRO\_RANGE\_500DPS\_LSB\ \ \ \ \ \ \ 65.6f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00043}\mbox{\hyperlink{driver__ins_8h_a457f7161504ee5da1756fd90856d8e06}{00043}}\ \textcolor{preprocessor}{\#define\ GYRO\_RANGE\_1000DPS\_LSB\ \ \ \ \ \ 32.768f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00045}\mbox{\hyperlink{driver__ins_8h_a8bc3cfb4f1a5b81980ba50998fbdaa37}{00045}}\ \textcolor{preprocessor}{\#define\ GYRO\_RANGE\_2000DPS\_LSB\ \ \ \ \ \ 16.4f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00047}\mbox{\hyperlink{driver__ins_8h_a212460e743fecb084d717bb2180c5a56}{00047}}\ \textcolor{preprocessor}{\#define\ DEG\_TO\_RAD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.017453292519943295f}}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00052}\mbox{\hyperlink{structbmi088__cs__t}{00052}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00053}\mbox{\hyperlink{structbmi088__cs__t_a82241972e0292c7de95ea1e293e11be3}{00053}}\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{structbmi088__cs__t_a82241972e0292c7de95ea1e293e11be3}{port}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00054}\mbox{\hyperlink{structbmi088__cs__t_a4144813adfa4dfe7e7cbeea17d1b06eb}{00054}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structbmi088__cs__t_a4144813adfa4dfe7e7cbeea17d1b06eb}{pin}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00055}00055\ \}\ \mbox{\hyperlink{structbmi088__cs__t}{bmi088\_cs\_t}};}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00060}\mbox{\hyperlink{structbmi088__data__t}{00060}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00061}\mbox{\hyperlink{structbmi088__data__t_a571393a5df47a89b49a320c41e3295fd}{00061}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_a571393a5df47a89b49a320c41e3295fd}{accel\_x\_mms2}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00062}\mbox{\hyperlink{structbmi088__data__t_a25ea10feef09939d996b34fc7c3b747c}{00062}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_a25ea10feef09939d996b34fc7c3b747c}{accel\_y\_mms2}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00063}\mbox{\hyperlink{structbmi088__data__t_a062ae56b6bf02a0ad057eda4d951fa03}{00063}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_a062ae56b6bf02a0ad057eda4d951fa03}{accel\_z\_mms2}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00065}\mbox{\hyperlink{structbmi088__data__t_a35be05b56d880bf99a1be2e6181be416}{00065}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_a35be05b56d880bf99a1be2e6181be416}{gyro\_x\_rads}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00066}\mbox{\hyperlink{structbmi088__data__t_ad002fea5f42851b31401418b126d6ead}{00066}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_ad002fea5f42851b31401418b126d6ead}{gyro\_y\_rads}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00067}\mbox{\hyperlink{structbmi088__data__t_a551c8b382a72b05b257da17fd0db0731}{00067}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structbmi088__data__t_a551c8b382a72b05b257da17fd0db0731}{gyro\_z\_rads}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00069}\mbox{\hyperlink{structbmi088__data__t_a7151fee88ade6cc487805f36f80cf619}{00069}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structbmi088__data__t_a7151fee88ade6cc487805f36f80cf619}{timestamp\_ms}};\ \ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00070}00070\ \}\ \mbox{\hyperlink{structbmi088__data__t}{bmi088\_data\_t}};}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00077}00077\ int8\_t\ \mbox{\hyperlink{driver__ins_8h_ac120109421a58b1dfe4cb1b2a0eef2a7}{BMI088\_Init}}(SPI\_HandleTypeDef\ *hspi);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00084}00084\ int8\_t\ \mbox{\hyperlink{driver__ins_8h_a6ec6095cf6be17614cb3023f5acbd2f7}{BMI088\_Read\_Accel\_Raw}}(\textcolor{keyword}{struct}\ bmi08\_sensor\_data\ *accel\_data);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00091}00091\ int8\_t\ \mbox{\hyperlink{driver__ins_8h_a5426db0df3eafce551517bb8d3402332}{BMI088\_Read\_Gyro\_Raw}}(\textcolor{keyword}{struct}\ bmi08\_sensor\_data\ *gyro\_data);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00098}00098\ int8\_t\ \mbox{\hyperlink{driver__ins_8h_ad74d633331d9bfbf45a7961a39b3fae0}{BMI088\_Read\_All}}(\mbox{\hyperlink{structbmi088__data__t}{bmi088\_data\_t}}\ *data);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00105}00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__ins_8h_a23d3031c0e8acf3c68721d65f86eb9df}{BMI088\_Convert\_Accel}}(\textcolor{keyword}{struct}\ bmi08\_sensor\_data\ *accel\_raw,\ \textcolor{keywordtype}{float}\ *accel\_mms2);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00112}00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__ins_8h_a83e3b80cf9b6d79fbb15a252861a98e2}{BMI088\_Convert\_Gyro}}(\textcolor{keyword}{struct}\ bmi08\_sensor\_data\ *gyro\_raw,\ \textcolor{keywordtype}{float}\ *gyro\_rads);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00119}00119\ uint8\_t\ \mbox{\hyperlink{driver__ins_8h_a59de7989bc26e2f9bf0e19fe71c354c8}{BMI088\_Test\_Communication}}(uint8\_t\ print\_result);}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00125}00125\ int8\_t\ \mbox{\hyperlink{driver__ins_8h_aaf0bd4d8e01873f5d13c5812b64dc904}{BMI088\_Soft\_Reset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{driver__ins_8h_source_l00127}00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BMI088\_DRIVER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

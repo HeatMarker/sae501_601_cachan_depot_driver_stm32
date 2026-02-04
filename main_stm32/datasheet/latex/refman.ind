@@ -1,0 +1,1121 @@
+\begin{theindex}
+
+  \item {\_\_attribute\_\_}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+    \subitem {syscalls.c}, \hyperpage{175}
+  \item {\_\_io\_getchar}
+    \subitem {syscalls.c}, \hyperpage{175}
+  \item {\_\_io\_putchar}
+    \subitem {main.c}, \hyperpage{141}
+    \subitem {syscalls.c}, \hyperpage{176}
+  \item {\_close}
+    \subitem {syscalls.c}, \hyperpage{176}
+  \item {\_execve}
+    \subitem {syscalls.c}, \hyperpage{176}
+  \item {\_exit}
+    \subitem {syscalls.c}, \hyperpage{176}
+  \item {\_fork}
+    \subitem {syscalls.c}, \hyperpage{177}
+  \item {\_fstat}
+    \subitem {syscalls.c}, \hyperpage{177}
+  \item {\_getpid}
+    \subitem {syscalls.c}, \hyperpage{177}
+  \item {\_isatty}
+    \subitem {syscalls.c}, \hyperpage{177}
+  \item {\_kill}
+    \subitem {syscalls.c}, \hyperpage{177}
+  \item {\_link}
+    \subitem {syscalls.c}, \hyperpage{178}
+  \item {\_lseek}
+    \subitem {syscalls.c}, \hyperpage{178}
+  \item {\_open}
+    \subitem {syscalls.c}, \hyperpage{178}
+  \item {\_sbrk}
+    \subitem {sysmem.c}, \hyperpage{183}
+  \item {\_stat}
+    \subitem {syscalls.c}, \hyperpage{178}
+  \item {\_times}
+    \subitem {syscalls.c}, \hyperpage{178}
+  \item {\_unlink}
+    \subitem {syscalls.c}, \hyperpage{179}
+  \item {\_wait}
+    \subitem {syscalls.c}, \hyperpage{179}
+  \item {\_write}
+    \subitem {serial.c}, \hyperpage{148}
+
+  \indexspace
+
+  \item {ACC\_CS\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{58}
+  \item {ACC\_CS\_Pin}
+    \subitem {main.h}, \hyperpage{58}
+  \item {ACCEL\_RANGE\_12G\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {ACCEL\_RANGE\_24G\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {ACCEL\_RANGE\_3G\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {ACCEL\_RANGE\_6G\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {accel\_x\_mms2}
+    \subitem {bmi088\_data\_t}, \hyperpage{16}
+  \item {accel\_y\_mms2}
+    \subitem {bmi088\_data\_t}, \hyperpage{16}
+  \item {accel\_z\_mms2}
+    \subitem {bmi088\_data\_t}, \hyperpage{17}
+  \item {AHBPrescTable}
+    \subitem {STM32G0xx\_System\_Private\_Variables}, \hyperpage{11}
+  \item {APBPrescTable}
+    \subitem {STM32G0xx\_System\_Private\_Variables}, \hyperpage{11}
+  \item {app\_config}
+    \subitem {app\_main.c}, \hyperpage{111}
+    \subitem {app\_main.h}, \hyperpage{26}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {app\_loop}
+    \subitem {app\_main.c}, \hyperpage{112}
+    \subitem {app\_main.h}, \hyperpage{26}
+  \item {app\_main.c}
+    \subitem {app\_config}, \hyperpage{111}
+    \subitem {app\_loop}, \hyperpage{112}
+    \subitem {FAILSAFE\_TIMEOUT\_MS}, \hyperpage{110}
+    \subitem {hSpeedo}, \hyperpage{113}
+    \subitem {PWM\_MAX\_ESC}, \hyperpage{110}
+    \subitem {PWM\_MIN\_ESC}, \hyperpage{110}
+    \subitem {speed\_speedo\_data}, \hyperpage{113}
+    \subitem {t\_1\_ms}, \hyperpage{110}
+    \subitem {t\_2\_ms}, \hyperpage{110}
+    \subitem {TASK\_MOTOR\_US}, \hyperpage{110}
+    \subitem {TASK\_SPEED\_US}, \hyperpage{110}
+    \subitem {TASK\_TELEMETRY\_US}, \hyperpage{111}
+    \subitem {tim3\_overflow\_cnt}, \hyperpage{113}
+  \item {app\_main.h}
+    \subitem {app\_config}, \hyperpage{26}
+    \subitem {app\_loop}, \hyperpage{26}
+    \subitem {speed\_speedo\_data}, \hyperpage{27}
+    \subitem {tim3\_overflow\_cnt}, \hyperpage{27}
+  \item {app\_test\_config}
+    \subitem {driver\_servo.h}, \hyperpage{47}
+  \item {app\_test\_loop}
+    \subitem {driver\_servo.h}, \hyperpage{47}
+  \item {assert\_param}
+    \subitem {stm32\_assert.h}, \hyperpage{84}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{87}
+
+  \indexspace
+
+  \item {B1\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{59}
+  \item {B1\_Pin}
+    \subitem {main.h}, \hyperpage{59}
+  \item {BMI088\_Convert\_Accel}
+    \subitem {driver\_ins.c}, \hyperpage{118}
+    \subitem {driver\_ins.h}, \hyperpage{34}
+  \item {BMI088\_Convert\_Gyro}
+    \subitem {driver\_ins.c}, \hyperpage{118}
+    \subitem {driver\_ins.h}, \hyperpage{35}
+  \item {BMI088\_CS\_ACC\_GPIO\_Port}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {BMI088\_CS\_ACC\_Pin}
+    \subitem {driver\_ins.h}, \hyperpage{32}
+  \item {BMI088\_CS\_GYRO\_GPIO\_Port}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {BMI088\_CS\_GYRO\_Pin}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {bmi088\_cs\_t}, \hyperpage{15}
+    \subitem {pin}, \hyperpage{15}
+    \subitem {port}, \hyperpage{15}
+  \item {bmi088\_data\_t}, \hyperpage{16}
+    \subitem {accel\_x\_mms2}, \hyperpage{16}
+    \subitem {accel\_y\_mms2}, \hyperpage{16}
+    \subitem {accel\_z\_mms2}, \hyperpage{17}
+    \subitem {gyro\_x\_rads}, \hyperpage{17}
+    \subitem {gyro\_y\_rads}, \hyperpage{17}
+    \subitem {gyro\_z\_rads}, \hyperpage{17}
+    \subitem {timestamp\_ms}, \hyperpage{17}
+  \item {BMI088\_Init}
+    \subitem {driver\_ins.c}, \hyperpage{118}
+    \subitem {driver\_ins.h}, \hyperpage{35}
+  \item {BMI088\_Read\_Accel\_Raw}
+    \subitem {driver\_ins.c}, \hyperpage{119}
+    \subitem {driver\_ins.h}, \hyperpage{36}
+  \item {BMI088\_Read\_All}
+    \subitem {driver\_ins.c}, \hyperpage{120}
+    \subitem {driver\_ins.h}, \hyperpage{37}
+  \item {BMI088\_Read\_Gyro\_Raw}
+    \subitem {driver\_ins.c}, \hyperpage{120}
+    \subitem {driver\_ins.h}, \hyperpage{38}
+  \item {BMI088\_Soft\_Reset}
+    \subitem {driver\_ins.c}, \hyperpage{121}
+    \subitem {driver\_ins.h}, \hyperpage{38}
+  \item {BMI088\_Test\_Communication}
+    \subitem {driver\_ins.c}, \hyperpage{121}
+    \subitem {driver\_ins.h}, \hyperpage{39}
+
+  \indexspace
+
+  \item {channel}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+    \subitem {Servo\_Handle\_t}, \hyperpage{22}
+  \item {CMSIS}, \hyperpage{7}
+  \item {Core/Inc/app\_main.h}, \hyperpage{25}, \hyperpage{28}
+  \item {Core/Inc/dma.h}, \hyperpage{28, 29}
+  \item {Core/Inc/driver\_ins.h}, \hyperpage{30}, \hyperpage{39}
+  \item {Core/Inc/driver\_motor.h}, \hyperpage{40}, \hyperpage{45}
+  \item {Core/Inc/driver\_servo.h}, \hyperpage{46}, \hyperpage{51}
+  \item {Core/Inc/driver\_speedometer.h}, \hyperpage{51}, 
+		\hyperpage{55}
+  \item {Core/Inc/gpio.h}, \hyperpage{55}, \hyperpage{57}
+  \item {Core/Inc/main.h}, \hyperpage{57}, \hyperpage{62}
+  \item {Core/Inc/serial.h}, \hyperpage{63}, \hyperpage{74}
+  \item {Core/Inc/serial\_cmd.h}, \hyperpage{75}, \hyperpage{81}
+  \item {Core/Inc/spi.h}, \hyperpage{81}, \hyperpage{83}
+  \item {Core/Inc/stm32\_assert.h}, \hyperpage{84, 85}
+  \item {Core/Inc/stm32g0xx\_hal\_conf.h}, \hyperpage{85}, 
+		\hyperpage{94}
+  \item {Core/Inc/stm32g0xx\_it.h}, \hyperpage{97}, \hyperpage{100}
+  \item {Core/Inc/tim.h}, \hyperpage{101}, \hyperpage{105}
+  \item {Core/Inc/usart.h}, \hyperpage{106, 107}
+  \item {Core/Src/app\_main.c}, \hyperpage{108}, \hyperpage{113}
+  \item {Core/Src/dma.c}, \hyperpage{115, 116}
+  \item {Core/Src/driver\_ins.c}, \hyperpage{117}, \hyperpage{122}
+  \item {Core/Src/driver\_motor.c}, \hyperpage{125}, \hyperpage{129}
+  \item {Core/Src/driver\_servo.c}, \hyperpage{131}, \hyperpage{134}
+  \item {Core/Src/driver\_speedometer.c}, \hyperpage{135}, 
+		\hyperpage{137}
+  \item {Core/Src/gpio.c}, \hyperpage{138, 139}
+  \item {Core/Src/main.c}, \hyperpage{140}, \hyperpage{144}
+  \item {Core/Src/serial.c}, \hyperpage{146}, \hyperpage{154}
+  \item {Core/Src/serial\_cmd.c}, \hyperpage{157}, \hyperpage{161}
+  \item {Core/Src/spi.c}, \hyperpage{162}, \hyperpage{165}
+  \item {Core/Src/stm32g0xx\_hal\_msp.c}, \hyperpage{166, 167}
+  \item {Core/Src/stm32g0xx\_it.c}, \hyperpage{167}, \hyperpage{172}
+  \item {Core/Src/syscalls.c}, \hyperpage{174}, \hyperpage{180}
+  \item {Core/Src/sysmem.c}, \hyperpage{181}, \hyperpage{184}
+  \item {Core/Src/system\_stm32g0xx.c}, \hyperpage{184}, 
+		\hyperpage{186}
+  \item {Core/Src/tim.c}, \hyperpage{187}, \hyperpage{192}
+  \item {Core/Src/usart.c}, \hyperpage{196}, \hyperpage{198}
+  \item {ctx}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+  \item {current\_speed\_ms}
+    \subitem {Speedometer\_Handle\_t}, \hyperpage{23}
+
+  \indexspace
+
+  \item {deadline\_ms}
+    \subitem {Motor\_Context\_t}, \hyperpage{18}
+  \item {DEG\_TO\_RAD}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {dma.c}
+    \subitem {MX\_DMA\_Init}, \hyperpage{116}
+  \item {dma.h}
+    \subitem {MX\_DMA\_Init}, \hyperpage{29}
+  \item {DMA1\_Channel1\_IRQHandler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{98}
+  \item {DMA1\_Channel2\_3\_IRQHandler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{98}
+  \item {driver\_ins.c}
+    \subitem {BMI088\_Convert\_Accel}, \hyperpage{118}
+    \subitem {BMI088\_Convert\_Gyro}, \hyperpage{118}
+    \subitem {BMI088\_Init}, \hyperpage{118}
+    \subitem {BMI088\_Read\_Accel\_Raw}, \hyperpage{119}
+    \subitem {BMI088\_Read\_All}, \hyperpage{120}
+    \subitem {BMI088\_Read\_Gyro\_Raw}, \hyperpage{120}
+    \subitem {BMI088\_Soft\_Reset}, \hyperpage{121}
+    \subitem {BMI088\_Test\_Communication}, \hyperpage{121}
+  \item {driver\_ins.h}
+    \subitem {ACCEL\_RANGE\_12G\_LSB}, \hyperpage{32}
+    \subitem {ACCEL\_RANGE\_24G\_LSB}, \hyperpage{32}
+    \subitem {ACCEL\_RANGE\_3G\_LSB}, \hyperpage{32}
+    \subitem {ACCEL\_RANGE\_6G\_LSB}, \hyperpage{32}
+    \subitem {BMI088\_Convert\_Accel}, \hyperpage{34}
+    \subitem {BMI088\_Convert\_Gyro}, \hyperpage{35}
+    \subitem {BMI088\_CS\_ACC\_GPIO\_Port}, \hyperpage{32}
+    \subitem {BMI088\_CS\_ACC\_Pin}, \hyperpage{32}
+    \subitem {BMI088\_CS\_GYRO\_GPIO\_Port}, \hyperpage{33}
+    \subitem {BMI088\_CS\_GYRO\_Pin}, \hyperpage{33}
+    \subitem {BMI088\_Init}, \hyperpage{35}
+    \subitem {BMI088\_Read\_Accel\_Raw}, \hyperpage{36}
+    \subitem {BMI088\_Read\_All}, \hyperpage{37}
+    \subitem {BMI088\_Read\_Gyro\_Raw}, \hyperpage{38}
+    \subitem {BMI088\_Soft\_Reset}, \hyperpage{38}
+    \subitem {BMI088\_Test\_Communication}, \hyperpage{39}
+    \subitem {DEG\_TO\_RAD}, \hyperpage{33}
+    \subitem {G\_TO\_MM\_S2}, \hyperpage{33}
+    \subitem {GYRO\_RANGE\_1000DPS\_LSB}, \hyperpage{33}
+    \subitem {GYRO\_RANGE\_125DPS\_LSB}, \hyperpage{33}
+    \subitem {GYRO\_RANGE\_2000DPS\_LSB}, \hyperpage{34}
+    \subitem {GYRO\_RANGE\_250DPS\_LSB}, \hyperpage{34}
+    \subitem {GYRO\_RANGE\_500DPS\_LSB}, \hyperpage{34}
+  \item {driver\_motor.c}
+    \subitem {motor\_init}, \hyperpage{126}
+    \subitem {motor\_process\_1ms}, \hyperpage{127}
+    \subitem {motor\_pwm\_percent}, \hyperpage{127}
+    \subitem {motor\_set\_speed\_mms}, \hyperpage{128}
+    \subitem {PWM\_BRAKE\_FWD}, \hyperpage{126}
+    \subitem {PWM\_BRAKE\_REV}, \hyperpage{126}
+    \subitem {PWM\_NEUTRAL}, \hyperpage{126}
+    \subitem {T\_BRAKE\_MS}, \hyperpage{126}
+    \subitem {T\_NEUTRAL\_GAP\_MS}, \hyperpage{126}
+  \item {driver\_motor.h}
+    \subitem {app\_config}, \hyperpage{42}
+    \subitem {motor\_init}, \hyperpage{42}
+    \subitem {motor\_process\_1ms}, \hyperpage{43}
+    \subitem {motor\_pwm\_percent}, \hyperpage{44}
+    \subitem {motor\_set\_speed\_mms}, \hyperpage{45}
+    \subitem {MOTOR\_STATE\_FORWARD\_HOLD}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_FWD\_BRAKE\_TAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_FWD\_NEUTRAL\_GAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_NEUTRAL}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_GAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_TAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_REV\_BRAKE\_TAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_REV\_NEUTRAL\_GAP}, \hyperpage{42}
+    \subitem {MOTOR\_STATE\_REVERSE\_HOLD}, \hyperpage{42}
+    \subitem {MotorState\_t}, \hyperpage{42}
+  \item {driver\_servo.c}
+    \subitem {SERVO\_CLAMP\_MAX}, \hyperpage{132}
+    \subitem {SERVO\_CLAMP\_MIN}, \hyperpage{132}
+    \subitem {servo\_initialisation}, \hyperpage{132}
+    \subitem {SERVO\_OFFSET\_PERCENT}, \hyperpage{132}
+    \subitem {servo\_pwm\_angle\_abs\_value}, \hyperpage{133}
+    \subitem {servo\_pwm\_angle\_degree}, \hyperpage{133}
+    \subitem {servo\_pwm\_percent}, \hyperpage{134}
+  \item {driver\_servo.h}
+    \subitem {app\_test\_config}, \hyperpage{47}
+    \subitem {app\_test\_loop}, \hyperpage{47}
+    \subitem {servo\_initialisation}, \hyperpage{47}
+    \subitem {servo\_pwm\_angle\_abs\_value}, \hyperpage{48}
+    \subitem {servo\_pwm\_angle\_degree}, \hyperpage{49}
+    \subitem {servo\_pwm\_percent}, \hyperpage{49}
+  \item {driver\_speedometer.c}
+    \subitem {speedometer\_init}, \hyperpage{136}
+    \subitem {speedometer\_solve\_speed}, \hyperpage{137}
+  \item {driver\_speedometer.h}
+    \subitem {NB\_TOURS\_TEST}, \hyperpage{53}
+    \subitem {PERIMETER\_M}, \hyperpage{53}
+    \subitem {speedometer\_init}, \hyperpage{53}
+    \subitem {speedometer\_solve\_speed}, \hyperpage{54}
+    \subitem {TICKS\_PER\_WHEEL\_TURN}, \hyperpage{53}
+    \subitem {VALEUR\_COMPTEUR\_LUE}, \hyperpage{53}
+    \subitem {WHEEL\_DIAMETER\_MM}, \hyperpage{53}
+
+  \indexspace
+
+  \item {environ}
+    \subitem {syscalls.c}, \hyperpage{179}
+  \item {Error\_Handler}
+    \subitem {main.c}, \hyperpage{141}
+    \subitem {main.h}, \hyperpage{61}
+  \item {EXTERNAL\_I2S1\_CLOCK\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{87}
+
+  \indexspace
+
+  \item {FAILSAFE\_TIMEOUT\_MS}
+    \subitem {app\_main.c}, \hyperpage{110}
+
+  \indexspace
+
+  \item {G\_TO\_MM\_S2}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {go\_forward}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+  \item {gpio.c}
+    \subitem {MX\_GPIO\_Init}, \hyperpage{139}
+  \item {gpio.h}
+    \subitem {MX\_GPIO\_Init}, \hyperpage{56}
+  \item {GYR\_CS\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{59}
+  \item {GYR\_CS\_Pin}
+    \subitem {main.h}, \hyperpage{59}
+  \item {GYRO\_RANGE\_1000DPS\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {GYRO\_RANGE\_125DPS\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{33}
+  \item {GYRO\_RANGE\_2000DPS\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{34}
+  \item {GYRO\_RANGE\_250DPS\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{34}
+  \item {GYRO\_RANGE\_500DPS\_LSB}
+    \subitem {driver\_ins.h}, \hyperpage{34}
+  \item {gyro\_x\_rads}
+    \subitem {bmi088\_data\_t}, \hyperpage{17}
+  \item {gyro\_y\_rads}
+    \subitem {bmi088\_data\_t}, \hyperpage{17}
+  \item {gyro\_z\_rads}
+    \subitem {bmi088\_data\_t}, \hyperpage{17}
+
+  \indexspace
+
+  \item {HAL\_CORTEX\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{87}
+  \item {HAL\_DMA\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{87}
+  \item {HAL\_EXTI\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_FLASH\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_GPIO\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_MspInit}
+    \subitem {stm32g0xx\_hal\_msp.c}, \hyperpage{166}
+  \item {HAL\_PWR\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_RCC\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_SPI\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{88}
+  \item {HAL\_SPI\_MspDeInit}
+    \subitem {spi.c}, \hyperpage{163}
+  \item {HAL\_SPI\_MspInit}
+    \subitem {spi.c}, \hyperpage{163}
+  \item {HAL\_TIM\_Base\_MspDeInit}
+    \subitem {tim.c}, \hyperpage{188}
+  \item {HAL\_TIM\_Base\_MspInit}
+    \subitem {tim.c}, \hyperpage{188}
+  \item {HAL\_TIM\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+  \item {HAL\_TIM\_MspPostInit}
+    \subitem {tim.c}, \hyperpage{189}
+    \subitem {tim.h}, \hyperpage{102}
+  \item {HAL\_UART\_MODULE\_ENABLED}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+  \item {HAL\_UART\_MspDeInit}
+    \subitem {usart.c}, \hyperpage{197}
+  \item {HAL\_UART\_MspInit}
+    \subitem {usart.c}, \hyperpage{197}
+  \item {HAL\_UART\_TxCpltCallback}
+    \subitem {serial.c}, \hyperpage{148}
+  \item {HAL\_UARTEx\_RxEventCallback}
+    \subitem {serial.c}, \hyperpage{149}
+  \item {HardFault\_Handler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{98}
+  \item {hdma\_usart2\_rx}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{171}
+    \subitem {usart.c}, \hyperpage{198}
+  \item {hdma\_usart2\_tx}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{171}
+    \subitem {usart.c}, \hyperpage{198}
+  \item {HSE\_STARTUP\_TIMEOUT}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+  \item {HSE\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+    \subitem {STM32G0xx\_System\_Private\_Includes}, \hyperpage{9}
+  \item {HSI\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+    \subitem {STM32G0xx\_System\_Private\_Includes}, \hyperpage{9}
+  \item {hSpeedo}
+    \subitem {app\_main.c}, \hyperpage{113}
+  \item {hspi1}
+    \subitem {spi.c}, \hyperpage{164}
+    \subitem {spi.h}, \hyperpage{83}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{171}
+  \item {htim}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+    \subitem {Servo\_Handle\_t}, \hyperpage{22}
+    \subitem {Speedometer\_Handle\_t}, \hyperpage{23}
+  \item {htim1}
+    \subitem {tim.c}, \hyperpage{191}
+    \subitem {tim.h}, \hyperpage{104}
+  \item {htim2}
+    \subitem {tim.c}, \hyperpage{191}
+    \subitem {tim.h}, \hyperpage{104}
+  \item {htim4}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{171}
+    \subitem {tim.c}, \hyperpage{191}
+    \subitem {tim.h}, \hyperpage{105}
+  \item {huart2}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{171}
+    \subitem {usart.c}, \hyperpage{198}
+    \subitem {usart.h}, \hyperpage{107}
+
+  \indexspace
+
+  \item {initialise\_monitor\_handles}
+    \subitem {syscalls.c}, \hyperpage{179}
+  \item {INSTRUCTION\_CACHE\_ENABLE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{89}
+
+  \indexspace
+
+  \item {last\_counter\_val}
+    \subitem {Speedometer\_Handle\_t}, \hyperpage{24}
+  \item {last\_process\_time}
+    \subitem {Speedometer\_Handle\_t}, \hyperpage{24}
+  \item {LED\_GREEN\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{59}
+  \item {LED\_GREEN\_Pin}
+    \subitem {main.h}, \hyperpage{59}
+  \item {LSE\_STARTUP\_TIMEOUT}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+  \item {LSE\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+    \subitem {STM32G0xx\_System\_Private\_Includes}, \hyperpage{9}
+  \item {LSI\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+    \subitem {STM32G0xx\_System\_Private\_Includes}, \hyperpage{9}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{142}
+  \item {main.c}
+    \subitem {\_\_io\_putchar}, \hyperpage{141}
+    \subitem {Error\_Handler}, \hyperpage{141}
+    \subitem {main}, \hyperpage{142}
+    \subitem {SystemClock\_Config}, \hyperpage{143}
+  \item {main.h}
+    \subitem {ACC\_CS\_GPIO\_Port}, \hyperpage{58}
+    \subitem {ACC\_CS\_Pin}, \hyperpage{58}
+    \subitem {B1\_GPIO\_Port}, \hyperpage{59}
+    \subitem {B1\_Pin}, \hyperpage{59}
+    \subitem {Error\_Handler}, \hyperpage{61}
+    \subitem {GYR\_CS\_GPIO\_Port}, \hyperpage{59}
+    \subitem {GYR\_CS\_Pin}, \hyperpage{59}
+    \subitem {LED\_GREEN\_GPIO\_Port}, \hyperpage{59}
+    \subitem {LED\_GREEN\_Pin}, \hyperpage{59}
+    \subitem {MCO\_GPIO\_Port}, \hyperpage{59}
+    \subitem {MCO\_Pin}, \hyperpage{59}
+    \subitem {PWM\_motor\_GPIO\_Port}, \hyperpage{60}
+    \subitem {PWM\_motor\_Pin}, \hyperpage{60}
+    \subitem {PWM\_servo\_GPIO\_Port}, \hyperpage{60}
+    \subitem {PWM\_servo\_Pin}, \hyperpage{60}
+    \subitem {TCK\_GPIO\_Port}, \hyperpage{60}
+    \subitem {TCK\_Pin}, \hyperpage{60}
+    \subitem {TMS\_GPIO\_Port}, \hyperpage{60}
+    \subitem {TMS\_Pin}, \hyperpage{60}
+    \subitem {USART2\_RX\_GPIO\_Port}, \hyperpage{61}
+    \subitem {USART2\_RX\_Pin}, \hyperpage{61}
+    \subitem {USART2\_TX\_GPIO\_Port}, \hyperpage{61}
+    \subitem {USART2\_TX\_Pin}, \hyperpage{61}
+  \item {max\_pulse\_ticks}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+    \subitem {Servo\_Handle\_t}, \hyperpage{22}
+  \item {max\_speed\_neg\_mms}
+    \subitem {Motor\_Handle\_t}, \hyperpage{20}
+  \item {max\_speed\_pos\_mms}
+    \subitem {Motor\_Handle\_t}, \hyperpage{21}
+  \item {MCO\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{59}
+  \item {MCO\_Pin}
+    \subitem {main.h}, \hyperpage{59}
+  \item {min\_pulse\_ticks}
+    \subitem {Motor\_Handle\_t}, \hyperpage{21}
+    \subitem {Servo\_Handle\_t}, \hyperpage{22}
+  \item {Motor\_Context\_t}, \hyperpage{18}
+    \subitem {deadline\_ms}, \hyperpage{18}
+    \subitem {target\_forward}, \hyperpage{18}
+    \subitem {target\_pwm}, \hyperpage{18}
+    \subitem {target\_speed\_mms}, \hyperpage{18}
+  \item {Motor\_Handle\_t}, \hyperpage{19}
+    \subitem {channel}, \hyperpage{20}
+    \subitem {ctx}, \hyperpage{20}
+    \subitem {go\_forward}, \hyperpage{20}
+    \subitem {htim}, \hyperpage{20}
+    \subitem {max\_pulse\_ticks}, \hyperpage{20}
+    \subitem {max\_speed\_neg\_mms}, \hyperpage{20}
+    \subitem {max\_speed\_pos\_mms}, \hyperpage{21}
+    \subitem {min\_pulse\_ticks}, \hyperpage{21}
+    \subitem {state}, \hyperpage{21}
+  \item {motor\_init}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {motor\_process\_1ms}
+    \subitem {driver\_motor.c}, \hyperpage{127}
+    \subitem {driver\_motor.h}, \hyperpage{43}
+  \item {motor\_pwm\_percent}
+    \subitem {driver\_motor.c}, \hyperpage{127}
+    \subitem {driver\_motor.h}, \hyperpage{44}
+  \item {motor\_set\_speed\_mms}
+    \subitem {driver\_motor.c}, \hyperpage{128}
+    \subitem {driver\_motor.h}, \hyperpage{45}
+  \item {MOTOR\_STATE\_FORWARD\_HOLD}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_FWD\_BRAKE\_TAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_FWD\_NEUTRAL\_GAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_NEUTRAL}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_GAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_TAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_REV\_BRAKE\_TAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_REV\_NEUTRAL\_GAP}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MOTOR\_STATE\_REVERSE\_HOLD}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MotorState\_t}
+    \subitem {driver\_motor.h}, \hyperpage{42}
+  \item {MX\_DMA\_Init}
+    \subitem {dma.c}, \hyperpage{116}
+    \subitem {dma.h}, \hyperpage{29}
+  \item {MX\_GPIO\_Init}
+    \subitem {gpio.c}, \hyperpage{139}
+    \subitem {gpio.h}, \hyperpage{56}
+  \item {MX\_SPI1\_Init}
+    \subitem {spi.c}, \hyperpage{164}
+    \subitem {spi.h}, \hyperpage{82}
+  \item {MX\_TIM1\_Init}
+    \subitem {tim.c}, \hyperpage{189}
+    \subitem {tim.h}, \hyperpage{102}
+  \item {MX\_TIM2\_Init}
+    \subitem {tim.c}, \hyperpage{190}
+    \subitem {tim.h}, \hyperpage{103}
+  \item {MX\_TIM3\_Init}
+    \subitem {tim.c}, \hyperpage{190}
+    \subitem {tim.h}, \hyperpage{103}
+  \item {MX\_TIM4\_Init}
+    \subitem {tim.c}, \hyperpage{191}
+    \subitem {tim.h}, \hyperpage{104}
+  \item {MX\_USART2\_UART\_Init}
+    \subitem {usart.c}, \hyperpage{197}
+    \subitem {usart.h}, \hyperpage{107}
+
+  \indexspace
+
+  \item {NB\_TOURS\_TEST}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+  \item {NMI\_Handler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+
+  \indexspace
+
+  \item {PARSER\_BMI\_CMD}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {PARSER\_IDLE}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {PARSER\_MOTOR\_CMD}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {PARSER\_OTHERS}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {PARSER\_SERVO\_CMD}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {parser\_state}
+    \subitem {serial\_cmd.c}, \hyperpage{160}
+    \subitem {serial\_cmd.h}, \hyperpage{80}
+  \item {ParserSwitch}
+    \subitem {serial\_cmd.h}, \hyperpage{77}
+  \item {ParseState}
+    \subitem {serial\_cmd.c}, \hyperpage{158}
+  \item {PendSV\_Handler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+  \item {PERIMETER\_M}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+  \item {pin}
+    \subitem {bmi088\_cs\_t}, \hyperpage{15}
+  \item {port}
+    \subitem {bmi088\_cs\_t}, \hyperpage{15}
+  \item {PREFETCH\_ENABLE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+  \item {PROTO\_ADDR}
+    \subitem {serial.h}, \hyperpage{65}
+  \item {PROTO\_HDR\_ADDR\_MASK}
+    \subitem {serial.h}, \hyperpage{65}
+  \item {PROTO\_HDR\_RW\_MASK}
+    \subitem {serial.h}, \hyperpage{65}
+  \item {PROTO\_IS\_READ}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {PROTO\_MAKE\_HDR}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {proto\_send\_read\_burst}
+    \subitem {serial.c}, \hyperpage{149}
+    \subitem {serial.h}, \hyperpage{67}
+  \item {proto\_send\_write16}
+    \subitem {serial.c}, \hyperpage{150}
+    \subitem {serial.h}, \hyperpage{67}
+  \item {PWM\_BRAKE\_FWD}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+  \item {PWM\_BRAKE\_REV}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+  \item {PWM\_MAX\_ESC}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {PWM\_MIN\_ESC}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {PWM\_motor\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{60}
+  \item {PWM\_motor\_Pin}
+    \subitem {main.h}, \hyperpage{60}
+  \item {PWM\_NEUTRAL}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+  \item {PWM\_servo\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{60}
+  \item {PWM\_servo\_Pin}
+    \subitem {main.h}, \hyperpage{60}
+
+  \indexspace
+
+  \item {REG\_BMI}
+    \subitem {serial\_cmd.h}, \hyperpage{76}
+  \item {REG\_MOTOR\_CMD}
+    \subitem {serial\_cmd.h}, \hyperpage{76}
+  \item {REG\_SERVO\_CMD}
+    \subitem {serial\_cmd.h}, \hyperpage{76}
+  \item {RING\_MASK}
+    \subitem {serial.c}, \hyperpage{147}
+
+  \indexspace
+
+  \item {S\_CRC}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+  \item {S\_D0}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+  \item {S\_D1}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+  \item {S\_HDR}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+  \item {serial.c}
+    \subitem {\_write}, \hyperpage{148}
+    \subitem {HAL\_UART\_TxCpltCallback}, \hyperpage{148}
+    \subitem {HAL\_UARTEx\_RxEventCallback}, \hyperpage{149}
+    \subitem {proto\_send\_read\_burst}, \hyperpage{149}
+    \subitem {proto\_send\_write16}, \hyperpage{150}
+    \subitem {RING\_MASK}, \hyperpage{147}
+    \subitem {serial\_available}, \hyperpage{150}
+    \subitem {serial\_crc8\_atm}, \hyperpage{150}
+    \subitem {serial\_init}, \hyperpage{151}
+    \subitem {serial\_read}, \hyperpage{151}
+    \subitem {serial\_read\_until}, \hyperpage{152}
+    \subitem {serial\_write}, \hyperpage{152}
+    \subitem {serial\_write\_all\_nb}, \hyperpage{153}
+    \subitem {serial\_write\_nb}, \hyperpage{154}
+    \subitem {TX\_RING\_MASK}, \hyperpage{147}
+    \subitem {TX\_RING\_SIZE}, \hyperpage{148}
+  \item {serial.h}
+    \subitem {PROTO\_ADDR}, \hyperpage{65}
+    \subitem {PROTO\_HDR\_ADDR\_MASK}, \hyperpage{65}
+    \subitem {PROTO\_HDR\_RW\_MASK}, \hyperpage{65}
+    \subitem {PROTO\_IS\_READ}, \hyperpage{66}
+    \subitem {PROTO\_MAKE\_HDR}, \hyperpage{66}
+    \subitem {proto\_send\_read\_burst}, \hyperpage{67}
+    \subitem {proto\_send\_write16}, \hyperpage{67}
+    \subitem {serial\_available}, \hyperpage{68}
+    \subitem {serial\_crc8\_atm}, \hyperpage{68}
+    \subitem {serial\_init}, \hyperpage{69}
+    \subitem {serial\_read}, \hyperpage{70}
+    \subitem {serial\_read\_until}, \hyperpage{70}
+    \subitem {SERIAL\_RX\_CHUNK\_SIZE}, \hyperpage{66}
+    \subitem {SERIAL\_RX\_RING\_SIZE}, \hyperpage{66}
+    \subitem {SERIAL\_TX\_CHUNK\_MAX}, \hyperpage{66}
+    \subitem {SERIAL\_UART}, \hyperpage{66}
+    \subitem {serial\_write}, \hyperpage{71}
+    \subitem {serial\_write\_all\_nb}, \hyperpage{72}
+    \subitem {serial\_write\_nb}, \hyperpage{73}
+  \item {serial\_available}
+    \subitem {serial.c}, \hyperpage{150}
+    \subitem {serial.h}, \hyperpage{68}
+  \item {serial\_cmd.c}
+    \subitem {parser\_state}, \hyperpage{160}
+    \subitem {ParseState}, \hyperpage{158}
+    \subitem {S\_CRC}, \hyperpage{159}
+    \subitem {S\_D0}, \hyperpage{159}
+    \subitem {S\_D1}, \hyperpage{159}
+    \subitem {S\_HDR}, \hyperpage{159}
+    \subitem {serial\_cmd\_reader}, \hyperpage{159}
+    \subitem {serial\_send\_data\_frame}, \hyperpage{159}
+    \subitem {shadow\_motor\_cmd}, \hyperpage{160}
+    \subitem {shadow\_servo\_cmd}, \hyperpage{160}
+  \item {serial\_cmd.h}
+    \subitem {\_\_attribute\_\_}, \hyperpage{78}
+    \subitem {PARSER\_BMI\_CMD}, \hyperpage{78}
+    \subitem {PARSER\_IDLE}, \hyperpage{78}
+    \subitem {PARSER\_MOTOR\_CMD}, \hyperpage{78}
+    \subitem {PARSER\_OTHERS}, \hyperpage{78}
+    \subitem {PARSER\_SERVO\_CMD}, \hyperpage{78}
+    \subitem {parser\_state}, \hyperpage{80}
+    \subitem {ParserSwitch}, \hyperpage{77}
+    \subitem {REG\_BMI}, \hyperpage{76}
+    \subitem {REG\_MOTOR\_CMD}, \hyperpage{76}
+    \subitem {REG\_SERVO\_CMD}, \hyperpage{76}
+    \subitem {serial\_cmd\_reader}, \hyperpage{78}
+    \subitem {serial\_send\_data\_frame}, \hyperpage{79}
+    \subitem {SerialImuFrame\_t}, \hyperpage{80}
+    \subitem {shadow\_motor\_cmd}, \hyperpage{80}
+    \subitem {shadow\_servo\_cmd}, \hyperpage{80}
+  \item {serial\_cmd\_reader}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+    \subitem {serial\_cmd.h}, \hyperpage{78}
+  \item {serial\_crc8\_atm}
+    \subitem {serial.c}, \hyperpage{150}
+    \subitem {serial.h}, \hyperpage{68}
+  \item {serial\_init}
+    \subitem {serial.c}, \hyperpage{151}
+    \subitem {serial.h}, \hyperpage{69}
+  \item {serial\_read}
+    \subitem {serial.c}, \hyperpage{151}
+    \subitem {serial.h}, \hyperpage{70}
+  \item {serial\_read\_until}
+    \subitem {serial.c}, \hyperpage{152}
+    \subitem {serial.h}, \hyperpage{70}
+  \item {SERIAL\_RX\_CHUNK\_SIZE}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {SERIAL\_RX\_RING\_SIZE}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {serial\_send\_data\_frame}
+    \subitem {serial\_cmd.c}, \hyperpage{159}
+    \subitem {serial\_cmd.h}, \hyperpage{79}
+  \item {SERIAL\_TX\_CHUNK\_MAX}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {SERIAL\_UART}
+    \subitem {serial.h}, \hyperpage{66}
+  \item {serial\_write}
+    \subitem {serial.c}, \hyperpage{152}
+    \subitem {serial.h}, \hyperpage{71}
+  \item {serial\_write\_all\_nb}
+    \subitem {serial.c}, \hyperpage{153}
+    \subitem {serial.h}, \hyperpage{72}
+  \item {serial\_write\_nb}
+    \subitem {serial.c}, \hyperpage{154}
+    \subitem {serial.h}, \hyperpage{73}
+  \item {SerialImuFrame\_t}
+    \subitem {serial\_cmd.h}, \hyperpage{80}
+  \item {SERVO\_CLAMP\_MAX}
+    \subitem {driver\_servo.c}, \hyperpage{132}
+  \item {SERVO\_CLAMP\_MIN}
+    \subitem {driver\_servo.c}, \hyperpage{132}
+  \item {Servo\_Handle\_t}, \hyperpage{21}
+    \subitem {channel}, \hyperpage{22}
+    \subitem {htim}, \hyperpage{22}
+    \subitem {max\_pulse\_ticks}, \hyperpage{22}
+    \subitem {min\_pulse\_ticks}, \hyperpage{22}
+  \item {servo\_initialisation}
+    \subitem {driver\_servo.c}, \hyperpage{132}
+    \subitem {driver\_servo.h}, \hyperpage{47}
+  \item {SERVO\_OFFSET\_PERCENT}
+    \subitem {driver\_servo.c}, \hyperpage{132}
+  \item {servo\_pwm\_angle\_abs\_value}
+    \subitem {driver\_servo.c}, \hyperpage{133}
+    \subitem {driver\_servo.h}, \hyperpage{48}
+  \item {servo\_pwm\_angle\_degree}
+    \subitem {driver\_servo.c}, \hyperpage{133}
+    \subitem {driver\_servo.h}, \hyperpage{49}
+  \item {servo\_pwm\_percent}
+    \subitem {driver\_servo.c}, \hyperpage{134}
+    \subitem {driver\_servo.h}, \hyperpage{49}
+  \item {shadow\_motor\_cmd}
+    \subitem {serial\_cmd.c}, \hyperpage{160}
+    \subitem {serial\_cmd.h}, \hyperpage{80}
+  \item {shadow\_servo\_cmd}
+    \subitem {serial\_cmd.c}, \hyperpage{160}
+    \subitem {serial\_cmd.h}, \hyperpage{80}
+  \item {speed\_speedo\_data}
+    \subitem {app\_main.c}, \hyperpage{113}
+    \subitem {app\_main.h}, \hyperpage{27}
+  \item {Speedometer\_Handle\_t}, \hyperpage{23}
+    \subitem {current\_speed\_ms}, \hyperpage{23}
+    \subitem {htim}, \hyperpage{23}
+    \subitem {last\_counter\_val}, \hyperpage{24}
+    \subitem {last\_process\_time}, \hyperpage{24}
+  \item {speedometer\_init}
+    \subitem {driver\_speedometer.c}, \hyperpage{136}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+  \item {speedometer\_solve\_speed}
+    \subitem {driver\_speedometer.c}, \hyperpage{137}
+    \subitem {driver\_speedometer.h}, \hyperpage{54}
+  \item {spi.c}
+    \subitem {HAL\_SPI\_MspDeInit}, \hyperpage{163}
+    \subitem {HAL\_SPI\_MspInit}, \hyperpage{163}
+    \subitem {hspi1}, \hyperpage{164}
+    \subitem {MX\_SPI1\_Init}, \hyperpage{164}
+  \item {spi.h}
+    \subitem {hspi1}, \hyperpage{83}
+    \subitem {MX\_SPI1\_Init}, \hyperpage{82}
+  \item {SPI1\_IRQHandler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{169}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+  \item {state}
+    \subitem {Motor\_Handle\_t}, \hyperpage{21}
+  \item {stm32\_assert.h}
+    \subitem {assert\_param}, \hyperpage{84}
+  \item {stm32g0xx\_hal\_conf.h}
+    \subitem {assert\_param}, \hyperpage{87}
+    \subitem {EXTERNAL\_I2S1\_CLOCK\_VALUE}, \hyperpage{87}
+    \subitem {HAL\_CORTEX\_MODULE\_ENABLED}, \hyperpage{87}
+    \subitem {HAL\_DMA\_MODULE\_ENABLED}, \hyperpage{87}
+    \subitem {HAL\_EXTI\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_FLASH\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_GPIO\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_PWR\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_RCC\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_SPI\_MODULE\_ENABLED}, \hyperpage{88}
+    \subitem {HAL\_TIM\_MODULE\_ENABLED}, \hyperpage{89}
+    \subitem {HAL\_UART\_MODULE\_ENABLED}, \hyperpage{89}
+    \subitem {HSE\_STARTUP\_TIMEOUT}, \hyperpage{89}
+    \subitem {HSE\_VALUE}, \hyperpage{89}
+    \subitem {HSI\_VALUE}, \hyperpage{89}
+    \subitem {INSTRUCTION\_CACHE\_ENABLE}, \hyperpage{89}
+    \subitem {LSE\_STARTUP\_TIMEOUT}, \hyperpage{90}
+    \subitem {LSE\_VALUE}, \hyperpage{90}
+    \subitem {LSI\_VALUE}, \hyperpage{90}
+    \subitem {PREFETCH\_ENABLE}, \hyperpage{90}
+    \subitem {TICK\_INT\_PRIORITY}, \hyperpage{90}
+    \subitem {USE\_HAL\_ADC\_REGISTER\_CALLBACKS}, \hyperpage{90}
+    \subitem {USE\_HAL\_CEC\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_COMP\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_CRYP\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_CRYP\_SUSPEND\_RESUME}, \hyperpage{91}
+    \subitem {USE\_HAL\_DAC\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_FDCAN\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_HCD\_REGISTER\_CALLBACKS}, \hyperpage{91}
+    \subitem {USE\_HAL\_I2C\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_I2S\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_IRDA\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_LPTIM\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_PCD\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_RNG\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_RTC\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_SMBUS\_REGISTER\_CALLBACKS}, \hyperpage{92}
+    \subitem {USE\_HAL\_SPI\_REGISTER\_CALLBACKS}, \hyperpage{93}
+    \subitem {USE\_HAL\_TIM\_REGISTER\_CALLBACKS}, \hyperpage{93}
+    \subitem {USE\_HAL\_UART\_REGISTER\_CALLBACKS}, \hyperpage{93}
+    \subitem {USE\_HAL\_USART\_REGISTER\_CALLBACKS}, \hyperpage{93}
+    \subitem {USE\_HAL\_WWDG\_REGISTER\_CALLBACKS}, \hyperpage{93}
+    \subitem {USE\_RTOS}, \hyperpage{93}
+    \subitem {USE\_SPI\_CRC}, \hyperpage{93}
+    \subitem {VDD\_VALUE}, \hyperpage{93}
+  \item {stm32g0xx\_hal\_msp.c}
+    \subitem {HAL\_MspInit}, \hyperpage{166}
+  \item {stm32g0xx\_it.c}
+    \subitem {DMA1\_Channel1\_IRQHandler}, \hyperpage{169}
+    \subitem {DMA1\_Channel2\_3\_IRQHandler}, \hyperpage{169}
+    \subitem {HardFault\_Handler}, \hyperpage{169}
+    \subitem {hdma\_usart2\_rx}, \hyperpage{171}
+    \subitem {hdma\_usart2\_tx}, \hyperpage{171}
+    \subitem {hspi1}, \hyperpage{171}
+    \subitem {htim4}, \hyperpage{171}
+    \subitem {huart2}, \hyperpage{171}
+    \subitem {NMI\_Handler}, \hyperpage{169}
+    \subitem {PendSV\_Handler}, \hyperpage{169}
+    \subitem {SPI1\_IRQHandler}, \hyperpage{169}
+    \subitem {SVC\_Handler}, \hyperpage{170}
+    \subitem {SysTick\_Handler}, \hyperpage{170}
+    \subitem {TIM3\_TIM4\_IRQHandler}, \hyperpage{170}
+    \subitem {USART2\_LPUART2\_IRQHandler}, \hyperpage{170}
+  \item {stm32g0xx\_it.h}
+    \subitem {DMA1\_Channel1\_IRQHandler}, \hyperpage{98}
+    \subitem {DMA1\_Channel2\_3\_IRQHandler}, \hyperpage{98}
+    \subitem {HardFault\_Handler}, \hyperpage{98}
+    \subitem {NMI\_Handler}, \hyperpage{99}
+    \subitem {PendSV\_Handler}, \hyperpage{99}
+    \subitem {SPI1\_IRQHandler}, \hyperpage{99}
+    \subitem {SVC\_Handler}, \hyperpage{99}
+    \subitem {SysTick\_Handler}, \hyperpage{99}
+    \subitem {TIM3\_TIM4\_IRQHandler}, \hyperpage{99}
+    \subitem {USART2\_LPUART2\_IRQHandler}, \hyperpage{100}
+  \item {Stm32g0xx\_system}, \hyperpage{8}
+  \item {STM32G0xx\_System\_Private\_Defines}, \hyperpage{10}
+  \item {STM32G0xx\_System\_Private\_FunctionPrototypes}, 
+		\hyperpage{12}
+  \item {STM32G0xx\_System\_Private\_Functions}, \hyperpage{12}
+    \subitem {SystemCoreClockUpdate}, \hyperpage{12}
+    \subitem {SystemInit}, \hyperpage{13}
+  \item {STM32G0xx\_System\_Private\_Includes}, \hyperpage{9}
+    \subitem {HSE\_VALUE}, \hyperpage{9}
+    \subitem {HSI\_VALUE}, \hyperpage{9}
+    \subitem {LSE\_VALUE}, \hyperpage{9}
+    \subitem {LSI\_VALUE}, \hyperpage{9}
+  \item {STM32G0xx\_System\_Private\_Macros}, \hyperpage{10}
+  \item {STM32G0xx\_System\_Private\_TypesDefinitions}, \hyperpage{10}
+  \item {STM32G0xx\_System\_Private\_Variables}, \hyperpage{11}
+    \subitem {AHBPrescTable}, \hyperpage{11}
+    \subitem {APBPrescTable}, \hyperpage{11}
+    \subitem {SystemCoreClock}, \hyperpage{11}
+  \item {SVC\_Handler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{170}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+  \item {syscalls.c}
+    \subitem {\_\_attribute\_\_}, \hyperpage{175}
+    \subitem {\_\_io\_getchar}, \hyperpage{175}
+    \subitem {\_\_io\_putchar}, \hyperpage{176}
+    \subitem {\_close}, \hyperpage{176}
+    \subitem {\_execve}, \hyperpage{176}
+    \subitem {\_exit}, \hyperpage{176}
+    \subitem {\_fork}, \hyperpage{177}
+    \subitem {\_fstat}, \hyperpage{177}
+    \subitem {\_getpid}, \hyperpage{177}
+    \subitem {\_isatty}, \hyperpage{177}
+    \subitem {\_kill}, \hyperpage{177}
+    \subitem {\_link}, \hyperpage{178}
+    \subitem {\_lseek}, \hyperpage{178}
+    \subitem {\_open}, \hyperpage{178}
+    \subitem {\_stat}, \hyperpage{178}
+    \subitem {\_times}, \hyperpage{178}
+    \subitem {\_unlink}, \hyperpage{179}
+    \subitem {\_wait}, \hyperpage{179}
+    \subitem {environ}, \hyperpage{179}
+    \subitem {initialise\_monitor\_handles}, \hyperpage{179}
+  \item {sysmem.c}
+    \subitem {\_sbrk}, \hyperpage{183}
+  \item {SystemClock\_Config}
+    \subitem {main.c}, \hyperpage{143}
+  \item {SystemCoreClock}
+    \subitem {STM32G0xx\_System\_Private\_Variables}, \hyperpage{11}
+  \item {SystemCoreClockUpdate}
+    \subitem {STM32G0xx\_System\_Private\_Functions}, \hyperpage{12}
+  \item {SystemInit}
+    \subitem {STM32G0xx\_System\_Private\_Functions}, \hyperpage{13}
+  \item {SysTick\_Handler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{170}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+
+  \indexspace
+
+  \item {t\_1\_ms}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {t\_2\_ms}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {T\_BRAKE\_MS}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+  \item {T\_NEUTRAL\_GAP\_MS}
+    \subitem {driver\_motor.c}, \hyperpage{126}
+  \item {target\_forward}
+    \subitem {Motor\_Context\_t}, \hyperpage{18}
+  \item {target\_pwm}
+    \subitem {Motor\_Context\_t}, \hyperpage{18}
+  \item {target\_speed\_mms}
+    \subitem {Motor\_Context\_t}, \hyperpage{18}
+  \item {TASK\_MOTOR\_US}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {TASK\_SPEED\_US}
+    \subitem {app\_main.c}, \hyperpage{110}
+  \item {TASK\_TELEMETRY\_US}
+    \subitem {app\_main.c}, \hyperpage{111}
+  \item {TCK\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{60}
+  \item {TCK\_Pin}
+    \subitem {main.h}, \hyperpage{60}
+  \item {TICK\_INT\_PRIORITY}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+  \item {TICKS\_PER\_WHEEL\_TURN}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+  \item {tim.c}
+    \subitem {HAL\_TIM\_Base\_MspDeInit}, \hyperpage{188}
+    \subitem {HAL\_TIM\_Base\_MspInit}, \hyperpage{188}
+    \subitem {HAL\_TIM\_MspPostInit}, \hyperpage{189}
+    \subitem {htim1}, \hyperpage{191}
+    \subitem {htim2}, \hyperpage{191}
+    \subitem {htim4}, \hyperpage{191}
+    \subitem {MX\_TIM1\_Init}, \hyperpage{189}
+    \subitem {MX\_TIM2\_Init}, \hyperpage{190}
+    \subitem {MX\_TIM3\_Init}, \hyperpage{190}
+    \subitem {MX\_TIM4\_Init}, \hyperpage{191}
+  \item {tim.h}
+    \subitem {HAL\_TIM\_MspPostInit}, \hyperpage{102}
+    \subitem {htim1}, \hyperpage{104}
+    \subitem {htim2}, \hyperpage{104}
+    \subitem {htim4}, \hyperpage{105}
+    \subitem {MX\_TIM1\_Init}, \hyperpage{102}
+    \subitem {MX\_TIM2\_Init}, \hyperpage{103}
+    \subitem {MX\_TIM3\_Init}, \hyperpage{103}
+    \subitem {MX\_TIM4\_Init}, \hyperpage{104}
+  \item {tim3\_overflow\_cnt}
+    \subitem {app\_main.c}, \hyperpage{113}
+    \subitem {app\_main.h}, \hyperpage{27}
+  \item {TIM3\_TIM4\_IRQHandler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{170}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{99}
+  \item {timestamp\_ms}
+    \subitem {bmi088\_data\_t}, \hyperpage{17}
+  \item {TMS\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{60}
+  \item {TMS\_Pin}
+    \subitem {main.h}, \hyperpage{60}
+  \item {TX\_RING\_MASK}
+    \subitem {serial.c}, \hyperpage{147}
+  \item {TX\_RING\_SIZE}
+    \subitem {serial.c}, \hyperpage{148}
+
+  \indexspace
+
+  \item {usart.c}
+    \subitem {HAL\_UART\_MspDeInit}, \hyperpage{197}
+    \subitem {HAL\_UART\_MspInit}, \hyperpage{197}
+    \subitem {hdma\_usart2\_rx}, \hyperpage{198}
+    \subitem {hdma\_usart2\_tx}, \hyperpage{198}
+    \subitem {huart2}, \hyperpage{198}
+    \subitem {MX\_USART2\_UART\_Init}, \hyperpage{197}
+  \item {usart.h}
+    \subitem {huart2}, \hyperpage{107}
+    \subitem {MX\_USART2\_UART\_Init}, \hyperpage{107}
+  \item {USART2\_LPUART2\_IRQHandler}
+    \subitem {stm32g0xx\_it.c}, \hyperpage{170}
+    \subitem {stm32g0xx\_it.h}, \hyperpage{100}
+  \item {USART2\_RX\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{61}
+  \item {USART2\_RX\_Pin}
+    \subitem {main.h}, \hyperpage{61}
+  \item {USART2\_TX\_GPIO\_Port}
+    \subitem {main.h}, \hyperpage{61}
+  \item {USART2\_TX\_Pin}
+    \subitem {main.h}, \hyperpage{61}
+  \item {USE\_HAL\_ADC\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{90}
+  \item {USE\_HAL\_CEC\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_COMP\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_CRYP\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_CRYP\_SUSPEND\_RESUME}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_DAC\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_FDCAN\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_HCD\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{91}
+  \item {USE\_HAL\_I2C\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_I2S\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_IRDA\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_LPTIM\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_PCD\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_RNG\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_RTC\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_SMBUS\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{92}
+  \item {USE\_HAL\_SPI\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_HAL\_TIM\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_HAL\_UART\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_HAL\_USART\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_HAL\_WWDG\_REGISTER\_CALLBACKS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_RTOS}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+  \item {USE\_SPI\_CRC}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+
+  \indexspace
+
+  \item {VALEUR\_COMPTEUR\_LUE}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+  \item {VDD\_VALUE}
+    \subitem {stm32g0xx\_hal\_conf.h}, \hyperpage{93}
+
+  \indexspace
+
+  \item {WHEEL\_DIAMETER\_MM}
+    \subitem {driver\_speedometer.h}, \hyperpage{53}
+
+\end{theindex}

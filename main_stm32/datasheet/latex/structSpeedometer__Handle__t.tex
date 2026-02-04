@@ -1,0 +1,95 @@
+\doxysection{Speedometer\+\_\+\+Handle\+\_\+t Struct Reference}
+\hypertarget{structSpeedometer__Handle__t}{}\label{structSpeedometer__Handle__t}\index{Speedometer\_Handle\_t@{Speedometer\_Handle\_t}}
+
+
+Structure de gestion du tachymètre.  
+
+
+
+
+{\ttfamily \#include $<$driver\+\_\+speedometer.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}
+\begin{DoxyCompactList}\small\item\em Pointeur vers le Timer utilisé en mode compteur. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}{last\+\_\+counter\+\_\+val}}
+\begin{DoxyCompactList}\small\item\em Valeur du compteur lors de la dernière lecture. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}{last\+\_\+process\+\_\+time}}
+\begin{DoxyCompactList}\small\item\em Timestamp (ms) de la dernière lecture. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}{current\+\_\+speed\+\_\+ms}}
+\begin{DoxyCompactList}\small\item\em Vitesse actuelle calculée en m/s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure de gestion du tachymètre. 
+
+Stocke l\textquotesingle{}état précédent du compteur et du temps pour calculer la vitesse différentielle. 
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00035}{35}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988}\label{structSpeedometer__Handle__t_a5cec9b33bffaaf95173551311618f988} 
+\index{Speedometer\_Handle\_t@{Speedometer\_Handle\_t}!current\_speed\_ms@{current\_speed\_ms}}
+\index{current\_speed\_ms@{current\_speed\_ms}!Speedometer\_Handle\_t@{Speedometer\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{current\_speed\_ms}{current\_speed\_ms}}
+{\footnotesize\ttfamily float current\+\_\+speed\+\_\+ms}
+
+
+
+Vitesse actuelle calculée en m/s. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00039}{39}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}\label{structSpeedometer__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486} 
+\index{Speedometer\_Handle\_t@{Speedometer\_Handle\_t}!htim@{htim}}
+\index{htim@{htim}!Speedometer\_Handle\_t@{Speedometer\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{htim}{htim}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
+
+
+
+Pointeur vers le Timer utilisé en mode compteur. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00036}{36}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45}\label{structSpeedometer__Handle__t_af948f46ea2f90af6fa549a9fed895e45} 
+\index{Speedometer\_Handle\_t@{Speedometer\_Handle\_t}!last\_counter\_val@{last\_counter\_val}}
+\index{last\_counter\_val@{last\_counter\_val}!Speedometer\_Handle\_t@{Speedometer\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{last\_counter\_val}{last\_counter\_val}}
+{\footnotesize\ttfamily uint16\+\_\+t last\+\_\+counter\+\_\+val}
+
+
+
+Valeur du compteur lors de la dernière lecture. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00037}{37}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+\Hypertarget{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294}\label{structSpeedometer__Handle__t_aa63ebddb12cc7901166a0e9e58429294} 
+\index{Speedometer\_Handle\_t@{Speedometer\_Handle\_t}!last\_process\_time@{last\_process\_time}}
+\index{last\_process\_time@{last\_process\_time}!Speedometer\_Handle\_t@{Speedometer\_Handle\_t}}
+\doxysubsubsection{\texorpdfstring{last\_process\_time}{last\_process\_time}}
+{\footnotesize\ttfamily uint32\+\_\+t last\+\_\+process\+\_\+time}
+
+
+
+Timestamp (ms) de la dernière lecture. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8h_source_l00038}{38}} of file \mbox{\hyperlink{driver__speedometer_8h_source}{driver\+\_\+speedometer.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core/\+Inc/\mbox{\hyperlink{driver__speedometer_8h}{driver\+\_\+speedometer.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['t_5f1_5fms_0',['t_1_ms',['../app__main_8c.html#a0298419b8241cc04cb456cd22b0c067c',1,'app_main.c']]],
+  ['t_5f2_5fms_1',['t_2_ms',['../app__main_8c.html#a8e3cc728845c9b35613917860b4d49b8',1,'app_main.c']]],
+  ['t_5fbrake_5fms_2',['T_BRAKE_MS',['../driver__motor_8c.html#a1735fa362eba9970915a8180ecd9789f',1,'driver_motor.c']]],
+  ['t_5fneutral_5fgap_5fms_3',['T_NEUTRAL_GAP_MS',['../driver__motor_8c.html#ac12e547e4d882e62a29ef011a36c3d22',1,'driver_motor.c']]],
+  ['target_5fforward_4',['target_forward',['../structMotor__Context__t.html#a1104fe0e4ccfaf0f8f4d12852aeda5b5',1,'Motor_Context_t']]],
+  ['target_5fpwm_5',['target_pwm',['../structMotor__Context__t.html#afdc80625026a4882a812e5363047d568',1,'Motor_Context_t']]],
+  ['target_5fspeed_5fmms_6',['target_speed_mms',['../structMotor__Context__t.html#a9a2668fef7e7a6f90ba8f7bf47687338',1,'Motor_Context_t']]],
+  ['task_5fmotor_5fus_7',['TASK_MOTOR_US',['../app__main_8c.html#abd14325ee0b943a6931793d430a9c105',1,'app_main.c']]],
+  ['task_5fspeed_5fus_8',['TASK_SPEED_US',['../app__main_8c.html#a2b20f9e514f86cadbd8c88d28e0d52cf',1,'app_main.c']]],
+  ['task_5ftelemetry_5fus_9',['TASK_TELEMETRY_US',['../app__main_8c.html#a2d70b4781c04d4b8f0759a3cf67c9a68',1,'app_main.c']]],
+  ['tck_5fgpio_5fport_10',['TCK_GPIO_Port',['../main_8h.html#a1541f23b870848a43f0274857badd175',1,'main.h']]],
+  ['tck_5fpin_11',['TCK_Pin',['../main_8h.html#a9e21d9bed16b0275ff16a864ffb2ab6e',1,'main.h']]],
+  ['the_20system_20clock_20as_20follows_3a_12',['This file configures the system clock as follows:',['../system__stm32g0xx_8c.html#autotoc_md0',1,'']]],
+  ['this_20file_20configures_20the_20system_20clock_20as_20follows_3a_13',['This file configures the system clock as follows:',['../system__stm32g0xx_8c.html#autotoc_md0',1,'']]],
+  ['tick_5fint_5fpriority_14',['TICK_INT_PRIORITY',['../stm32g0xx__hal__conf_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e',1,'stm32g0xx_hal_conf.h']]],
+  ['ticks_5fper_5fwheel_5fturn_15',['TICKS_PER_WHEEL_TURN',['../driver__speedometer_8h.html#a28a11eecf5a251e3e4d1f47ff5518ca6',1,'driver_speedometer.h']]],
+  ['tim_2ec_16',['tim.c',['../tim_8c.html',1,'']]],
+  ['tim_2eh_17',['tim.h',['../tim_8h.html',1,'']]],
+  ['tim3_5foverflow_5fcnt_18',['tim3_overflow_cnt',['../app__main_8h.html#a0da4b66d17e1a075b80d5f3f6ead6b80',1,'tim3_overflow_cnt:&#160;app_main.c'],['../app__main_8c.html#a0da4b66d17e1a075b80d5f3f6ead6b80',1,'tim3_overflow_cnt:&#160;app_main.c']]],
+  ['tim3_5ftim4_5firqhandler_19',['tim3_tim4_irqhandler',['../stm32g0xx__it_8h.html#a2420de411ea7577beb31ee2dfc66e7d0',1,'TIM3_TIM4_IRQHandler(void):&#160;stm32g0xx_it.c'],['../stm32g0xx__it_8c.html#a2420de411ea7577beb31ee2dfc66e7d0',1,'TIM3_TIM4_IRQHandler(void):&#160;stm32g0xx_it.c']]],
+  ['timestamp_5fms_20',['timestamp_ms',['../structbmi088__data__t.html#a7151fee88ade6cc487805f36f80cf619',1,'bmi088_data_t']]],
+  ['tms_5fgpio_5fport_21',['TMS_GPIO_Port',['../main_8h.html#affce477a22cc940d3962932cb33ec422',1,'main.h']]],
+  ['tms_5fpin_22',['TMS_Pin',['../main_8h.html#af2c8a7a0746106e52f6f415b8921c21b',1,'main.h']]],
+  ['tx_5fring_5fmask_23',['TX_RING_MASK',['../serial_8c.html#a87033b2cb9cac2320456144d97b38e26',1,'serial.c']]],
+  ['tx_5fring_5fsize_24',['TX_RING_SIZE',['../serial_8c.html#a530086d082c22e371518c2497c6d9014',1,'serial.c']]]
+];

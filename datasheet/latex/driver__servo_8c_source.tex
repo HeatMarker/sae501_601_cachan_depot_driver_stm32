@@ -1,0 +1,79 @@
+\doxysection{driver\+\_\+servo.\+c}
+\hypertarget{driver__servo_8c_source}{}\label{driver__servo_8c_source}\index{Core/Src/driver\_servo.c@{Core/Src/driver\_servo.c}}
+\mbox{\hyperlink{driver__servo_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__servo_8h}{driver\_servo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00012}\mbox{\hyperlink{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154}{00012}}\ \textcolor{preprocessor}{\#define\ SERVO\_OFFSET\_PERCENT\ \ 5}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00014}\mbox{\hyperlink{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92}{00014}}\ \textcolor{preprocessor}{\#define\ SERVO\_CLAMP\_MIN\ \ \ \ \ \ \ -\/20}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00016}\mbox{\hyperlink{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50}{00016}}\ \textcolor{preprocessor}{\#define\ SERVO\_CLAMP\_MAX\ \ \ \ \ \ \ 20}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00018}00018\ \textcolor{comment}{//static\ inline\ void\ pwm\_pulse(Servo\_Handle\_t\ *hservo,\ uint16\_t\ value);}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00019}00019\ \textcolor{keyword}{static}\ int32\_t\ map(int32\_t\ x,\ int32\_t\ in\_min,\ int32\_t\ in\_max,\ int32\_t\ out\_min,\ int32\_t\ out\_max);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00026}00026\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ pwm\_pulse(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ uint16\_t\ value)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (hservo\ \&\&\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}})\ \{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}},\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}},\ value);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00041}00041\ \textcolor{keyword}{static}\ int32\_t\ map(int32\_t\ x,\ int32\_t\ in\_min,\ int32\_t\ in\_max,\ int32\_t\ out\_min,\ int32\_t\ out\_max)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ in\_min)\ *\ (out\_max\ -\/\ out\_min)\ /\ (in\_max\ -\/\ in\_min)\ +\ out\_min;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00052}00052\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint16\_t\ servo\_map\_percent(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ int16\_t\ percent)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00053}00053\ \ \ \ \ int16\_t\ corrected\ =\ percent\ +\ \mbox{\hyperlink{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154}{SERVO\_OFFSET\_PERCENT}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (corrected\ <\ 0)\ \ \ corrected\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (corrected\ >\ 100)\ corrected\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00058}00058\ \ \ \ \ uint16\_t\ min\ =\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00059}00059\ \ \ \ \ uint16\_t\ max\ =\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ min\ +\ ((max\ -\/\ min)\ *\ corrected)\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00068}\mbox{\hyperlink{driver__servo_8h_aa6df029242c59e741e6f968593259841}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8c_aa6df029242c59e741e6f968593259841}{servo\_pwm\_percent}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ uint8\_t\ percent)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00069}00069\ \ \ \ \ uint16\_t\ value\ =\ servo\_map\_percent(hservo,\ percent);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00070}00070\ \ \ \ \ pwm\_pulse(hservo,\ value);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00080}\mbox{\hyperlink{driver__servo_8h_ae99975cc57bcc8b48267ee20c10d3b0f}{00080}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f}{servo\_pwm\_angle\_degree}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ int8\_t\ angle)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\ <\ \mbox{\hyperlink{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92}{SERVO\_CLAMP\_MIN}})\ angle\ =\ \mbox{\hyperlink{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92}{SERVO\_CLAMP\_MIN}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\ >\ \mbox{\hyperlink{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50}{SERVO\_CLAMP\_MAX}})\ angle\ =\ \mbox{\hyperlink{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50}{SERVO\_CLAMP\_MAX}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00084}00084\ \ \ \ \ int16\_t\ percent\ =\ ((angle\ +\ 35)\ *\ 100)\ /\ 70;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00085}00085\ \ \ \ \ uint16\_t\ value\ =\ servo\_map\_percent(hservo,\ percent);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00087}00087\ \ \ \ \ pwm\_pulse(hservo,\ value);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00097}\mbox{\hyperlink{driver__servo_8h_a86d694bde15582b08fd4e282080eac3c}{00097}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8c_a86d694bde15582b08fd4e282080eac3c}{servo\_pwm\_angle\_abs\_value}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ uint16\_t\ abs\_value)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00098}00098\ \ \ \ \ int32\_t\ angle\_centi\ =\ map(abs\_value,\ 0,\ 65535,\ -\/4500,\ 4500);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\_centi\ <\ -\/2000)\ angle\_centi\ =\ -\/2000;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{if}\ (angle\_centi\ >\ \ 2000)\ angle\_centi\ =\ \ 2000;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00103}00103\ \ \ \ \ int32\_t\ pwm\_ticks\ =\ map(angle\_centi,\ -\/3500,\ 3500,\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}},\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}});}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00105}00105\ \ \ \ \ int32\_t\ range\ =\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}}\ -\/\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00106}00106\ \ \ \ \ int32\_t\ offset\_ticks\ =\ (range\ *\ \mbox{\hyperlink{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154}{SERVO\_OFFSET\_PERCENT}})\ /\ 100;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00108}00108\ \ \ \ \ pwm\_ticks\ +=\ offset\_ticks;}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//\ Sécurité\ bornes\ hardware}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (pwm\_ticks\ >\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}})\ pwm\_ticks\ =\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (pwm\_ticks\ <\ hservo-\/>min\_pulse\_ticks)\ pwm\_ticks\ =\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00114}00114\ \ \ \ \ pwm\_pulse(hservo,\ (uint16\_t)pwm\_ticks);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00122}\mbox{\hyperlink{driver__servo_8h_a3114ea8b18355eaef1310ae4bfb5e117}{00122}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117}{servo\_initialisation}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo)\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{if}(hservo\ \&\&\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}})\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f}{servo\_pwm\_angle\_degree}}(hservo,\ 0);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}},\ hservo-\/>\mbox{\hyperlink{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}});}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00126}00126\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8c_source_l00127}00127\ \}}
+
+\end{DoxyCode}

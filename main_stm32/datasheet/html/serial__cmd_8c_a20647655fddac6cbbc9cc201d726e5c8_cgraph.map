@@ -1,0 +1,5 @@
+<map id="serial_cmd_reader" name="serial_cmd_reader">
+<area shape="rect" id="Node000001" title="Fonction principale de lecture (Polling)." alt="" coords="5,5,133,31"/>
+<area shape="rect" id="Node000002" href="$serial_8c.html#af1ffd0c746c8635c6db4fd0c9efb6090" title="Lit des données depuis le buffer RX." alt="" coords="181,5,267,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,15,167,15,167,21,133,21"/>
+</map>

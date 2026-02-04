@@ -1,0 +1,7 @@
+<map id="app_loop" name="app_loop">
+<area shape="rect" id="Node000001" title="Exécute la boucle principale (Scheduler)." alt="" coords="5,5,80,31"/>
+<area shape="rect" id="Node000002" href="$serial__cmd_8c.html#a20647655fddac6cbbc9cc201d726e5c8" title="Fonction de lecture périodique des commandes entrantes." alt="" coords="128,5,256,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,15,115,15,115,21,80,21"/>
+<area shape="rect" id="Node000003" href="$serial_8c.html#af1ffd0c746c8635c6db4fd0c9efb6090" title="Lit des données depuis le buffer RX." alt="" coords="304,5,389,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,15,290,15,290,21,256,21"/>
+</map>

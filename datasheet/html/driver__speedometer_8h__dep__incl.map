@@ -1,0 +1,7 @@
+<map id="Core/Inc/driver_speedometer.h" name="Core/Inc/driver_speedometer.h">
+<area shape="rect" id="Node000001" title="Fichier d&#39;en&#45;tête pour le capteur de vitesse (Tachymètre)." alt="" coords="77,5,277,31"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html" title="Point d&#39;entrée principal de l&#39;application (Main Loop &amp; Scheduler)." alt="" coords="5,79,151,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,96,81,93,76,148,36"/>
+<area shape="rect" id="Node000003" href="$driver__speedometer_8c.html" title="Driver de calcul de vitesse basé sur un capteur à effet Hall." alt="" coords="175,79,378,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,36,262,76,259,81,202,41"/>
+</map>

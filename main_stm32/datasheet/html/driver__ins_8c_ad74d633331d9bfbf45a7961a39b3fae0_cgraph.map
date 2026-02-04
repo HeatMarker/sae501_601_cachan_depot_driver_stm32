@@ -1,0 +1,7 @@
+<map id="BMI088_Read_All" name="BMI088_Read_All">
+<area shape="rect" id="Node000001" title="Lit et convertit l&#39;ensemble des données IMU (Accel + Gyro)." alt="" coords="5,31,132,56"/>
+<area shape="rect" id="Node000002" href="$driver__ins_8c.html#a6ec6095cf6be17614cb3023f5acbd2f7" title="Lit les données brutes de l&#39;accéléromètre." alt="" coords="180,5,359,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,33,166,28,166,34,132,38"/>
+<area shape="rect" id="Node000003" href="$driver__ins_8c.html#a5426db0df3eafce551517bb8d3402332" title="Lit les données brutes du gyroscope." alt="" coords="182,55,357,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,48,169,53,168,58,132,54"/>
+</map>

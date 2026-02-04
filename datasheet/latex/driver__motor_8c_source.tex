@@ -1,0 +1,211 @@
+\doxysection{driver\+\_\+motor.\+c}
+\hypertarget{driver__motor_8c_source}{}\label{driver__motor_8c_source}\index{Core/Src/driver\_motor.c@{Core/Src/driver\_motor.c}}
+\mbox{\hyperlink{driver__motor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__motor_8h}{driver\_motor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00012}00012\ \textcolor{comment}{//\ 64Mhz\ -\/\ PSC=19\ -\/\ ARR=63999\ soit\ PWM\{50Hz,\ duty=50\%\}}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00015}\mbox{\hyperlink{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}{00015}}\ \textcolor{preprocessor}{\#define\ T\_BRAKE\_MS\ \ \ \ \ \ \ \ \ \ 120}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00017}\mbox{\hyperlink{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}{00017}}\ \textcolor{preprocessor}{\#define\ T\_NEUTRAL\_GAP\_MS\ \ \ \ 120}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00019}\mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{00019}}\ \textcolor{preprocessor}{\#define\ PWM\_NEUTRAL\ \ \ \ \ \ \ \ \ 50u}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00021}\mbox{\hyperlink{driver__motor_8c_ab322cdb39888565e1b53f9867455067d}{00021}}\ \textcolor{preprocessor}{\#define\ PWM\_BRAKE\_REV\ \ \ \ \ \ \ 40u}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00023}\mbox{\hyperlink{driver__motor_8c_afeeac2168ece00af1b163c0027eddc03}{00023}}\ \textcolor{preprocessor}{\#define\ PWM\_BRAKE\_FWD\ \ \ \ \ \ \ 60u}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00025}00025\ \textcolor{keyword}{static}\ uint8\_t\ motor\_speed\_mms\_to\_pwm\_percent(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ int16\_t\ value);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00032}00032\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ pwm\_pulse(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ uint16\_t\ value)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (hmotor\ \&\&\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}})\ \{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \_\_HAL\_TIM\_SET\_COMPARE(hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}},\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}},\ value);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00044}00044\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint16\_t\ motor\_map\_percent(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ int16\_t\ percent)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (percent\ <\ 0)\ \ \ percent\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (percent\ >\ 100)\ percent\ =\ 100;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ min\ =\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ max\ =\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ (uint16\_t)(min\ +\ ((uint32\_t)(max\ -\/\ min)\ *\ (uint32\_t)percent)\ /\ 100u);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00061}00061\ \textcolor{keyword}{static}\ uint8\_t\ motor\_speed\_mms\_to\_pwm\_percent(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ int16\_t\ value)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0bfc830fe13ed412efa02d707d326310}{max\_speed\_pos\_mms}})\ \textcolor{keywordflow}{return}\ 100;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <=\ hmotor-\/>max\_speed\_neg\_mms)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 0)}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (uint8\_t)(50\ +\ ((int32\_t)value\ *\ 50)\ /\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0bfc830fe13ed412efa02d707d326310}{max\_speed\_pos\_mms}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (uint8\_t)(50\ +\ ((int32\_t)value\ *\ 50)\ /\ (-\/hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a3c3e67b61e804ca6acd6fdd818fc7d9b}{max\_speed\_neg\_mms}}));}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00078}00078\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ time\_reached(uint32\_t\ now,\ uint32\_t\ deadline)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ (int32\_t)(now\ -\/\ deadline)\ >=\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00088}\mbox{\hyperlink{driver__motor_8h_a1322b15b60e2e56ab26b958e67d1d48a}{00088}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__motor_8c_a1322b15b60e2e56ab26b958e67d1d48a}{motor\_init}}(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}(hmotor\ \&\&\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338}{target\_speed\_mms}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}}\ =\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ HAL\_TIM\_PWM\_Start(hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}},\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00108}\mbox{\hyperlink{driver__motor_8h_a9137935839f3630ec53a610702da5965}{00108}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ uint8\_t\ percent)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00109}00109\ \ \ \ \ uint16\_t\ value\ =\ motor\_map\_percent(hmotor,\ (int16\_t)percent);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00110}00110\ \ \ \ \ pwm\_pulse(hmotor,\ value);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00120}\mbox{\hyperlink{driver__motor_8h_a491c4fd8244f087297569c4c9179ef29}{00120}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__motor_8c_a491c4fd8244f087297569c4c9179ef29}{motor\_set\_speed\_mms}}(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ int16\_t\ speed\_mms)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00121}00121\ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338}{target\_speed\_mms}}\ =\ speed\_mms;}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{if}(speed\_mms\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}}\ =\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}}\ =\ motor\_speed\_mms\_to\_pwm\_percent(hmotor,\ speed\_mms);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}}\ =\ (speed\_mms\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00140}\mbox{\hyperlink{driver__motor_8h_a9bac78a6edd2799f67fbffbe2b21a688}{00140}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__motor_8c_a9bac78a6edd2799f67fbffbe2b21a688}{motor\_process\_1ms}}(\mbox{\hyperlink{structMotor__Handle__t}{Motor\_Handle\_t}}\ *hmotor,\ uint32\_t\ now\_ms)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (!hmotor)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ want\_neutral\ =\ (hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338}{target\_speed\_mms}}\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{switch}\ (hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea114811376f95e7ffb166a04e1ab4f03f}{MOTOR\_STATE\_FORWARD\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_ab322cdb39888565e1b53f9867455067d}{PWM\_BRAKE\_REV}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}{T\_BRAKE\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea43d79c5ce73ec5944a253932dbe5be17}{MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_TAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea43d79c5ce73ec5944a253932dbe5be17}{MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_TAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}{T\_NEUTRAL\_GAP\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceaed5b6b7548c4e1cae045618defde7389}{MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_GAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceaed5b6b7548c4e1cae045618defde7389}{MOTOR\_STATE\_NEUTRAL\_TO\_REVERSE\_GAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea114811376f95e7ffb166a04e1ab4f03f}{MOTOR\_STATE\_FORWARD\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceac139426d20ed9623aa3868f428e92ac8}{MOTOR\_STATE\_REVERSE\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea114811376f95e7ffb166a04e1ab4f03f}{MOTOR\_STATE\_FORWARD\_HOLD}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_ab322cdb39888565e1b53f9867455067d}{PWM\_BRAKE\_REV}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}{T\_BRAKE\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea8aeae6f69ff2c297680f4e0493ba5e24}{MOTOR\_STATE\_FWD\_BRAKE\_TAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea8aeae6f69ff2c297680f4e0493ba5e24}{MOTOR\_STATE\_FWD\_BRAKE\_TAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}{T\_NEUTRAL\_GAP\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceadb2d935e3f2a2efed2dc1eef8a29d92e}{MOTOR\_STATE\_FWD\_NEUTRAL\_GAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceadb2d935e3f2a2efed2dc1eef8a29d92e}{MOTOR\_STATE\_FWD\_NEUTRAL\_GAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea114811376f95e7ffb166a04e1ab4f03f}{MOTOR\_STATE\_FORWARD\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceac139426d20ed9623aa3868f428e92ac8}{MOTOR\_STATE\_REVERSE\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceac139426d20ed9623aa3868f428e92ac8}{MOTOR\_STATE\_REVERSE\_HOLD}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_afeeac2168ece00af1b163c0027eddc03}{PWM\_BRAKE\_FWD}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}{T\_BRAKE\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea9a8ad524c91f23d9a4238fa3ebccc39d}{MOTOR\_STATE\_REV\_BRAKE\_TAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea9a8ad524c91f23d9a4238fa3ebccc39d}{MOTOR\_STATE\_REV\_BRAKE\_TAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}\ =\ now\_ms\ +\ \mbox{\hyperlink{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}{T\_NEUTRAL\_GAP\_MS}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceae5eeb4ce591af8955f9e15a64aed8fde}{MOTOR\_STATE\_REV\_NEUTRAL\_GAP}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceae5eeb4ce591af8955f9e15a64aed8fde}{MOTOR\_STATE\_REV\_NEUTRAL\_GAP}}:}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!time\_reached(now\_ms,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\_ms}}))\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(want\_neutral)\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\_NEUTRAL}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceab5d3809df366aff5c36aad8b7e52bfd7}{MOTOR\_STATE\_NEUTRAL}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(!hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\_forward}})\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4aceac139426d20ed9623aa3868f428e92ac8}{MOTOR\_STATE\_REVERSE\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\_pwm\_percent}}(hmotor,\ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a2d59e486a1f6f3a57b38352a82a176f8}{ctx}}.\mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\_pwm}});}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a66cf176e601856b32d4734db962c0027}{go\_forward}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hmotor-\/>\mbox{\hyperlink{structMotor__Handle__t_a0534fead8a72b71c2bef7073366992ff}{state}}\ =\ \mbox{\hyperlink{driver__motor_8h_a980c8b06ec081a2f2d937d2a524c4acea114811376f95e7ffb166a04e1ab4f03f}{MOTOR\_STATE\_FORWARD\_HOLD}};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00269}00269\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver__motor_8c_source_l00270}00270\ \}}
+
+\end{DoxyCode}

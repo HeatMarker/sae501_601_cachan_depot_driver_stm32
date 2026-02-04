@@ -1,0 +1,34 @@
+\doxysection{stm32\+\_\+assert.\+h}
+\hypertarget{stm32__assert_8h_source}{}\label{stm32__assert_8h_source}\index{Core/Inc/stm32\_assert.h@{Core/Inc/stm32\_assert.h}}
+\mbox{\hyperlink{stm32__assert_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00019}00019\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00020}00020\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ \_\_STM32\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00025}00025\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00028}00028\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00029}00029\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00030}00030\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00031}00031\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifdef\ \ USE\_FULL\_ASSERT}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00041}00041\ \textcolor{preprocessor}{\#define\ assert\_param(expr)\ ((expr)\ ?\ (void)0U\ :\ assert\_failed((uint8\_t\ *)\_\_FILE\_\_,\ \_\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00042}00042\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ assert\_failed(uint8\_t\ *file,\ uint32\_t\ line);}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00044}00044\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00045}\mbox{\hyperlink{stm32__assert_8h_a631dea7b230e600555f979c62af1de21}{00045}}\ \textcolor{preprocessor}{\#define\ assert\_param(expr)\ ((void)0U)}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_ASSERT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00048}00048\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00050}00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32\_ASSERT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32__assert_8h_source_l00053}00053\ }
+
+\end{DoxyCode}

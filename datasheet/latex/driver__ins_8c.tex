@@ -1,0 +1,269 @@
+\doxysection{Core/\+Src/driver\+\_\+ins.c File Reference}
+\hypertarget{driver__ins_8c}{}\label{driver__ins_8c}\index{Core/Src/driver\_ins.c@{Core/Src/driver\_ins.c}}
+
+
+Implémentation du pilote pour l\textquotesingle{}IMU BMI088 (Accéléromètre + Gyroscope).  
+
+
+{\ttfamily \#include "{}stm32g0xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+ins.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for driver\+\_\+ins.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8c_ac120109421a58b1dfe4cb1b2a0eef2a7}{BMI088\+\_\+\+Init}} (SPI\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hspi)
+\begin{DoxyCompactList}\small\item\em Initialise le module BMI088 (Accéléromètre et Gyroscope). \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8c_a6ec6095cf6be17614cb3023f5acbd2f7}{BMI088\+\_\+\+Read\+\_\+\+Accel\+\_\+\+Raw}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}accel\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Lit les données brutes de l\textquotesingle{}accéléromètre. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8c_a5426db0df3eafce551517bb8d3402332}{BMI088\+\_\+\+Read\+\_\+\+Gyro\+\_\+\+Raw}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}gyro\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Lit les données brutes du gyroscope. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8c_ad74d633331d9bfbf45a7961a39b3fae0}{BMI088\+\_\+\+Read\+\_\+\+All}} (\mbox{\hyperlink{structbmi088__data__t}{bmi088\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Lit et convertit l\textquotesingle{}ensemble des données IMU (Accel + Gyro). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__ins_8c_a23d3031c0e8acf3c68721d65f86eb9df}{BMI088\+\_\+\+Convert\+\_\+\+Accel}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}accel\+\_\+raw, float \texorpdfstring{$\ast$}{*}accel\+\_\+mms2)
+\begin{DoxyCompactList}\small\item\em Convertit les données brutes d\textquotesingle{}accélération en unités physiques. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__ins_8c_a83e3b80cf9b6d79fbb15a252861a98e2}{BMI088\+\_\+\+Convert\+\_\+\+Gyro}} (struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}gyro\+\_\+raw, float \texorpdfstring{$\ast$}{*}gyro\+\_\+rads)
+\begin{DoxyCompactList}\small\item\em Convertit les données brutes gyroscopiques en unités physiques. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{driver__ins_8c_a59de7989bc26e2f9bf0e19fe71c354c8}{BMI088\+\_\+\+Test\+\_\+\+Communication}} (uint8\+\_\+t print\+\_\+result)
+\begin{DoxyCompactList}\small\item\em Teste la communication SPI en vérifiant les IDs des puces. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{driver__ins_8c_aaf0bd4d8e01873f5d13c5812b64dc904}{BMI088\+\_\+\+Soft\+\_\+\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Effectue une réinitialisation logicielle (Soft Reset) des capteurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implémentation du pilote pour l\textquotesingle{}IMU BMI088 (Accéléromètre + Gyroscope). 
+
+Gère l\textquotesingle{}initialisation, la communication SPI et la conversion des données brutes en unités physiques via l\textquotesingle{}API Bosch Sensor\+Tec. 
+
+Definition in file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__ins_8c_a23d3031c0e8acf3c68721d65f86eb9df}\label{driver__ins_8c_a23d3031c0e8acf3c68721d65f86eb9df} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Convert\_Accel@{BMI088\_Convert\_Accel}}
+\index{BMI088\_Convert\_Accel@{BMI088\_Convert\_Accel}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Convert\_Accel()}{BMI088\_Convert\_Accel()}}
+{\footnotesize\ttfamily void BMI088\+\_\+\+Convert\+\_\+\+Accel (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{accel\+\_\+raw,  }\item[{float \texorpdfstring{$\ast$}{*}}]{accel\+\_\+mms2 }\end{DoxyParamCaption})}
+
+
+
+Convertit les données brutes d\textquotesingle{}accélération en unités physiques. 
+
+Convertit un jeu de données brutes accéléromètre en mm/s².
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+raw} & Pointeur vers les données brutes d\textquotesingle{}entrée. \\
+\hline
+{\em accel\+\_\+mms2} & Pointeur vers le tableau de sortie (x, y, z) en mm/s². \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00261}{261}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8c_a83e3b80cf9b6d79fbb15a252861a98e2}\label{driver__ins_8c_a83e3b80cf9b6d79fbb15a252861a98e2} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Convert\_Gyro@{BMI088\_Convert\_Gyro}}
+\index{BMI088\_Convert\_Gyro@{BMI088\_Convert\_Gyro}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Convert\_Gyro()}{BMI088\_Convert\_Gyro()}}
+{\footnotesize\ttfamily void BMI088\+\_\+\+Convert\+\_\+\+Gyro (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+raw,  }\item[{float \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+rads }\end{DoxyParamCaption})}
+
+
+
+Convertit les données brutes gyroscopiques en unités physiques. 
+
+Convertit un jeu de données brutes gyroscope en rad/s.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+raw} & Pointeur vers les données brutes d\textquotesingle{}entrée. \\
+\hline
+{\em gyro\+\_\+rads} & Pointeur vers le tableau de sortie (x, y, z) en rad/s. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00276}{276}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8c_ac120109421a58b1dfe4cb1b2a0eef2a7}\label{driver__ins_8c_ac120109421a58b1dfe4cb1b2a0eef2a7} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Init@{BMI088\_Init}}
+\index{BMI088\_Init@{BMI088\_Init}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Init()}{BMI088\_Init()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Init (\begin{DoxyParamCaption}\item[{SPI\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hspi }\end{DoxyParamCaption})}
+
+
+
+Initialise le module BMI088 (Accéléromètre et Gyroscope). 
+
+Initialise le driver BMI088.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hspi} & Pointeur vers le handle SPI STM32. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK si l\textquotesingle{}initialisation réussit, code d\textquotesingle{}erreur sinon. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00133}{133}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{driver__ins_8c_ac120109421a58b1dfe4cb1b2a0eef2a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8c_a6ec6095cf6be17614cb3023f5acbd2f7}\label{driver__ins_8c_a6ec6095cf6be17614cb3023f5acbd2f7} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Read\_Accel\_Raw@{BMI088\_Read\_Accel\_Raw}}
+\index{BMI088\_Read\_Accel\_Raw@{BMI088\_Read\_Accel\_Raw}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_Accel\_Raw()}{BMI088\_Read\_Accel\_Raw()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+Accel\+\_\+\+Raw (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{accel\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Lit les données brutes de l\textquotesingle{}accéléromètre. 
+
+Lit les registres bruts de l\textquotesingle{}accéléromètre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em accel\+\_\+data} & Pointeur vers la structure de destination des données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00200}{200}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8c_a6ec6095cf6be17614cb3023f5acbd2f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8c_ad74d633331d9bfbf45a7961a39b3fae0}\label{driver__ins_8c_ad74d633331d9bfbf45a7961a39b3fae0} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Read\_All@{BMI088\_Read\_All}}
+\index{BMI088\_Read\_All@{BMI088\_Read\_All}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_All()}{BMI088\_Read\_All()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbmi088__data__t}{bmi088\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Lit et convertit l\textquotesingle{}ensemble des données IMU (Accel + Gyro). 
+
+Effectue une lecture complète et convertit les données.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointeur vers la structure de données utilisateur (unités physiques). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00226}{226}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{driver__ins_8c_ad74d633331d9bfbf45a7961a39b3fae0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{driver__ins_8c_ad74d633331d9bfbf45a7961a39b3fae0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8c_a5426db0df3eafce551517bb8d3402332}\label{driver__ins_8c_a5426db0df3eafce551517bb8d3402332} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Read\_Gyro\_Raw@{BMI088\_Read\_Gyro\_Raw}}
+\index{BMI088\_Read\_Gyro\_Raw@{BMI088\_Read\_Gyro\_Raw}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Read\_Gyro\_Raw()}{BMI088\_Read\_Gyro\_Raw()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Read\+\_\+\+Gyro\+\_\+\+Raw (\begin{DoxyParamCaption}\item[{struct bmi08\+\_\+sensor\+\_\+data \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Lit les données brutes du gyroscope. 
+
+Lit les registres bruts du gyroscope.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+data} & Pointeur vers la structure de destination des données brutes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00213}{213}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__ins_8c_a5426db0df3eafce551517bb8d3402332_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__ins_8c_aaf0bd4d8e01873f5d13c5812b64dc904}\label{driver__ins_8c_aaf0bd4d8e01873f5d13c5812b64dc904} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Soft\_Reset@{BMI088\_Soft\_Reset}}
+\index{BMI088\_Soft\_Reset@{BMI088\_Soft\_Reset}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Soft\_Reset()}{BMI088\_Soft\_Reset()}}
+{\footnotesize\ttfamily int8\+\_\+t BMI088\+\_\+\+Soft\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Effectue une réinitialisation logicielle (Soft Reset) des capteurs. 
+
+Redémarre les capteurs via commande logicielle.
+
+\begin{DoxyReturn}{Returns}
+BMI08\+\_\+\+OK en cas de succès, ou code d\textquotesingle{}erreur SPI. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00314}{314}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+
+\Hypertarget{driver__ins_8c_a59de7989bc26e2f9bf0e19fe71c354c8}\label{driver__ins_8c_a59de7989bc26e2f9bf0e19fe71c354c8} 
+\index{driver\_ins.c@{driver\_ins.c}!BMI088\_Test\_Communication@{BMI088\_Test\_Communication}}
+\index{BMI088\_Test\_Communication@{BMI088\_Test\_Communication}!driver\_ins.c@{driver\_ins.c}}
+\doxysubsubsection{\texorpdfstring{BMI088\_Test\_Communication()}{BMI088\_Test\_Communication()}}
+{\footnotesize\ttfamily uint8\+\_\+t BMI088\+\_\+\+Test\+\_\+\+Communication (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{print\+\_\+result }\end{DoxyParamCaption})}
+
+
+
+Teste la communication SPI en vérifiant les IDs des puces. 
+
+Vérifie la présence des capteurs sur le bus SPI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em print\+\_\+result} & Si non nul, affiche le résultat sur la console de debug. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la communication est établie avec succès, 0 sinon. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__ins_8c_source_l00291}{291}} of file \mbox{\hyperlink{driver__ins_8c_source}{driver\+\_\+ins.\+c}}.
+

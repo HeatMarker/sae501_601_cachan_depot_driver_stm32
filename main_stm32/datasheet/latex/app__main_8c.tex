@@ -1,0 +1,316 @@
+\doxysection{Core/\+Src/app\+\_\+main.c File Reference}
+\hypertarget{app__main_8c}{}\label{app__main_8c}\index{Core/Src/app\_main.c@{Core/Src/app\_main.c}}
+
+
+Point d\textquotesingle{}entrée principal de l\textquotesingle{}application (Main Loop \& Scheduler).  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}spi.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+{\ttfamily \#include "{}app\+\_\+main.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+ins.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08\+\_\+defs.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08.\+h"{}}\newline
+{\ttfamily \#include "{}bmi08x.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+servo.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+motor.\+h"{}}\newline
+{\ttfamily \#include "{}dma.\+h"{}}\newline
+{\ttfamily \#include "{}serial.\+h"{}}\newline
+{\ttfamily \#include "{}serial\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+speedometer.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for app\+\_\+main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{app__main_8c_abd14325ee0b943a6931793d430a9c105}{TASK\+\_\+\+MOTOR\+\_\+\+US}}~1000
+\begin{DoxyCompactList}\small\item\em Période d\textquotesingle{}exécution de la tâche moteur (1 ms). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_a2d70b4781c04d4b8f0759a3cf67c9a68}{TASK\+\_\+\+TELEMETRY\+\_\+\+US}}~10000
+\begin{DoxyCompactList}\small\item\em Période d\textquotesingle{}envoi de la télémétrie (10 ms). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_a2b20f9e514f86cadbd8c88d28e0d52cf}{TASK\+\_\+\+SPEED\+\_\+\+US}}~100000
+\begin{DoxyCompactList}\small\item\em Période de calcul de la vitesse (100 ms). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_a50858e76836ece0d48f2f319744d5c7c}{FAILSAFE\+\_\+\+TIMEOUT\+\_\+\+MS}}~500
+\begin{DoxyCompactList}\small\item\em Délai d\textquotesingle{}inactivité avant déclenchement du Failsafe (arrêt d\textquotesingle{}urgence). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_a0298419b8241cc04cb456cd22b0c067c}{t\+\_\+1\+\_\+ms}}~3200
+\begin{DoxyCompactList}\small\item\em Durée d\textquotesingle{}impulsion pour 1ms (référence PWM). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_a8e3cc728845c9b35613917860b4d49b8}{t\+\_\+2\+\_\+ms}}~6400
+\begin{DoxyCompactList}\small\item\em Durée d\textquotesingle{}impulsion pour 2ms (référence PWM). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_ae71d29ac5fe65c3f9b1286c1e7badbf8}{PWM\+\_\+\+MIN\+\_\+\+ESC}}~3200
+\begin{DoxyCompactList}\small\item\em Borne PWM minimale pour l\textquotesingle{}ESC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{app__main_8c_af1494cb8a68248791551022654c0fb95}{PWM\+\_\+\+MAX\+\_\+\+ESC}}~6400
+\begin{DoxyCompactList}\small\item\em Borne PWM maximale pour l\textquotesingle{}ESC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{app__main_8c_aa1fb38a41446e4d5e66f59da21651832}{app\+\_\+config}} (void)
+\begin{DoxyCompactList}\small\item\em Initialisation générale de l\textquotesingle{}application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f}{app\+\_\+loop}} (void)
+\begin{DoxyCompactList}\small\item\em Boucle principale de l\textquotesingle{}application (Super Loop). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{h\+Speedo}}
+\begin{DoxyCompactList}\small\item\em Instance du capteur de vitesse (Tachymètre). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{app__main_8c_a92f10242a4d6c222e4b8c2c56291b003}{speed\+\_\+speedo\+\_\+data}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Variable globale stockant la vitesse actuelle (partagée avec serial\+\_\+cmd). \end{DoxyCompactList}\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80}{tim3\+\_\+overflow\+\_\+cnt}} = 0
+\begin{DoxyCompactList}\small\item\em Compteur de débordements pour le Timer 3 (Extension 16-\/bit vers 32-\/bit). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Point d\textquotesingle{}entrée principal de l\textquotesingle{}application (Main Loop \& Scheduler). 
+
+Ce fichier contient la boucle principale, l\textquotesingle{}initialisation du système, et l\textquotesingle{}ordonnanceur coopératif pour les tâches périodiques \+:
+\begin{DoxyItemize}
+\item Gestion Moteur (1k\+Hz)
+\item Télémétrie (100Hz)
+\item Lecture Vitesse (10Hz)
+\item Traitement des commandes et Sécurité Failsafe. 
+\end{DoxyItemize}
+
+Definition in file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{app__main_8c_a50858e76836ece0d48f2f319744d5c7c}\label{app__main_8c_a50858e76836ece0d48f2f319744d5c7c} 
+\index{app\_main.c@{app\_main.c}!FAILSAFE\_TIMEOUT\_MS@{FAILSAFE\_TIMEOUT\_MS}}
+\index{FAILSAFE\_TIMEOUT\_MS@{FAILSAFE\_TIMEOUT\_MS}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{FAILSAFE\_TIMEOUT\_MS}{FAILSAFE\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \#define FAILSAFE\+\_\+\+TIMEOUT\+\_\+\+MS~500}
+
+
+
+Délai d\textquotesingle{}inactivité avant déclenchement du Failsafe (arrêt d\textquotesingle{}urgence). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00038}{38}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_af1494cb8a68248791551022654c0fb95}\label{app__main_8c_af1494cb8a68248791551022654c0fb95} 
+\index{app\_main.c@{app\_main.c}!PWM\_MAX\_ESC@{PWM\_MAX\_ESC}}
+\index{PWM\_MAX\_ESC@{PWM\_MAX\_ESC}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_MAX\_ESC}{PWM\_MAX\_ESC}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+MAX\+\_\+\+ESC~6400}
+
+
+
+Borne PWM maximale pour l\textquotesingle{}ESC. 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00048}{48}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_ae71d29ac5fe65c3f9b1286c1e7badbf8}\label{app__main_8c_ae71d29ac5fe65c3f9b1286c1e7badbf8} 
+\index{app\_main.c@{app\_main.c}!PWM\_MIN\_ESC@{PWM\_MIN\_ESC}}
+\index{PWM\_MIN\_ESC@{PWM\_MIN\_ESC}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_MIN\_ESC}{PWM\_MIN\_ESC}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+MIN\+\_\+\+ESC~3200}
+
+
+
+Borne PWM minimale pour l\textquotesingle{}ESC. 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00046}{46}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a0298419b8241cc04cb456cd22b0c067c}\label{app__main_8c_a0298419b8241cc04cb456cd22b0c067c} 
+\index{app\_main.c@{app\_main.c}!t\_1\_ms@{t\_1\_ms}}
+\index{t\_1\_ms@{t\_1\_ms}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{t\_1\_ms}{t\_1\_ms}}
+{\footnotesize\ttfamily \#define t\+\_\+1\+\_\+ms~3200}
+
+
+
+Durée d\textquotesingle{}impulsion pour 1ms (référence PWM). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00041}{41}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a8e3cc728845c9b35613917860b4d49b8}\label{app__main_8c_a8e3cc728845c9b35613917860b4d49b8} 
+\index{app\_main.c@{app\_main.c}!t\_2\_ms@{t\_2\_ms}}
+\index{t\_2\_ms@{t\_2\_ms}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{t\_2\_ms}{t\_2\_ms}}
+{\footnotesize\ttfamily \#define t\+\_\+2\+\_\+ms~6400}
+
+
+
+Durée d\textquotesingle{}impulsion pour 2ms (référence PWM). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00043}{43}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_abd14325ee0b943a6931793d430a9c105}\label{app__main_8c_abd14325ee0b943a6931793d430a9c105} 
+\index{app\_main.c@{app\_main.c}!TASK\_MOTOR\_US@{TASK\_MOTOR\_US}}
+\index{TASK\_MOTOR\_US@{TASK\_MOTOR\_US}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_MOTOR\_US}{TASK\_MOTOR\_US}}
+{\footnotesize\ttfamily \#define TASK\+\_\+\+MOTOR\+\_\+\+US~1000}
+
+
+
+Période d\textquotesingle{}exécution de la tâche moteur (1 ms). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00032}{32}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a2b20f9e514f86cadbd8c88d28e0d52cf}\label{app__main_8c_a2b20f9e514f86cadbd8c88d28e0d52cf} 
+\index{app\_main.c@{app\_main.c}!TASK\_SPEED\_US@{TASK\_SPEED\_US}}
+\index{TASK\_SPEED\_US@{TASK\_SPEED\_US}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_SPEED\_US}{TASK\_SPEED\_US}}
+{\footnotesize\ttfamily \#define TASK\+\_\+\+SPEED\+\_\+\+US~100000}
+
+
+
+Période de calcul de la vitesse (100 ms). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00036}{36}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a2d70b4781c04d4b8f0759a3cf67c9a68}\label{app__main_8c_a2d70b4781c04d4b8f0759a3cf67c9a68} 
+\index{app\_main.c@{app\_main.c}!TASK\_TELEMETRY\_US@{TASK\_TELEMETRY\_US}}
+\index{TASK\_TELEMETRY\_US@{TASK\_TELEMETRY\_US}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{TASK\_TELEMETRY\_US}{TASK\_TELEMETRY\_US}}
+{\footnotesize\ttfamily \#define TASK\+\_\+\+TELEMETRY\+\_\+\+US~10000}
+
+
+
+Période d\textquotesingle{}envoi de la télémétrie (10 ms). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00034}{34}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{app__main_8c_aa1fb38a41446e4d5e66f59da21651832}\label{app__main_8c_aa1fb38a41446e4d5e66f59da21651832} 
+\index{app\_main.c@{app\_main.c}!app\_config@{app\_config}}
+\index{app\_config@{app\_config}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{app\_config()}{app\_config()}}
+{\footnotesize\ttfamily void app\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialisation générale de l\textquotesingle{}application. 
+
+Configuration globale de l\textquotesingle{}application (Callback ou Init).
+
+Configure l\textquotesingle{}ensemble de l\textquotesingle{}application (Hardware + Drivers).
+
+Configure les Timers, active les interruptions nécessaires, initialise les drivers (Série, BMI088, Servo, Moteur, Speedo) et cale les horloges. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00193}{193}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8c_aa1fb38a41446e4d5e66f59da21651832_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{app__main_8c_aa1fb38a41446e4d5e66f59da21651832_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f}\label{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f} 
+\index{app\_main.c@{app\_main.c}!app\_loop@{app\_loop}}
+\index{app\_loop@{app\_loop}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{app\_loop()}{app\_loop()}}
+{\footnotesize\ttfamily void app\+\_\+loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Boucle principale de l\textquotesingle{}application (Super Loop). 
+
+Exécute la boucle principale (Scheduler).
+
+Exécute séquentiellement \+:
+\begin{DoxyEnumerate}
+\item La lecture des données série (Polling).
+\item Le traitement des commandes (si disponibles).
+\item La vérification de sécurité.
+\item L\textquotesingle{}ordonnancement des tâches périodiques basées sur {\ttfamily now\+\_\+us}. \begin{DoxyNote}{Note}
+Le compteur {\ttfamily now\+\_\+us} boucle après environ 71 minutes. 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00221}{221}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{app__main_8c_adbd885cc67281e9f2e48f2a45454bd4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{app__main_8c_a780246281497e191d3a55a05cff28c9b}\label{app__main_8c_a780246281497e191d3a55a05cff28c9b} 
+\index{app\_main.c@{app\_main.c}!hSpeedo@{hSpeedo}}
+\index{hSpeedo@{hSpeedo}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{hSpeedo}{hSpeedo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} h\+Speedo}
+
+
+
+Instance du capteur de vitesse (Tachymètre). 
+
+
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00069}{69}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a92f10242a4d6c222e4b8c2c56291b003}\label{app__main_8c_a92f10242a4d6c222e4b8c2c56291b003} 
+\index{app\_main.c@{app\_main.c}!speed\_speedo\_data@{speed\_speedo\_data}}
+\index{speed\_speedo\_data@{speed\_speedo\_data}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{speed\_speedo\_data}{speed\_speedo\_data}}
+{\footnotesize\ttfamily float speed\+\_\+speedo\+\_\+data = 0.\+0f}
+
+
+
+Variable globale stockant la vitesse actuelle (partagée avec serial\+\_\+cmd). 
+
+Variable globale de vitesse (m/s) partagée entre le Speedometer et la Télémétrie. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00081}{81}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+
+\Hypertarget{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80}\label{app__main_8c_a0da4b66d17e1a075b80d5f3f6ead6b80} 
+\index{app\_main.c@{app\_main.c}!tim3\_overflow\_cnt@{tim3\_overflow\_cnt}}
+\index{tim3\_overflow\_cnt@{tim3\_overflow\_cnt}!app\_main.c@{app\_main.c}}
+\doxysubsubsection{\texorpdfstring{tim3\_overflow\_cnt}{tim3\_overflow\_cnt}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t tim3\+\_\+overflow\+\_\+cnt = 0}
+
+
+
+Compteur de débordements pour le Timer 3 (Extension 16-\/bit vers 32-\/bit). 
+
+Compteur d\textquotesingle{}overflow pour l\textquotesingle{}extension 32-\/bits du Timer microseconde. 
+
+Definition at line \mbox{\hyperlink{app__main_8c_source_l00084}{84}} of file \mbox{\hyperlink{app__main_8c_source}{app\+\_\+main.\+c}}.
+

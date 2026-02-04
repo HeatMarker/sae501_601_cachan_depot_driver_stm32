@@ -1,0 +1,2 @@
+../Core/Src/driver_speedometer.c:20:7:speedometer_solve_speed	48	static
+../Core/Src/driver_speedometer.c:48:6:speedometer_init	16	static

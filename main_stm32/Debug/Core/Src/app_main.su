@@ -1,0 +1,11 @@
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:1586:22:LL_TIM_EnableCounter	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:1852:26:LL_TIM_GetCounter	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:4625:22:LL_TIM_EnableIT_UPDATE	16	static
+../Core/Src/app_main.c:99:17:GetMicrosTotal	16	static
+../Core/Src/app_main.c:118:13:process_incoming_commands	8	static
+../Core/Src/app_main.c:146:13:check_failsafe_security	8	static
+../Core/Src/app_main.c:157:13:task_motor_update	16	static
+../Core/Src/app_main.c:169:13:task_telemetry_update	16	static
+../Core/Src/app_main.c:181:13:task_get_speed	16	static
+../Core/Src/app_main.c:193:6:app_config	8	static
+../Core/Src/app_main.c:221:6:app_loop	16	static

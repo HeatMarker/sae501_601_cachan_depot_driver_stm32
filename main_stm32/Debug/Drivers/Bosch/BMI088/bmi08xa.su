@@ -1,0 +1,10 @@
+../Drivers/Bosch/BMI088/bmi08xa.c:493:8:bmi08xa_init	32	static
+../Drivers/Bosch/BMI088/bmi08xa.c:521:8:bmi08xa_set_meas_conf	32	static
+../Drivers/Bosch/BMI088/bmi08xa.c:541:8:bmi08xa_configure_data_synchronization	32	static
+../Drivers/Bosch/BMI088/bmi08xa.c:569:8:bmi08xa_perform_selftest	48	static
+../Drivers/Bosch/BMI088/bmi08xa.c:626:15:null_ptr_check	24	static
+../Drivers/Bosch/BMI088/bmi08xa.c:647:15:enable_self_test	32	static
+../Drivers/Bosch/BMI088/bmi08xa.c:687:15:positive_excited_accel	40	static
+../Drivers/Bosch/BMI088/bmi08xa.c:707:15:negative_excited_accel	48	static
+../Drivers/Bosch/BMI088/bmi08xa.c:738:15:validate_accel_self_test	56	static
+../Drivers/Bosch/BMI088/bmi08xa.c:804:15:set_range	48	static

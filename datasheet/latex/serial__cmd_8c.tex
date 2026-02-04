@@ -1,0 +1,202 @@
+\doxysection{Core/\+Src/serial\+\_\+cmd.c File Reference}
+\hypertarget{serial__cmd_8c}{}\label{serial__cmd_8c}\index{Core/Src/serial\_cmd.c@{Core/Src/serial\_cmd.c}}
+
+
+Gestionnaire de commandes et télémétrie (Protocole Application).  
+
+
+{\ttfamily \#include "{}serial\+\_\+cmd.\+h"{}}\newline
+{\ttfamily \#include "{}serial.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+motor.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+servo.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+ins.\+h"{}}\newline
+{\ttfamily \#include "{}app\+\_\+main.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for serial\+\_\+cmd.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serial__cmd_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460}{Parse\+State}} \{ \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460aee020a01ac616834f3e96b2806c173bd}{S\+\_\+\+HDR}} =0
+, \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a561b2b8960078aed8f8a22a7069fe240}{S\+\_\+\+D0}}
+, \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a017a3a406d68c93d8306ba724d8c30c0}{S\+\_\+\+D1}}
+, \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a4c5ce082b95b5a5451ffeb0dcc1d57e2}{S\+\_\+\+CRC}}
+ \}
+\begin{DoxyCompactList}\small\item\em États de la machine à états de réception (Protocole 4 octets). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{serial__cmd_8c_a20647655fddac6cbbc9cc201d726e5c8}{serial\+\_\+cmd\+\_\+reader}} (void)
+\begin{DoxyCompactList}\small\item\em Fonction principale de lecture (Polling). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{serial__cmd_8c_aeb9ebb55bdc9cfaab6d3a71c2c203714}{serial\+\_\+send\+\_\+data\+\_\+frame}} (void)
+\begin{DoxyCompactList}\small\item\em Construit et envoie la trame de télémétrie complète. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}} \mbox{\hyperlink{serial__cmd_8c_a28d65f75dee58371089e29f0723a5e54}{parser\+\_\+state}} = \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}{PARSER\+\_\+\+IDLE}}
+\begin{DoxyCompactList}\small\item\em État courant du parseur, exposé à l\textquotesingle{}application principale pour déclencher les actions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{serial__cmd_8c_a88bb0f641c66787df882885a0b5c14f3}{shadow\+\_\+servo\+\_\+cmd}} = 0
+\begin{DoxyCompactList}\small\item\em Copie locale de la dernière commande servo reçue. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{serial__cmd_8c_a2beb6a7c48f4eee3f5c4f42b8db8ceac}{shadow\+\_\+motor\+\_\+cmd}} = 0
+\begin{DoxyCompactList}\small\item\em Copie locale de la dernière commande moteur reçue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestionnaire de commandes et télémétrie (Protocole Application). 
+
+Ce fichier gère \+:
+\begin{DoxyEnumerate}
+\item Le parsing des commandes entrantes (Pilotage Moteur/\+Servo) via une machine à états.
+\item L\textquotesingle{}envoi périodique de la télémétrie (IMU + Vitesse) vers l\textquotesingle{}ordinateur de bord (Pi5). 
+\end{DoxyEnumerate}
+
+Definition in file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460}\label{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460} 
+\index{serial\_cmd.c@{serial\_cmd.c}!ParseState@{ParseState}}
+\index{ParseState@{ParseState}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{ParseState}{ParseState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460}{Parse\+State}}}
+
+
+
+États de la machine à états de réception (Protocole 4 octets). 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_HDR@{S\_HDR}!serial\_cmd.c@{serial\_cmd.c}}\index{serial\_cmd.c@{serial\_cmd.c}!S\_HDR@{S\_HDR}}}\Hypertarget{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460aee020a01ac616834f3e96b2806c173bd}\label{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460aee020a01ac616834f3e96b2806c173bd} 
+S\+\_\+\+HDR&Attente de l\textquotesingle{}entête (Header). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_D0@{S\_D0}!serial\_cmd.c@{serial\_cmd.c}}\index{serial\_cmd.c@{serial\_cmd.c}!S\_D0@{S\_D0}}}\Hypertarget{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a561b2b8960078aed8f8a22a7069fe240}\label{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a561b2b8960078aed8f8a22a7069fe240} 
+S\+\_\+\+D0&Attente de l\textquotesingle{}octet de donnée 0 (LSB). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_D1@{S\_D1}!serial\_cmd.c@{serial\_cmd.c}}\index{serial\_cmd.c@{serial\_cmd.c}!S\_D1@{S\_D1}}}\Hypertarget{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a017a3a406d68c93d8306ba724d8c30c0}\label{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a017a3a406d68c93d8306ba724d8c30c0} 
+S\+\_\+\+D1&Attente de l\textquotesingle{}octet de donnée 1 (MSB). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_CRC@{S\_CRC}!serial\_cmd.c@{serial\_cmd.c}}\index{serial\_cmd.c@{serial\_cmd.c}!S\_CRC@{S\_CRC}}}\Hypertarget{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a4c5ce082b95b5a5451ffeb0dcc1d57e2}\label{serial__cmd_8c_a99f78dec5b5884642b44f101ef1d2460a4c5ce082b95b5a5451ffeb0dcc1d57e2} 
+S\+\_\+\+CRC&Attente du CRC8 de validation. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00023}{23}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serial__cmd_8c_a20647655fddac6cbbc9cc201d726e5c8}\label{serial__cmd_8c_a20647655fddac6cbbc9cc201d726e5c8} 
+\index{serial\_cmd.c@{serial\_cmd.c}!serial\_cmd\_reader@{serial\_cmd\_reader}}
+\index{serial\_cmd\_reader@{serial\_cmd\_reader}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{serial\_cmd\_reader()}{serial\_cmd\_reader()}}
+{\footnotesize\ttfamily void serial\+\_\+cmd\+\_\+reader (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction principale de lecture (Polling). 
+
+Fonction de lecture périodique des commandes entrantes.
+
+Récupère les données brutes du buffer circulaire RX et les passe octet par octet à la machine à états. 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00138}{138}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{serial__cmd_8c_a20647655fddac6cbbc9cc201d726e5c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{serial__cmd_8c_a20647655fddac6cbbc9cc201d726e5c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{serial__cmd_8c_aeb9ebb55bdc9cfaab6d3a71c2c203714}\label{serial__cmd_8c_aeb9ebb55bdc9cfaab6d3a71c2c203714} 
+\index{serial\_cmd.c@{serial\_cmd.c}!serial\_send\_data\_frame@{serial\_send\_data\_frame}}
+\index{serial\_send\_data\_frame@{serial\_send\_data\_frame}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{serial\_send\_data\_frame()}{serial\_send\_data\_frame()}}
+{\footnotesize\ttfamily void serial\+\_\+send\+\_\+data\+\_\+frame (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Construit et envoie la trame de télémétrie complète. 
+
+Capture les capteurs et envoie la trame de télémétrie.
+
+
+\begin{DoxyEnumerate}
+\item Lit l\textquotesingle{}IMU (Accéléromètre + Gyroscope).
+\item Récupère la vitesse (Speedometer).
+\item Déduit le signe de la vitesse grâce à la commande moteur (Marche AR).
+\item Formate le paquet binaire (Serial\+Imu\+Frame\+\_\+t) avec CRC.
+\item Envoie le tout de manière non-\/bloquante via DMA. 
+\end{DoxyEnumerate}
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00156}{156}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{serial__cmd_8c_aeb9ebb55bdc9cfaab6d3a71c2c203714_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{serial__cmd_8c_a28d65f75dee58371089e29f0723a5e54}\label{serial__cmd_8c_a28d65f75dee58371089e29f0723a5e54} 
+\index{serial\_cmd.c@{serial\_cmd.c}!parser\_state@{parser\_state}}
+\index{parser\_state@{parser\_state}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{parser\_state}{parser\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654}{Parser\+Switch}} parser\+\_\+state = \mbox{\hyperlink{serial__cmd_8h_a387e705f2fc1196a9b701ac42da4b654af3ee8c914f237c159242421567ce48c2}{PARSER\+\_\+\+IDLE}}}
+
+
+
+État courant du parseur, exposé à l\textquotesingle{}application principale pour déclencher les actions. 
+
+État global du parseur, lu par le main pour appliquer les consignes. 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00018}{18}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+\Hypertarget{serial__cmd_8c_a2beb6a7c48f4eee3f5c4f42b8db8ceac}\label{serial__cmd_8c_a2beb6a7c48f4eee3f5c4f42b8db8ceac} 
+\index{serial\_cmd.c@{serial\_cmd.c}!shadow\_motor\_cmd@{shadow\_motor\_cmd}}
+\index{shadow\_motor\_cmd@{shadow\_motor\_cmd}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{shadow\_motor\_cmd}{shadow\_motor\_cmd}}
+{\footnotesize\ttfamily int16\+\_\+t shadow\+\_\+motor\+\_\+cmd = 0}
+
+
+
+Copie locale de la dernière commande moteur reçue. 
+
+Dernière consigne reçue pour le moteur (Shadow Register). 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00042}{42}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+
+\Hypertarget{serial__cmd_8c_a88bb0f641c66787df882885a0b5c14f3}\label{serial__cmd_8c_a88bb0f641c66787df882885a0b5c14f3} 
+\index{serial\_cmd.c@{serial\_cmd.c}!shadow\_servo\_cmd@{shadow\_servo\_cmd}}
+\index{shadow\_servo\_cmd@{shadow\_servo\_cmd}!serial\_cmd.c@{serial\_cmd.c}}
+\doxysubsubsection{\texorpdfstring{shadow\_servo\_cmd}{shadow\_servo\_cmd}}
+{\footnotesize\ttfamily int8\+\_\+t shadow\+\_\+servo\+\_\+cmd = 0}
+
+
+
+Copie locale de la dernière commande servo reçue. 
+
+Dernière consigne reçue pour le servo (Shadow Register). 
+
+Definition at line \mbox{\hyperlink{serial__cmd_8c_source_l00040}{40}} of file \mbox{\hyperlink{serial__cmd_8c_source}{serial\+\_\+cmd.\+c}}.
+

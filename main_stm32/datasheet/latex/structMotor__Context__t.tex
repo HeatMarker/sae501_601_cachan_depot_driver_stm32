@@ -1,0 +1,93 @@
+\doxysection{Motor\+\_\+\+Context\+\_\+t Struct Reference}
+\hypertarget{structMotor__Context__t}{}\label{structMotor__Context__t}\index{Motor\_Context\_t@{Motor\_Context\_t}}
+
+
+Structure de contexte interne pour la gestion des transitions.  
+
+
+
+
+{\ttfamily \#include $<$driver\+\_\+motor.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338}{target\+\_\+speed\+\_\+mms}}
+\begin{DoxyCompactList}\small\item\em Vitesse cible demandée en mm/s. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{structMotor__Context__t_afdc80625026a4882a812e5363047d568}{target\+\_\+pwm}}
+\begin{DoxyCompactList}\small\item\em Pourcentage PWM cible calculé (0-\/100). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}{target\+\_\+forward}}
+\begin{DoxyCompactList}\small\item\em Direction cible (true=avant, false=arrière). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}{deadline\+\_\+ms}}
+\begin{DoxyCompactList}\small\item\em Echéance temporelle pour les états temporisés. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure de contexte interne pour la gestion des transitions. 
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00033}{33}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e}\label{structMotor__Context__t_a49950c8d33ac39970df3e15530a1b88e} 
+\index{Motor\_Context\_t@{Motor\_Context\_t}!deadline\_ms@{deadline\_ms}}
+\index{deadline\_ms@{deadline\_ms}!Motor\_Context\_t@{Motor\_Context\_t}}
+\doxysubsubsection{\texorpdfstring{deadline\_ms}{deadline\_ms}}
+{\footnotesize\ttfamily uint32\+\_\+t deadline\+\_\+ms}
+
+
+
+Echéance temporelle pour les états temporisés. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00037}{37}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5}\label{structMotor__Context__t_a1104fe0e4ccfaf0f8f4d12852aeda5b5} 
+\index{Motor\_Context\_t@{Motor\_Context\_t}!target\_forward@{target\_forward}}
+\index{target\_forward@{target\_forward}!Motor\_Context\_t@{Motor\_Context\_t}}
+\doxysubsubsection{\texorpdfstring{target\_forward}{target\_forward}}
+{\footnotesize\ttfamily bool target\+\_\+forward}
+
+
+
+Direction cible (true=avant, false=arrière). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00036}{36}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Context__t_afdc80625026a4882a812e5363047d568}\label{structMotor__Context__t_afdc80625026a4882a812e5363047d568} 
+\index{Motor\_Context\_t@{Motor\_Context\_t}!target\_pwm@{target\_pwm}}
+\index{target\_pwm@{target\_pwm}!Motor\_Context\_t@{Motor\_Context\_t}}
+\doxysubsubsection{\texorpdfstring{target\_pwm}{target\_pwm}}
+{\footnotesize\ttfamily uint8\+\_\+t target\+\_\+pwm}
+
+
+
+Pourcentage PWM cible calculé (0-\/100). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00035}{35}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+\Hypertarget{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338}\label{structMotor__Context__t_a9a2668fef7e7a6f90ba8f7bf47687338} 
+\index{Motor\_Context\_t@{Motor\_Context\_t}!target\_speed\_mms@{target\_speed\_mms}}
+\index{target\_speed\_mms@{target\_speed\_mms}!Motor\_Context\_t@{Motor\_Context\_t}}
+\doxysubsubsection{\texorpdfstring{target\_speed\_mms}{target\_speed\_mms}}
+{\footnotesize\ttfamily int16\+\_\+t target\+\_\+speed\+\_\+mms}
+
+
+
+Vitesse cible demandée en mm/s. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8h_source_l00034}{34}} of file \mbox{\hyperlink{driver__motor_8h_source}{driver\+\_\+motor.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core/\+Inc/\mbox{\hyperlink{driver__motor_8h}{driver\+\_\+motor.\+h}}\end{DoxyCompactItemize}

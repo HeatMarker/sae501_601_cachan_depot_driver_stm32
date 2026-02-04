@@ -1,0 +1,31 @@
+<map id="Core/Src/stm32g0xx_it.c" name="Core/Src/stm32g0xx_it.c">
+<area shape="rect" id="Node000001" title="Interrupt Service Routines." alt="" coords="917,5,1084,31"/>
+<area shape="rect" id="Node000002" href="$main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="859,79,921,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="984,33,921,73,918,69,981,28"/>
+<area shape="rect" id="Node000014" href="$stm32g0xx__it_8h.html" title="This file contains the headers of the interrupt handlers." alt="" coords="945,79,1056,104"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1003,31,1003,65,998,65,998,31"/>
+<area shape="rect" id="Node000015" href="$app__main_8h.html" title="En&#45;tête de l&#39;application principale." alt="" coords="1080,79,1169,104"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="1022,28,1094,69,1091,74,1019,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,127,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="859,97,570,115,360,132,141,154,140,149,359,127,569,110,859,92"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="151,152,285,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="859,98,631,119,299,155,299,149,630,114,859,93"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="310,152,449,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="860,100,463,154,462,149,859,94"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="473,152,627,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="860,102,619,152,618,147,859,96"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="651,152,785,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="863,106,760,149,758,144,861,102"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="810,152,970,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="893,104,893,138,887,138,887,104"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="994,152,1135,177"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="919,102,1024,144,1022,149,917,106"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1160,152,1297,177"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="921,98,935,101,1154,147,1153,152,933,107,920,103"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1322,152,1463,177"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="922,99,935,101,1037,119,1119,129,1309,149,1308,154,1118,134,1037,124,933,107,921,104"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1488,152,1631,177"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="922,99,934,101,1083,122,1201,131,1321,136,1475,149,1474,155,1321,142,1201,136,1083,127,934,107,921,104"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1655,152,1794,177"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="922,99,934,101,1040,116,1130,125,1285,132,1441,135,1642,149,1641,155,1441,141,1285,137,1130,131,1039,122,934,107,921,104"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="Core/Inc/tim.h" name="Core/Inc/tim.h">
+<area shape="rect" id="Node000001" title="This file contains all the function prototypes for the tim.c file." alt="" coords="443,5,549,31"/>
+<area shape="rect" id="Node000002" href="$driver__motor_8h.html" title="Fichier d&#39;en&#45;tête pour le pilote moteur (ESC)." alt="" coords="123,79,282,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,36,251,81,250,76,435,31"/>
+<area shape="rect" id="Node000003" href="$app__main_8c.html" title="Point d&#39;entrée principal de l&#39;application (Main Loop &amp; Scheduler)." alt="" coords="190,152,335,177"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="442,37,394,56,347,81,303,118,273,154,269,150,300,115,344,76,392,51,440,32"/>
+<area shape="rect" id="Node000004" href="$driver__motor_8c.html" title="Pilote de moteur non&#45;bloquant pour ESC (Electronic Speed Controller)." alt="" coords="5,152,165,177"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="430,24,345,29,251,39,167,56,135,67,112,81,100,97,93,116,88,152,83,151,88,114,95,94,109,77,133,62,166,51,250,34,345,24,429,19"/>
+<area shape="rect" id="Node000006" href="$driver__servo_8h.html" title="Fichier d&#39;en&#45;tête pour le pilote du servomoteur." alt="" coords="358,79,517,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="480,43,449,80,445,77,476,40"/>
+<area shape="rect" id="Node000007" href="$driver__servo_8c.html" title="Pilote PWM pour le servomoteur de direction." alt="" coords="536,152,696,177"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="517,40,608,150,604,153,513,43"/>
+<area shape="rect" id="Node000008" href="$driver__speedometer_8c.html" title="Driver de calcul de vitesse basé sur un capteur à effet Hall." alt="" coords="592,79,795,104"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="541,33,662,76,660,81,540,38"/>
+<area shape="rect" id="Node000009" href="$main_8c.html" title=": Main program body" alt="" coords="819,79,936,104"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="563,29,819,76,818,82,562,34"/>
+<area shape="rect" id="Node000010" href="$tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="960,79,1067,104"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="563,25,948,76,960,78,959,83,948,81,562,30"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,113,255,150,251,154,219,116"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="173,113,106,154,103,149,171,109"/>
+<area shape="rect" id="Node000005" href="$serial__cmd_8c.html" title="Gestionnaire de commandes et télémétrie (Protocole Application)." alt="" coords="360,152,512,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="254,105,399,149,397,154,252,110"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="398,112,292,154,290,149,396,107"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="440,118,439,152,434,152,434,118"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="479,106,588,149,586,154,478,111"/>
+</map>

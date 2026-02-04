@@ -1,0 +1,5 @@
+<map id="serial_write" name="serial_write">
+<area shape="rect" id="Node000001" title="Écriture bloquante (Wrapper)." alt="" coords="5,5,93,31"/>
+<area shape="rect" id="Node000002" href="$serial_8c.html#a12e004eaf083ce1dc139435138ab95f0" title="Écrit des données seulement si tout le bloc peut entrer (Atomique)." alt="" coords="141,5,271,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,15,128,15,128,21,94,21"/>
+</map>

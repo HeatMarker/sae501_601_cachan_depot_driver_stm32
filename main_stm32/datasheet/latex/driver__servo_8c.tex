@@ -1,0 +1,204 @@
+\doxysection{Core/\+Src/driver\+\_\+servo.c File Reference}
+\hypertarget{driver__servo_8c}{}\label{driver__servo_8c}\index{Core/Src/driver\_servo.c@{Core/Src/driver\_servo.c}}
+
+
+Pilote PWM pour le servomoteur de direction.  
+
+
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+servo.\+h"{}}\newline
+Include dependency graph for driver\+\_\+servo.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__servo_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154}{SERVO\+\_\+\+OFFSET\+\_\+\+PERCENT}}~5
+\begin{DoxyCompactList}\small\item\em Décalage (offset) en pourcentage appliqué à la commande (Trim). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92}{SERVO\+\_\+\+CLAMP\+\_\+\+MIN}}~-\/20
+\begin{DoxyCompactList}\small\item\em Angle minimum autorisé en degrés (Borne mécanique logicielle). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50}{SERVO\+\_\+\+CLAMP\+\_\+\+MAX}}~20
+\begin{DoxyCompactList}\small\item\em Angle maximum autorisé en degrés (Borne mécanique logicielle). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{driver__servo_8c_aa6df029242c59e741e6f968593259841}{servo\+\_\+pwm\+\_\+percent}} (\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hservo, uint8\+\_\+t percent)
+\begin{DoxyCompactList}\small\item\em Commande le servo via un pourcentage (0 à 100\%). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f}{servo\+\_\+pwm\+\_\+angle\+\_\+degree}} (\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hservo, int8\+\_\+t angle)
+\begin{DoxyCompactList}\small\item\em Commande le servo via un angle en degrés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__servo_8c_a86d694bde15582b08fd4e282080eac3c}{servo\+\_\+pwm\+\_\+angle\+\_\+abs\+\_\+value}} (\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hservo, uint16\+\_\+t abs\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Commande le servo via une valeur absolue haute résolution (0-\/65535). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117}{servo\+\_\+initialisation}} (\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hservo)
+\begin{DoxyCompactList}\small\item\em Initialise le driver Servo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pilote PWM pour le servomoteur de direction. 
+
+Fournit les fonctions de conversion (Degrés/\+Pourcentage/\+Absolu vers PWM) et de gestion des limites mécaniques pour le servo. 
+
+Definition in file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50}\label{driver__servo_8c_acd0d8783c72578aa14b6c68caa7cce50} 
+\index{driver\_servo.c@{driver\_servo.c}!SERVO\_CLAMP\_MAX@{SERVO\_CLAMP\_MAX}}
+\index{SERVO\_CLAMP\_MAX@{SERVO\_CLAMP\_MAX}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{SERVO\_CLAMP\_MAX}{SERVO\_CLAMP\_MAX}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+CLAMP\+\_\+\+MAX~20}
+
+
+
+Angle maximum autorisé en degrés (Borne mécanique logicielle). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00016}{16}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+\Hypertarget{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92}\label{driver__servo_8c_a1edbe0f403b6f46976e49e95d97d7a92} 
+\index{driver\_servo.c@{driver\_servo.c}!SERVO\_CLAMP\_MIN@{SERVO\_CLAMP\_MIN}}
+\index{SERVO\_CLAMP\_MIN@{SERVO\_CLAMP\_MIN}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{SERVO\_CLAMP\_MIN}{SERVO\_CLAMP\_MIN}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+CLAMP\+\_\+\+MIN~-\/20}
+
+
+
+Angle minimum autorisé en degrés (Borne mécanique logicielle). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00014}{14}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+\Hypertarget{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154}\label{driver__servo_8c_a76c51b8a43153c9d32b7f7ed094c3154} 
+\index{driver\_servo.c@{driver\_servo.c}!SERVO\_OFFSET\_PERCENT@{SERVO\_OFFSET\_PERCENT}}
+\index{SERVO\_OFFSET\_PERCENT@{SERVO\_OFFSET\_PERCENT}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{SERVO\_OFFSET\_PERCENT}{SERVO\_OFFSET\_PERCENT}}
+{\footnotesize\ttfamily \#define SERVO\+\_\+\+OFFSET\+\_\+\+PERCENT~5}
+
+
+
+Décalage (offset) en pourcentage appliqué à la commande (Trim). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00012}{12}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117}\label{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117} 
+\index{driver\_servo.c@{driver\_servo.c}!servo\_initialisation@{servo\_initialisation}}
+\index{servo\_initialisation@{servo\_initialisation}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_initialisation()}{servo\_initialisation()}}
+{\footnotesize\ttfamily void servo\+\_\+initialisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hservo }\end{DoxyParamCaption})}
+
+
+
+Initialise le driver Servo. 
+
+Initialise le servo-\/moteur.
+
+Positionne le servo à 0 degrés (neutre) et active le canal PWM. 
+\begin{DoxyParams}{Parameters}
+{\em hservo} & Pointeur vers le handle du servo. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00122}{122}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__servo_8c_a3114ea8b18355eaef1310ae4bfb5e117_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__servo_8c_a86d694bde15582b08fd4e282080eac3c}\label{driver__servo_8c_a86d694bde15582b08fd4e282080eac3c} 
+\index{driver\_servo.c@{driver\_servo.c}!servo\_pwm\_angle\_abs\_value@{servo\_pwm\_angle\_abs\_value}}
+\index{servo\_pwm\_angle\_abs\_value@{servo\_pwm\_angle\_abs\_value}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_pwm\_angle\_abs\_value()}{servo\_pwm\_angle\_abs\_value()}}
+{\footnotesize\ttfamily void servo\+\_\+pwm\+\_\+angle\+\_\+abs\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hservo,  }\item[{uint16\+\_\+t}]{abs\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Commande le servo via une valeur absolue haute résolution (0-\/65535). 
+
+Commande le servo via une valeur absolue (Haute résolution).
+
+Effectue une double conversion \+: Entrée -\/\texorpdfstring{$>$}{>} Centi-\/degrés -\/\texorpdfstring{$>$}{>} Ticks PWM. Gère également l\textquotesingle{}offset (Trim) et les limites physiques du timer. 
+\begin{DoxyParams}{Parameters}
+{\em hservo} & Pointeur vers le handle du servo. \\
+\hline
+{\em abs\+\_\+value} & Valeur absolue normalisée (0 à 65535). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00097}{97}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+\Hypertarget{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f}\label{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f} 
+\index{driver\_servo.c@{driver\_servo.c}!servo\_pwm\_angle\_degree@{servo\_pwm\_angle\_degree}}
+\index{servo\_pwm\_angle\_degree@{servo\_pwm\_angle\_degree}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_pwm\_angle\_degree()}{servo\_pwm\_angle\_degree()}}
+{\footnotesize\ttfamily void servo\+\_\+pwm\+\_\+angle\+\_\+degree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hservo,  }\item[{int8\+\_\+t}]{angle }\end{DoxyParamCaption})}
+
+
+
+Commande le servo via un angle en degrés. 
+
+Commande le servo en degrés.
+
+Applique un bornage de sécurité (CLAMP\+\_\+\+MIN / CLAMP\+\_\+\+MAX) puis convertit l\textquotesingle{}angle en pourcentage pour le PWM. 
+\begin{DoxyParams}{Parameters}
+{\em hservo} & Pointeur vers le handle du servo. \\
+\hline
+{\em angle} & Angle cible en degrés. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00080}{80}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__servo_8c_ae99975cc57bcc8b48267ee20c10d3b0f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__servo_8c_aa6df029242c59e741e6f968593259841}\label{driver__servo_8c_aa6df029242c59e741e6f968593259841} 
+\index{driver\_servo.c@{driver\_servo.c}!servo\_pwm\_percent@{servo\_pwm\_percent}}
+\index{servo\_pwm\_percent@{servo\_pwm\_percent}!driver\_servo.c@{driver\_servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_pwm\_percent()}{servo\_pwm\_percent()}}
+{\footnotesize\ttfamily void servo\+\_\+pwm\+\_\+percent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structServo__Handle__t}{Servo\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hservo,  }\item[{uint8\+\_\+t}]{percent }\end{DoxyParamCaption})}
+
+
+
+Commande le servo via un pourcentage (0 à 100\%). 
+
+Commande le servo en pourcentage (0-\/100\%).
+
+
+\begin{DoxyParams}{Parameters}
+{\em hservo} & Pointeur vers le handle du servo. \\
+\hline
+{\em percent} & Position cible en pourcentage. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__servo_8c_source_l00068}{68}} of file \mbox{\hyperlink{driver__servo_8c_source}{driver\+\_\+servo.\+c}}.
+

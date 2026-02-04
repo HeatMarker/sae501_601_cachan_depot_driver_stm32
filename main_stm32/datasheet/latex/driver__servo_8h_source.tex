@@ -1,0 +1,32 @@
+\doxysection{driver\+\_\+servo.\+h}
+\hypertarget{driver__servo_8h_source}{}\label{driver__servo_8h_source}\index{Core/Inc/driver\_servo.h@{Core/Inc/driver\_servo.h}}
+\mbox{\hyperlink{driver__servo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ INC\_DRIVER\_SERVO\_H\_}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ INC\_DRIVER\_SERVO\_H\_}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tim_8h}{tim.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00018}\mbox{\hyperlink{structServo__Handle__t}{00018}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00019}\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{00019}}\ \ \ \ \ TIM\_HandleTypeDef\ *\mbox{\hyperlink{structServo__Handle__t_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00020}\mbox{\hyperlink{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{00020}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structServo__Handle__t_a0c72dd5e18823aef187a34137983c9a6}{channel}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00021}\mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{00021}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structServo__Handle__t_a0357f0a706e54eb48039003dd8c70d7e}{min\_pulse\_ticks}};\ \ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00022}\mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{00022}}\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structServo__Handle__t_a937dd8d6edb1dd47b9c563675626c234}{max\_pulse\_ticks}};\ \ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00023}00023\ \}\ \mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}};}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00029}00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_a3114ea8b18355eaef1310ae4bfb5e117}{servo\_initialisation}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00036}00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_aa6df029242c59e741e6f968593259841}{servo\_pwm\_percent}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ uint8\_t\ percent);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_ae99975cc57bcc8b48267ee20c10d3b0f}{servo\_pwm\_angle\_degree}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ int8\_t\ angle);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00050}00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_a86d694bde15582b08fd4e282080eac3c}{servo\_pwm\_angle\_abs\_value}}(\mbox{\hyperlink{structServo__Handle__t}{Servo\_Handle\_t}}\ *hservo,\ uint16\_t\ abs\_value);}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00055}\mbox{\hyperlink{driver__servo_8h_a31846be64103679090c9d5c710c6b90d}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_a31846be64103679090c9d5c710c6b90d}{app\_test\_config}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00060}\mbox{\hyperlink{driver__servo_8h_ab0a9277318df4b703633129ce53fbced}{00060}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver__servo_8h_ab0a9277318df4b703633129ce53fbced}{app\_test\_loop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{driver__servo_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

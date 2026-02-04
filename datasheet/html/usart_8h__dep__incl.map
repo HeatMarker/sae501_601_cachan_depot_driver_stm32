@@ -1,0 +1,11 @@
+<map id="Core/Inc/usart.h" name="Core/Inc/usart.h">
+<area shape="rect" id="Node000001" title="This file contains all the function prototypes for the usart.c file." alt="" coords="247,5,363,31"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html" title="Point d&#39;entrée principal de l&#39;application (Main Loop &amp; Scheduler)." alt="" coords="5,79,151,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,37,115,81,114,76,254,32"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title=": Main program body" alt="" coords="175,79,293,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="285,43,247,80,244,77,281,39"/>
+<area shape="rect" id="Node000004" href="$serial_8c.html" title="Gestionnaire de communication Série (UART) avec DMA et Buffers Circulaires." alt="" coords="317,79,437,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="328,39,367,77,363,80,325,43"/>
+<area shape="rect" id="Node000005" href="$usart_8c.html" title="This file provides code for the configuration of the USART instances." alt="" coords="461,79,580,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="353,32,487,76,485,81,352,37"/>
+</map>

@@ -1,0 +1,64 @@
+<map id="Core/Inc/main.h" name="Core/Inc/main.h">
+<area shape="rect" id="Node000001" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="1213,5,1328,31"/>
+<area shape="rect" id="Node000002" href="$dma_8h.html" title="This file contains all the function prototypes for the dma.c file." alt="" coords="1400,86,1512,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1311,33,1430,84,1428,88,1309,38"/>
+<area shape="rect" id="Node000003" href="$app__main_8c.html" title="Point d&#39;entrée principal de l&#39;application (Main Loop &amp; Scheduler)." alt="" coords="849,240,994,265"/>
+<area shape="poly" id="edge36_Node000001_Node000003" title=" " alt="" coords="1200,28,1123,46,1084,61,1048,81,1005,120,970,166,944,209,929,241,924,239,940,207,966,163,1001,116,1045,76,1082,56,1122,41,1199,23"/>
+<area shape="rect" id="Node000005" href="$main_8c.html" title=": Main program body" alt="" coords="1165,167,1283,192"/>
+<area shape="poly" id="edge37_Node000001_Node000005" title=" " alt="" coords="1265,45,1253,79,1229,167,1224,166,1248,78,1260,43"/>
+<area shape="rect" id="Node000007" href="$driver__speedometer_8h.html" title="Fichier d&#39;en&#45;tête pour le capteur de vitesse (Tachymètre)." alt="" coords="425,86,625,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1200,27,951,47,638,81,589,89,588,83,637,76,951,42,1200,22"/>
+<area shape="rect" id="Node000009" href="$gpio_8h.html" title="This file contains all the function prototypes for the gpio.c file." alt="" coords="1262,86,1373,111"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1287,41,1313,84,1308,87,1282,44"/>
+<area shape="rect" id="Node000011" href="$spi_8h.html" title="This file contains all the function prototypes for the spi.c file." alt="" coords="1059,86,1163,111"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="1236,39,1135,88,1133,84,1234,34"/>
+<area shape="rect" id="Node000013" href="$tim_8h.html" title="This file contains all the function prototypes for the tim.c file." alt="" coords="649,86,754,111"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="1200,32,755,93,754,87,1199,26"/>
+<area shape="rect" id="Node000020" href="$usart_8h.html" title="This file contains all the function prototypes for the usart.c file." alt="" coords="1537,86,1653,111"/>
+<area shape="poly" id="edge31_Node000001_Node000020" title=" " alt="" coords="1335,31,1525,76,1553,83,1552,89,1523,81,1334,36"/>
+<area shape="rect" id="Node000022" href="$stm32g0xx__hal__msp_8c.html" title="This file provides code for the MSP Initialization and de&#45;Initialization codes." alt="" coords="1677,79,1819,119"/>
+<area shape="poly" id="edge38_Node000001_Node000022" title=" " alt="" coords="1342,26,1492,47,1666,76,1677,78,1676,83,1665,81,1491,52,1342,31"/>
+<area shape="rect" id="Node000023" href="$stm32g0xx__it_8c.html" title="Interrupt Service Routines." alt="" coords="1843,86,2010,111"/>
+<area shape="poly" id="edge39_Node000001_Node000023" title=" " alt="" coords="1342,22,1562,42,1832,76,1874,83,1873,89,1832,81,1561,48,1342,27"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1460,126,1455,161,1447,179,1435,194,1412,205,1370,214,1252,230,994,250,994,245,1251,225,1369,209,1410,200,1432,190,1443,176,1449,160,1454,125"/>
+<area shape="rect" id="Node000004" href="$dma_8c.html" title="This file provides code for the configuration of all the requested memory to memory DMA transfers." alt="" coords="1496,167,1611,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1483,118,1541,164,1537,169,1479,122"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="1410,118,1259,169,1257,164,1408,113"/>
+<area shape="rect" id="Node000006" href="$serial_8c.html" title="Gestionnaire de communication Série (UART) avec DMA et Buffers Circulaires." alt="" coords="1635,167,1755,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="1504,113,1661,164,1659,169,1503,118"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="569,114,690,164,741,190,815,217,882,237,880,242,813,222,739,194,688,169,567,119"/>
+<area shape="rect" id="Node000008" href="$driver__speedometer_8c.html" title="Driver de calcul de vitesse basé sur un capteur à effet Hall." alt="" coords="5,167,208,192"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="451,116,168,169,167,164,450,111"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="1295,122,1240,168,1236,164,1291,118"/>
+<area shape="rect" id="Node000010" href="$gpio_8c.html" title="This file provides code for the configuration of all used GPIO pins." alt="" coords="1307,167,1421,192"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1334,122,1359,165,1355,168,1329,125"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="1085,122,1024,169,937,242,933,238,1021,165,1082,118"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="1140,117,1209,164,1206,169,1137,121"/>
+<area shape="rect" id="Node000012" href="$spi_8c.html" title="This file provides code for the configuration of the SPI instances." alt="" coords="1035,167,1141,192"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="1106,125,1094,167,1089,166,1101,124"/>
+<area shape="poly" id="edge25_Node000013_Node000003" title=" " alt="" coords="768,113,822,133,848,147,872,165,889,183,903,203,920,239,915,241,898,205,885,186,869,169,845,152,819,138,766,117"/>
+<area shape="poly" id="edge29_Node000013_Node000005" title=" " alt="" coords="768,107,1154,164,1165,166,1165,171,1153,169,767,112"/>
+<area shape="poly" id="edge28_Node000013_Node000008" title=" " alt="" coords="654,118,638,121,461,143,209,170,208,165,461,138,637,116,653,112"/>
+<area shape="rect" id="Node000014" href="$driver__motor_8h.html" title="Fichier d&#39;en&#45;tête pour le pilote moteur (ESC)." alt="" coords="518,167,677,192"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="677,122,614,169,611,164,674,117"/>
+<area shape="rect" id="Node000015" href="$driver__motor_8c.html" title="Pilote de moteur non&#45;bloquant pour ESC (Electronic Speed Controller)." alt="" coords="521,240,681,265"/>
+<area shape="poly" id="edge26_Node000013_Node000015" title=" " alt="" coords="652,118,561,148,509,169,504,179,505,188,519,207,544,224,571,238,569,242,541,229,515,211,500,190,499,178,505,165,559,143,651,113"/>
+<area shape="rect" id="Node000017" href="$driver__servo_8h.html" title="Fichier d&#39;en&#45;tête pour le pilote du servomoteur." alt="" coords="283,167,442,192"/>
+<area shape="poly" id="edge21_Node000013_Node000017" title=" " alt="" coords="652,118,638,121,422,169,421,164,637,116,650,112"/>
+<area shape="rect" id="Node000018" href="$driver__servo_8c.html" title="Pilote PWM pour le servomoteur de direction." alt="" coords="161,240,321,265"/>
+<area shape="poly" id="edge27_Node000013_Node000018" title=" " alt="" coords="654,118,638,121,555,129,448,132,344,142,302,153,272,169,259,185,251,204,244,240,239,239,246,202,255,182,269,165,300,148,343,137,448,127,555,123,637,116,652,112"/>
+<area shape="rect" id="Node000019" href="$tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="752,167,859,192"/>
+<area shape="poly" id="edge30_Node000013_Node000019" title=" " alt="" coords="729,117,792,164,788,169,726,122"/>
+<area shape="poly" id="edge18_Node000014_Node000003" title=" " alt="" coords="663,192,869,237,868,242,662,198"/>
+<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="601,206,603,240,598,240,596,206"/>
+<area shape="rect" id="Node000016" href="$serial__cmd_8c.html" title="Gestionnaire de commandes et télémétrie (Protocole Application)." alt="" coords="345,240,497,265"/>
+<area shape="poly" id="edge20_Node000014_Node000016" title=" " alt="" coords="557,200,451,242,449,237,555,195"/>
+<area shape="poly" id="edge22_Node000017_Node000003" title=" " alt="" coords="456,190,849,239,848,245,455,195"/>
+<area shape="poly" id="edge24_Node000017_Node000016" title=" " alt="" coords="383,201,414,238,410,242,379,204"/>
+<area shape="poly" id="edge23_Node000017_Node000018" title=" " alt="" coords="332,201,263,242,260,237,330,197"/>
+<area shape="poly" id="edge32_Node000020_Node000003" title=" " alt="" coords="1644,113,1721,141,1752,154,1769,165,1775,180,1769,194,1753,204,1727,213,1652,228,1551,238,1434,246,1190,253,994,254,994,249,1190,248,1434,240,1551,233,1651,222,1726,208,1750,199,1765,190,1769,180,1765,168,1750,159,1719,146,1642,118"/>
+<area shape="poly" id="edge33_Node000020_Node000005" title=" " alt="" coords="1541,117,1525,121,1283,170,1282,165,1523,116,1539,112"/>
+<area shape="poly" id="edge34_Node000020_Node000006" title=" " alt="" coords="1622,118,1681,164,1678,169,1619,122"/>
+<area shape="rect" id="Node000021" href="$usart_8c.html" title="This file provides code for the configuration of the USART instances." alt="" coords="1830,167,1949,192"/>
+<area shape="poly" id="edge35_Node000020_Node000021" title=" " alt="" coords="1651,112,1847,164,1846,169,1650,117"/>
+</map>

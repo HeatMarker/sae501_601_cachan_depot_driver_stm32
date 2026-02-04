@@ -1,0 +1,266 @@
+\doxysection{Core/\+Src/stm32g0xx\+\_\+it.c File Reference}
+\hypertarget{stm32g0xx__it_8c}{}\label{stm32g0xx__it_8c}\index{Core/Src/stm32g0xx\_it.c@{Core/Src/stm32g0xx\_it.c}}
+
+
+Interrupt Service Routines.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g0xx\+\_\+it.\+h"{}}\newline
+{\ttfamily \#include "{}app\+\_\+main.\+h"{}}\newline
+Include dependency graph for stm32g0xx\+\_\+it.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm32g0xx__it_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{NMI\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Non maskable interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Hard fault interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}{SVC\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles System service call via SWI instruction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623}{Pend\+SV\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles Pendable request for system service. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles System tick timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a7b6fac3d670a4860ebec8a961d5c4a73}{DMA1\+\_\+\+Channel1\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles DMA1 channel 1 interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_aedf923a36e99dd50350a393d4e94bc21}{DMA1\+\_\+\+Channel2\+\_\+3\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles DMA1 channel 2 and channel 3 interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a2420de411ea7577beb31ee2dfc66e7d0}{TIM3\+\_\+\+TIM4\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles TIM3, TIM4 global Interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_a9bbd8c17ce4f49adcca47d11f482aab6}{SPI1\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles SPI1/\+I2\+S1 Interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32g0xx__it_8c_ad81f8f5f4eeb37afbe93e95d0727bb73}{USART2\+\_\+\+LPUART2\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles USART2 + LPUART2 Interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+SPI\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_a9c6222bae4d0328dd843ae099623b40b}{hspi1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_a85788cec5a97ee377e4ee2e74f026484}{htim4}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_a784aa25dc7e4580cfbf80658340f482c}{hdma\+\_\+usart2\+\_\+rx}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_a0083b476c2a75ab9fb2ccbed0048857e}{hdma\+\_\+usart2\+\_\+tx}}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32g0xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interrupt Service Routines. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2025 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Definition in file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32g0xx__it_8c_a7b6fac3d670a4860ebec8a961d5c4a73}\label{stm32g0xx__it_8c_a7b6fac3d670a4860ebec8a961d5c4a73} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!DMA1\_Channel1\_IRQHandler@{DMA1\_Channel1\_IRQHandler}}
+\index{DMA1\_Channel1\_IRQHandler@{DMA1\_Channel1\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{DMA1\_Channel1\_IRQHandler()}{DMA1\_Channel1\_IRQHandler()}}
+{\footnotesize\ttfamily void DMA1\+\_\+\+Channel1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles DMA1 channel 1 interrupt. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00151}{151}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_aedf923a36e99dd50350a393d4e94bc21}\label{stm32g0xx__it_8c_aedf923a36e99dd50350a393d4e94bc21} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!DMA1\_Channel2\_3\_IRQHandler@{DMA1\_Channel2\_3\_IRQHandler}}
+\index{DMA1\_Channel2\_3\_IRQHandler@{DMA1\_Channel2\_3\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{DMA1\_Channel2\_3\_IRQHandler()}{DMA1\_Channel2\_3\_IRQHandler()}}
+{\footnotesize\ttfamily void DMA1\+\_\+\+Channel2\+\_\+3\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles DMA1 channel 2 and channel 3 interrupts. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00165}{165}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea}\label{stm32g0xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!HardFault\_Handler@{HardFault\_Handler}}
+\index{HardFault\_Handler@{HardFault\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{HardFault\_Handler()}{HardFault\_Handler()}}
+{\footnotesize\ttfamily void Hard\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Hard fault interrupt. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00089}{89}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}\label{stm32g0xx__it_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!NMI\_Handler@{NMI\_Handler}}
+\index{NMI\_Handler@{NMI\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{NMI\_Handler()}{NMI\_Handler()}}
+{\footnotesize\ttfamily void NMI\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Non maskable interrupt. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00074}{74}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623}\label{stm32g0xx__it_8c_a6303e1f258cbdc1f970ce579cc015623} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!PendSV\_Handler@{PendSV\_Handler}}
+\index{PendSV\_Handler@{PendSV\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{PendSV\_Handler()}{PendSV\_Handler()}}
+{\footnotesize\ttfamily void Pend\+SV\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles Pendable request for system service. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00117}{117}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a9bbd8c17ce4f49adcca47d11f482aab6}\label{stm32g0xx__it_8c_a9bbd8c17ce4f49adcca47d11f482aab6} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!SPI1\_IRQHandler@{SPI1\_IRQHandler}}
+\index{SPI1\_IRQHandler@{SPI1\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_IRQHandler()}{SPI1\_IRQHandler()}}
+{\footnotesize\ttfamily void SPI1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles SPI1/\+I2\+S1 Interrupt. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00200}{200}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce}\label{stm32g0xx__it_8c_a3e5ddb3df0d62f2dc357e64a3f04a6ce} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!SVC\_Handler@{SVC\_Handler}}
+\index{SVC\_Handler@{SVC\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SVC\_Handler()}{SVC\_Handler()}}
+{\footnotesize\ttfamily void SVC\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles System service call via SWI instruction. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00104}{104}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e}\label{stm32g0xx__it_8c_ab5e09814056d617c521549e542639b7e} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles System tick timer. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00130}{130}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a2420de411ea7577beb31ee2dfc66e7d0}\label{stm32g0xx__it_8c_a2420de411ea7577beb31ee2dfc66e7d0} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!TIM3\_TIM4\_IRQHandler@{TIM3\_TIM4\_IRQHandler}}
+\index{TIM3\_TIM4\_IRQHandler@{TIM3\_TIM4\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{TIM3\_TIM4\_IRQHandler()}{TIM3\_TIM4\_IRQHandler()}}
+{\footnotesize\ttfamily void TIM3\+\_\+\+TIM4\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles TIM3, TIM4 global Interrupt. 
+
+
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00179}{179}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_ad81f8f5f4eeb37afbe93e95d0727bb73}\label{stm32g0xx__it_8c_ad81f8f5f4eeb37afbe93e95d0727bb73} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!USART2\_LPUART2\_IRQHandler@{USART2\_LPUART2\_IRQHandler}}
+\index{USART2\_LPUART2\_IRQHandler@{USART2\_LPUART2\_IRQHandler}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{USART2\_LPUART2\_IRQHandler()}{USART2\_LPUART2\_IRQHandler()}}
+{\footnotesize\ttfamily void USART2\+\_\+\+LPUART2\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles USART2 + LPUART2 Interrupt. 
+
+
+
+Definition at line \mbox{\hyperlink{stm32g0xx__it_8c_source_l00214}{214}} of file \mbox{\hyperlink{stm32g0xx__it_8c_source}{stm32g0xx\+\_\+it.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{stm32g0xx__it_8c_a784aa25dc7e4580cfbf80658340f482c}\label{stm32g0xx__it_8c_a784aa25dc7e4580cfbf80658340f482c} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!hdma\_usart2\_rx@{hdma\_usart2\_rx}}
+\index{hdma\_usart2\_rx@{hdma\_usart2\_rx}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart2\_rx}{hdma\_usart2\_rx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+usart2\+\_\+rx\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00028}{28}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a0083b476c2a75ab9fb2ccbed0048857e}\label{stm32g0xx__it_8c_a0083b476c2a75ab9fb2ccbed0048857e} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!hdma\_usart2\_tx@{hdma\_usart2\_tx}}
+\index{hdma\_usart2\_tx@{hdma\_usart2\_tx}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart2\_tx}{hdma\_usart2\_tx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+usart2\+\_\+tx\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00029}{29}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a9c6222bae4d0328dd843ae099623b40b}\label{stm32g0xx__it_8c_a9c6222bae4d0328dd843ae099623b40b} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!hspi1@{hspi1}}
+\index{hspi1@{hspi1}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hspi1}{hspi1}}
+{\footnotesize\ttfamily SPI\+\_\+\+Handle\+Type\+Def hspi1\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{spi_8c_source_l00027}{27}} of file \mbox{\hyperlink{spi_8c_source}{spi.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_a85788cec5a97ee377e4ee2e74f026484}\label{stm32g0xx__it_8c_a85788cec5a97ee377e4ee2e74f026484} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!htim4@{htim4}}
+\index{htim4@{htim4}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{htim4}{htim4}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim4\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{tim_8c_source_l00029}{29}} of file \mbox{\hyperlink{tim_8c_source}{tim.\+c}}.
+
+\Hypertarget{stm32g0xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c}\label{stm32g0xx__it_8c_aa9479c261d65eecedd3d9582f7f0f89c} 
+\index{stm32g0xx\_it.c@{stm32g0xx\_it.c}!huart2@{huart2}}
+\index{huart2@{huart2}!stm32g0xx\_it.c@{stm32g0xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{huart2}{huart2}}
+{\footnotesize\ttfamily UART\+\_\+\+Handle\+Type\+Def huart2\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00027}{27}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+

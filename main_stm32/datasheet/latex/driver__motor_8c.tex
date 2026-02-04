@@ -1,0 +1,243 @@
+\doxysection{Core/\+Src/driver\+\_\+motor.c File Reference}
+\hypertarget{driver__motor_8c}{}\label{driver__motor_8c}\index{Core/Src/driver\_motor.c@{Core/Src/driver\_motor.c}}
+
+
+Pilote de moteur non-\/bloquant pour ESC (Electronic Speed Controller).  
+
+
+{\ttfamily \#include "{}driver\+\_\+motor.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+Include dependency graph for driver\+\_\+motor.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__motor_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}{T\+\_\+\+BRAKE\+\_\+\+MS}}~120
+\begin{DoxyCompactList}\small\item\em Durée de l\textquotesingle{}état de freinage actif lors d\textquotesingle{}une inversion de sens (ms). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}{T\+\_\+\+NEUTRAL\+\_\+\+GAP\+\_\+\+MS}}~120
+\begin{DoxyCompactList}\small\item\em Durée de pause au point mort après un freinage (ms). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}{PWM\+\_\+\+NEUTRAL}}~50u
+\begin{DoxyCompactList}\small\item\em Rapport cyclique (\%) correspondant au point mort (arrêt). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__motor_8c_ab322cdb39888565e1b53f9867455067d}{PWM\+\_\+\+BRAKE\+\_\+\+REV}}~40u
+\begin{DoxyCompactList}\small\item\em Rapport cyclique (\%) pour le freinage en marche arrière. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{driver__motor_8c_afeeac2168ece00af1b163c0027eddc03}{PWM\+\_\+\+BRAKE\+\_\+\+FWD}}~60u
+\begin{DoxyCompactList}\small\item\em Rapport cyclique (\%) pour le freinage en marche avant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{driver__motor_8c_a1322b15b60e2e56ab26b958e67d1d48a}{motor\+\_\+init}} (\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hmotor)
+\begin{DoxyCompactList}\small\item\em Initialise le moteur et sa machine à états. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__motor_8c_a9137935839f3630ec53a610702da5965}{motor\+\_\+pwm\+\_\+percent}} (\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hmotor, uint8\+\_\+t percent)
+\begin{DoxyCompactList}\small\item\em Force une commande PWM directe en pourcentage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__motor_8c_a491c4fd8244f087297569c4c9179ef29}{motor\+\_\+set\+\_\+speed\+\_\+mms}} (\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hmotor, int16\+\_\+t speed\+\_\+mms)
+\begin{DoxyCompactList}\small\item\em Définit la nouvelle consigne de vitesse cible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__motor_8c_a9bac78a6edd2799f67fbffbe2b21a688}{motor\+\_\+process\+\_\+1ms}} (\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}hmotor, uint32\+\_\+t now\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Machine à états principale de gestion du moteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pilote de moteur non-\/bloquant pour ESC (Electronic Speed Controller). 
+
+Implémente une machine à états finis pour gérer les transitions de sécurité du moteur (Accélération, Freinage, Passage au neutre, Inversion de sens) sans bloquer le processeur. 
+
+Definition in file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{driver__motor_8c_afeeac2168ece00af1b163c0027eddc03}\label{driver__motor_8c_afeeac2168ece00af1b163c0027eddc03} 
+\index{driver\_motor.c@{driver\_motor.c}!PWM\_BRAKE\_FWD@{PWM\_BRAKE\_FWD}}
+\index{PWM\_BRAKE\_FWD@{PWM\_BRAKE\_FWD}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_BRAKE\_FWD}{PWM\_BRAKE\_FWD}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+BRAKE\+\_\+\+FWD~60u}
+
+
+
+Rapport cyclique (\%) pour le freinage en marche avant. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00023}{23}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+\Hypertarget{driver__motor_8c_ab322cdb39888565e1b53f9867455067d}\label{driver__motor_8c_ab322cdb39888565e1b53f9867455067d} 
+\index{driver\_motor.c@{driver\_motor.c}!PWM\_BRAKE\_REV@{PWM\_BRAKE\_REV}}
+\index{PWM\_BRAKE\_REV@{PWM\_BRAKE\_REV}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_BRAKE\_REV}{PWM\_BRAKE\_REV}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+BRAKE\+\_\+\+REV~40u}
+
+
+
+Rapport cyclique (\%) pour le freinage en marche arrière. 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00021}{21}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+\Hypertarget{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9}\label{driver__motor_8c_a4c8c57b2d737c0f5097ae6ce8ec6bdb9} 
+\index{driver\_motor.c@{driver\_motor.c}!PWM\_NEUTRAL@{PWM\_NEUTRAL}}
+\index{PWM\_NEUTRAL@{PWM\_NEUTRAL}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{PWM\_NEUTRAL}{PWM\_NEUTRAL}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+NEUTRAL~50u}
+
+
+
+Rapport cyclique (\%) correspondant au point mort (arrêt). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00019}{19}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+\Hypertarget{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f}\label{driver__motor_8c_a1735fa362eba9970915a8180ecd9789f} 
+\index{driver\_motor.c@{driver\_motor.c}!T\_BRAKE\_MS@{T\_BRAKE\_MS}}
+\index{T\_BRAKE\_MS@{T\_BRAKE\_MS}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{T\_BRAKE\_MS}{T\_BRAKE\_MS}}
+{\footnotesize\ttfamily \#define T\+\_\+\+BRAKE\+\_\+\+MS~120}
+
+
+
+Durée de l\textquotesingle{}état de freinage actif lors d\textquotesingle{}une inversion de sens (ms). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00015}{15}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+\Hypertarget{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22}\label{driver__motor_8c_ac12e547e4d882e62a29ef011a36c3d22} 
+\index{driver\_motor.c@{driver\_motor.c}!T\_NEUTRAL\_GAP\_MS@{T\_NEUTRAL\_GAP\_MS}}
+\index{T\_NEUTRAL\_GAP\_MS@{T\_NEUTRAL\_GAP\_MS}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{T\_NEUTRAL\_GAP\_MS}{T\_NEUTRAL\_GAP\_MS}}
+{\footnotesize\ttfamily \#define T\+\_\+\+NEUTRAL\+\_\+\+GAP\+\_\+\+MS~120}
+
+
+
+Durée de pause au point mort après un freinage (ms). 
+
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00017}{17}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__motor_8c_a1322b15b60e2e56ab26b958e67d1d48a}\label{driver__motor_8c_a1322b15b60e2e56ab26b958e67d1d48a} 
+\index{driver\_motor.c@{driver\_motor.c}!motor\_init@{motor\_init}}
+\index{motor\_init@{motor\_init}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{motor\_init()}{motor\_init()}}
+{\footnotesize\ttfamily void motor\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hmotor }\end{DoxyParamCaption})}
+
+
+
+Initialise le moteur et sa machine à états. 
+
+Initialise le driver moteur.
+
+Place le moteur au neutre, réinitialise le contexte de commande et démarre la génération PWM hardware. 
+\begin{DoxyParams}{Parameters}
+{\em hmotor} & Pointeur vers le handle du moteur à initialiser. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00088}{88}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{driver__motor_8c_a1322b15b60e2e56ab26b958e67d1d48a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__motor_8c_a9bac78a6edd2799f67fbffbe2b21a688}\label{driver__motor_8c_a9bac78a6edd2799f67fbffbe2b21a688} 
+\index{driver\_motor.c@{driver\_motor.c}!motor\_process\_1ms@{motor\_process\_1ms}}
+\index{motor\_process\_1ms@{motor\_process\_1ms}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{motor\_process\_1ms()}{motor\_process\_1ms()}}
+{\footnotesize\ttfamily void motor\+\_\+process\+\_\+1ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hmotor,  }\item[{uint32\+\_\+t}]{now\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Machine à états principale de gestion du moteur. 
+
+Fonction de traitement cyclique (Machine à états).
+
+Doit être appelée périodiquement (ex\+: 1k\+Hz). Gère la logique séquentielle \+:
+\begin{DoxyItemize}
+\item Marche Avant -\/\texorpdfstring{$>$}{>} Neutre -\/\texorpdfstring{$>$}{>} Marche Arrière \+: Passage direct (géré par ESC en général) ou via frein.
+\item Inversion brusque \+: Application d\textquotesingle{}une séquence Frein -\/\texorpdfstring{$>$}{>} Pause -\/\texorpdfstring{$>$}{>} Nouveau sens. 
+\begin{DoxyParams}{Parameters}
+{\em hmotor} & Pointeur vers le handle du moteur. \\
+\hline
+{\em now\+\_\+ms} & Temps système actuel en millisecondes. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00140}{140}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{driver__motor_8c_a9bac78a6edd2799f67fbffbe2b21a688_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__motor_8c_a9137935839f3630ec53a610702da5965}\label{driver__motor_8c_a9137935839f3630ec53a610702da5965} 
+\index{driver\_motor.c@{driver\_motor.c}!motor\_pwm\_percent@{motor\_pwm\_percent}}
+\index{motor\_pwm\_percent@{motor\_pwm\_percent}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{motor\_pwm\_percent()}{motor\_pwm\_percent()}}
+{\footnotesize\ttfamily void motor\+\_\+pwm\+\_\+percent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hmotor,  }\item[{uint8\+\_\+t}]{percent }\end{DoxyParamCaption})}
+
+
+
+Force une commande PWM directe en pourcentage. 
+
+Applique directement un pourcentage de PWM (Bypass FSM).
+
+\begin{DoxyNote}{Note}
+Utilisé principalement par la machine à états pour appliquer les commandes de freinage ou de neutre. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em hmotor} & Pointeur vers le handle du moteur. \\
+\hline
+{\em percent} & Pourcentage PWM cible (0-\/100). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00108}{108}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__motor_8c_a9137935839f3630ec53a610702da5965_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__motor_8c_a491c4fd8244f087297569c4c9179ef29}\label{driver__motor_8c_a491c4fd8244f087297569c4c9179ef29} 
+\index{driver\_motor.c@{driver\_motor.c}!motor\_set\_speed\_mms@{motor\_set\_speed\_mms}}
+\index{motor\_set\_speed\_mms@{motor\_set\_speed\_mms}!driver\_motor.c@{driver\_motor.c}}
+\doxysubsubsection{\texorpdfstring{motor\_set\_speed\_mms()}{motor\_set\_speed\_mms()}}
+{\footnotesize\ttfamily void motor\+\_\+set\+\_\+speed\+\_\+mms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotor__Handle__t}{Motor\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{hmotor,  }\item[{int16\+\_\+t}]{speed\+\_\+mms }\end{DoxyParamCaption})}
+
+
+
+Définit la nouvelle consigne de vitesse cible. 
+
+Définit la consigne de vitesse en mm/s.
+
+Met à jour le contexte cible. La machine à états (motor\+\_\+process\+\_\+1ms) se chargera d\textquotesingle{}atteindre cette cible en respectant les séquences de freinage. 
+\begin{DoxyParams}{Parameters}
+{\em hmotor} & Pointeur vers le handle du moteur. \\
+\hline
+{\em speed\+\_\+mms} & Vitesse cible en mm/s (Positif = Avant, Négatif = Arrière). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__motor_8c_source_l00120}{120}} of file \mbox{\hyperlink{driver__motor_8c_source}{driver\+\_\+motor.\+c}}.
+

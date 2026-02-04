@@ -1,0 +1,9 @@
+<map id="Core/Inc/serial.h" name="Core/Inc/serial.h">
+<area shape="rect" id="Node000001" title="Interface du driver Série (UART + DMA) et définitions du protocole." alt="" coords="176,5,295,31"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html" title="Point d&#39;entrée principal de l&#39;application (Main Loop &amp; Scheduler)." alt="" coords="5,79,151,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,39,105,81,103,76,196,34"/>
+<area shape="rect" id="Node000003" href="$serial_8c.html" title="Gestionnaire de communication Série (UART) avec DMA et Buffers Circulaires." alt="" coords="175,79,295,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,44,238,79,233,79,233,44"/>
+<area shape="rect" id="Node000004" href="$serial__cmd_8c.html" title="Gestionnaire de commandes et télémétrie (Protocole Application)." alt="" coords="319,79,471,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="274,34,370,76,368,81,272,39"/>
+</map>

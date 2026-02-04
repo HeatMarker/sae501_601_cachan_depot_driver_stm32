@@ -1,0 +1,8 @@
+../Core/Src/driver_motor.c:32:20:pwm_pulse	16	static
+../Core/Src/driver_motor.c:44:24:motor_map_percent	32	static
+../Core/Src/driver_motor.c:61:16:motor_speed_mms_to_pwm_percent	16	static
+../Core/Src/driver_motor.c:78:20:time_reached	16	static
+../Core/Src/driver_motor.c:88:6:motor_init	16	static
+../Core/Src/driver_motor.c:108:6:motor_pwm_percent	32	static
+../Core/Src/driver_motor.c:120:6:motor_set_speed_mms	16	static
+../Core/Src/driver_motor.c:140:6:motor_process_1ms	24	static

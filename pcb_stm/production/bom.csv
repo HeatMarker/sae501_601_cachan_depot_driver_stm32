@@ -1,0 +1,5 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"_4, _3, _2, ",,4,,
+"ENC, PWM_MOTOR, PWM_SERVO",PinHeader_1x03_P2.54mm_Vertical,3,Conn_01x03,
+JBMI088,PinHeader_1x11_P2.54mm_Vertical,1,Conn_01x11,
+U1,MODULE_NUCLEO-G0B1RE,1,NUCLEO-G0B1RE,

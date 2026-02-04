@@ -1,0 +1,136 @@
+\doxysection{Core/\+Src/usart.c File Reference}
+\hypertarget{usart_8c}{}\label{usart_8c}\index{Core/Src/usart.c@{Core/Src/usart.c}}
+
+
+This file provides code for the configuration of the USART instances.  
+
+
+{\ttfamily \#include "{}usart.\+h"{}}\newline
+Include dependency graph for usart.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{usart_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{usart_8c_a052088fe5bb3f807a4b2502e664fd4fd}{MX\+\_\+\+USART2\+\_\+\+UART\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{usart_8c_a62a25476866998c7aadfb5c0864fa349}{HAL\+\_\+\+UART\+\_\+\+Msp\+Init}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}uart\+Handle)
+\item 
+void \mbox{\hyperlink{usart_8c_a94cd2c58add4f2549895a03bf267622e}{HAL\+\_\+\+UART\+\_\+\+Msp\+De\+Init}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}uart\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{usart_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{usart_8c_a784aa25dc7e4580cfbf80658340f482c}{hdma\+\_\+usart2\+\_\+rx}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{usart_8c_a0083b476c2a75ab9fb2ccbed0048857e}{hdma\+\_\+usart2\+\_\+tx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the configuration of the USART instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2025 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Definition in file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{usart_8c_a94cd2c58add4f2549895a03bf267622e}\label{usart_8c_a94cd2c58add4f2549895a03bf267622e} 
+\index{usart.c@{usart.c}!HAL\_UART\_MspDeInit@{HAL\_UART\_MspDeInit}}
+\index{HAL\_UART\_MspDeInit@{HAL\_UART\_MspDeInit}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_MspDeInit()}{HAL\_UART\_MspDeInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{uart\+Handle }\end{DoxyParamCaption})}
+
+USART2 GPIO Configuration PA2 -\/-\/-\/---\texorpdfstring{$>$}{>} USART2\+\_\+\+TX PA3 -\/-\/-\/---\texorpdfstring{$>$}{>} USART2\+\_\+\+RX
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00155}{155}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+\Hypertarget{usart_8c_a62a25476866998c7aadfb5c0864fa349}\label{usart_8c_a62a25476866998c7aadfb5c0864fa349} 
+\index{usart.c@{usart.c}!HAL\_UART\_MspInit@{HAL\_UART\_MspInit}}
+\index{HAL\_UART\_MspInit@{HAL\_UART\_MspInit}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_MspInit()}{HAL\_UART\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+UART\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{uart\+Handle }\end{DoxyParamCaption})}
+
+Initializes the peripherals clocks
+
+USART2 GPIO Configuration PA2 -\/-\/-\/---\texorpdfstring{$>$}{>} USART2\+\_\+\+TX PA3 -\/-\/-\/---\texorpdfstring{$>$}{>} USART2\+\_\+\+RX
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00076}{76}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{usart_8c_a62a25476866998c7aadfb5c0864fa349_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{usart_8c_a052088fe5bb3f807a4b2502e664fd4fd}\label{usart_8c_a052088fe5bb3f807a4b2502e664fd4fd} 
+\index{usart.c@{usart.c}!MX\_USART2\_UART\_Init@{MX\_USART2\_UART\_Init}}
+\index{MX\_USART2\_UART\_Init@{MX\_USART2\_UART\_Init}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{MX\_USART2\_UART\_Init()}{MX\_USART2\_UART\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+USART2\+\_\+\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00033}{33}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{usart_8c_a052088fe5bb3f807a4b2502e664fd4fd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{usart_8c_a052088fe5bb3f807a4b2502e664fd4fd_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{usart_8c_a784aa25dc7e4580cfbf80658340f482c}\label{usart_8c_a784aa25dc7e4580cfbf80658340f482c} 
+\index{usart.c@{usart.c}!hdma\_usart2\_rx@{hdma\_usart2\_rx}}
+\index{hdma\_usart2\_rx@{hdma\_usart2\_rx}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart2\_rx}{hdma\_usart2\_rx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+usart2\+\_\+rx}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00028}{28}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+\Hypertarget{usart_8c_a0083b476c2a75ab9fb2ccbed0048857e}\label{usart_8c_a0083b476c2a75ab9fb2ccbed0048857e} 
+\index{usart.c@{usart.c}!hdma\_usart2\_tx@{hdma\_usart2\_tx}}
+\index{hdma\_usart2\_tx@{hdma\_usart2\_tx}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_usart2\_tx}{hdma\_usart2\_tx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+usart2\+\_\+tx}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00029}{29}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+
+\Hypertarget{usart_8c_aa9479c261d65eecedd3d9582f7f0f89c}\label{usart_8c_aa9479c261d65eecedd3d9582f7f0f89c} 
+\index{usart.c@{usart.c}!huart2@{huart2}}
+\index{huart2@{huart2}!usart.c@{usart.c}}
+\doxysubsubsection{\texorpdfstring{huart2}{huart2}}
+{\footnotesize\ttfamily UART\+\_\+\+Handle\+Type\+Def huart2}
+
+
+
+Definition at line \mbox{\hyperlink{usart_8c_source_l00027}{27}} of file \mbox{\hyperlink{usart_8c_source}{usart.\+c}}.
+

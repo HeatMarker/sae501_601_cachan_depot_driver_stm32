@@ -1,0 +1,7 @@
+<map id="BMI088_Init" name="BMI088_Init">
+<area shape="rect" id="Node000001" title="Initialise le module BMI088 (Accéléromètre et Gyroscope)." alt="" coords="237,5,329,31"/>
+<area shape="rect" id="Node000002" href="$app__main_8c.html#aa1fb38a41446e4d5e66f59da21651832" title="Configure l&#39;ensemble de l&#39;application (Hardware + Drivers)." alt="" coords="104,5,189,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,21,189,21,189,15,223,15"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,21,56,21,56,15,90,15"/>
+</map>

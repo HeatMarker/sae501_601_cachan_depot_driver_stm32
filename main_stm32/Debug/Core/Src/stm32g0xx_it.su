@@ -1,0 +1,12 @@
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:4262:22:LL_TIM_ClearFlag_UPDATE	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:4273:26:LL_TIM_IsActiveFlag_UPDATE	16	static
+../Core/Src/stm32g0xx_it.c:74:6:NMI_Handler	8	static
+../Core/Src/stm32g0xx_it.c:89:6:HardFault_Handler	8	static
+../Core/Src/stm32g0xx_it.c:104:6:SVC_Handler	8	static
+../Core/Src/stm32g0xx_it.c:117:6:PendSV_Handler	8	static
+../Core/Src/stm32g0xx_it.c:130:6:SysTick_Handler	8	static
+../Core/Src/stm32g0xx_it.c:151:6:DMA1_Channel1_IRQHandler	8	static
+../Core/Src/stm32g0xx_it.c:165:6:DMA1_Channel2_3_IRQHandler	8	static
+../Core/Src/stm32g0xx_it.c:179:6:TIM3_TIM4_IRQHandler	8	static
+../Core/Src/stm32g0xx_it.c:200:6:SPI1_IRQHandler	8	static
+../Core/Src/stm32g0xx_it.c:214:6:USART2_LPUART2_IRQHandler	8	static

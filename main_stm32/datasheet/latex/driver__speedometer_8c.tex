@@ -1,0 +1,92 @@
+\doxysection{Core/\+Src/driver\+\_\+speedometer.c File Reference}
+\hypertarget{driver__speedometer_8c}{}\label{driver__speedometer_8c}\index{Core/Src/driver\_speedometer.c@{Core/Src/driver\_speedometer.c}}
+
+
+Driver de calcul de vitesse basé sur un capteur à effet Hall.  
+
+
+{\ttfamily \#include "{}driver\+\_\+speedometer.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+Include dependency graph for driver\+\_\+speedometer.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__speedometer_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{driver__speedometer_8c_a99eb85ff393e26dd27e9dc56beefe05c}{speedometer\+\_\+solve\+\_\+speed}} (\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{h\+Speedo}})
+\begin{DoxyCompactList}\small\item\em Calcule la vitesse instantanée en m/s. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__speedometer_8c_a0d1d9c0c545755ba0f37f4e28851412c}{speedometer\+\_\+init}} (\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{app__main_8c_a780246281497e191d3a55a05cff28c9b}{h\+Speedo}}, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Initialise le driver tachymètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Driver de calcul de vitesse basé sur un capteur à effet Hall. 
+
+Utilise un timer en mode compteur pour mesurer le nombre d\textquotesingle{}impulsions générées par la rotation de la roue et déduit la vitesse linéaire. 
+
+Definition in file \mbox{\hyperlink{driver__speedometer_8c_source}{driver\+\_\+speedometer.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{driver__speedometer_8c_a0d1d9c0c545755ba0f37f4e28851412c}\label{driver__speedometer_8c_a0d1d9c0c545755ba0f37f4e28851412c} 
+\index{driver\_speedometer.c@{driver\_speedometer.c}!speedometer\_init@{speedometer\_init}}
+\index{speedometer\_init@{speedometer\_init}!driver\_speedometer.c@{driver\_speedometer.c}}
+\doxysubsubsection{\texorpdfstring{speedometer\_init()}{speedometer\_init()}}
+{\footnotesize\ttfamily void speedometer\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{h\+Speedo,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+
+
+Initialise le driver tachymètre. 
+
+Initialise l\textquotesingle{}objet tachymètre.
+
+Associe le timer matériel à la structure, initialise les variables d\textquotesingle{}état (temps et compteur) et démarre le timer. 
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure de gestion à initialiser. \\
+\hline
+{\em htim} & Pointeur vers le handle du Timer STM32 (HAL) utilisé. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8c_source_l00048}{48}} of file \mbox{\hyperlink{driver__speedometer_8c_source}{driver\+\_\+speedometer.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{driver__speedometer_8c_a0d1d9c0c545755ba0f37f4e28851412c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{driver__speedometer_8c_a99eb85ff393e26dd27e9dc56beefe05c}\label{driver__speedometer_8c_a99eb85ff393e26dd27e9dc56beefe05c} 
+\index{driver\_speedometer.c@{driver\_speedometer.c}!speedometer\_solve\_speed@{speedometer\_solve\_speed}}
+\index{speedometer\_solve\_speed@{speedometer\_solve\_speed}!driver\_speedometer.c@{driver\_speedometer.c}}
+\doxysubsubsection{\texorpdfstring{speedometer\_solve\_speed()}{speedometer\_solve\_speed()}}
+{\footnotesize\ttfamily float speedometer\+\_\+solve\+\_\+speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSpeedometer__Handle__t}{Speedometer\+\_\+\+Handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{h\+Speedo }\end{DoxyParamCaption})}
+
+
+
+Calcule la vitesse instantanée en m/s. 
+
+Calcule la vitesse actuelle basée sur les impulsions reçues.
+
+Cette fonction doit être appelée périodiquement. Elle calcule la différence de temps et de nombre d\textquotesingle{}impulsions (ticks) depuis le dernier appel. \begin{DoxyNote}{Note}
+Gère implicitement le débordement (overflow) du compteur 16 bits via l\textquotesingle{}arithmétique non signée. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Speedo} & Pointeur vers la structure de gestion du tachymètre. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vitesse calculée en mètres par seconde (m/s). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{driver__speedometer_8c_source_l00020}{20}} of file \mbox{\hyperlink{driver__speedometer_8c_source}{driver\+\_\+speedometer.\+c}}.
+

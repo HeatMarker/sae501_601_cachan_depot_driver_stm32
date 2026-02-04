@@ -1,0 +1,14 @@
+../Drivers/CMSIS/Include/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Drivers/CMSIS/Include/core_cm0plus.h:850:22:__NVIC_SetPriority	24	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:1777:22:LL_TIM_DisableARRPreload	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:3365:22:LL_TIM_SetClockSource	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:3411:22:LL_TIM_SetTriggerOutput	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_tim.h:3511:22:LL_TIM_DisableMasterSlaveMode	16	static
+../Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_bus.h:467:22:LL_APB1_GRP1_EnableClock	24	static
+../Core/Src/tim.c:32:6:MX_TIM1_Init	120	static
+../Core/Src/tim.c:109:6:MX_TIM2_Init	64	static
+../Core/Src/tim.c:163:6:MX_TIM3_Init	32	static
+../Core/Src/tim.c:197:6:MX_TIM4_Init	40	static
+../Core/Src/tim.c:240:6:HAL_TIM_Base_MspInit	136	static
+../Core/Src/tim.c:306:6:HAL_TIM_MspPostInit	56	static
+../Core/Src/tim.c:354:6:HAL_TIM_Base_MspDeInit	16	static
