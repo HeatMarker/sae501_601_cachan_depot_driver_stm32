@@ -9,7 +9,7 @@ Ce dépôt contient l'intégralité du code source et la documentation pour le p
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 La documentation se trouve dans le dossier `datasheet/`. Deux formats sont proposés, mais la **version HTML est fortement recommandée** pour la navigation.
 
